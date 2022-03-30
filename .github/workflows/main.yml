@@ -1,7 +1,7 @@
 on: push
 name: 🚀 Deploy website on push
 jobs:
-  FTP-Deploy-Action:
+  web-deploy:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:
