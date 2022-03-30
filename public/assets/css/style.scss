@@ -1,0 +1,26 @@
+$fontcolor:#333;
+$hovercolor: #777;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color:$fontcolor;
+}
+.chart{
+    .breadcrumb{
+        a{
+            text-decoration: none;
+            color: $fontcolor;
+            &:hover{
+                color: $hovercolor;
+            }
+            &::after{
+                content: '>';
+                font-weight: 500;
+                padding: 0 .5rem 0 .5rem;
+            }
+        }
+    }
+
+}

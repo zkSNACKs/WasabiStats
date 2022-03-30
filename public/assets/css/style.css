@@ -1,0 +1,53 @@
+:root {
+    --green: #77C600;
+}
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body {
+    background: linear-gradient(143deg, rgba(73, 88, 107, 1) 0%, rgba(0, 16, 31, 1) 55%);
+    min-height: 100vh;
+}
+header {
+    background: rgba(0, 0, 0, 0.3);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    color: #fff;
+}
+.logo {
+    height: 30px;
+}
+.text-small {
+    font-size: 14px;
+}
+.form-control, .form-select {
+    border-radius: 0;
+    background-clip: border-box;
+    font-size: 14px;
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+select option {
+  background: #000;
+}
+.btn {
+    font-size: 14px;
+}
+.btn-primary {
+    background-color: transparent;
+    border: 1px solid var(--green);
+    color: var(--green);
+    border-radius: 0;
+    text-transform: uppercase;
+}
+.btn-primary:hover {
+    background-color: var(--green);
+    color: #fff;
+    border-color: var(--green);
+}
+/*# sourceMappingURL=style.css.map */
