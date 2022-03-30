@@ -23,9 +23,11 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid">
-        <div class="col-12 mt-5">
-            <canvas id="myBarChart"></canvas>
+    <div class="container-fluid mt-5">
+        <div class="row">
+            <div class="col-12">
+                <canvas id="myBarChart"></canvas>
+            </div>
         </div>
     </div>
 </div>
