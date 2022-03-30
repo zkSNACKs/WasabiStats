@@ -14,4 +14,4 @@ jobs:
         server: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
-        local-dir: ./wasabistats.creativeagent.hu/
+        server-dir: ./wasabistats.creativeagent.hu/
