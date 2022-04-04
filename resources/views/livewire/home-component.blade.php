@@ -5,7 +5,7 @@
         </div>
     @endif
     @livewire('search-component')
-    <button class="my-5" wire:click.prevent="storeData()">Adatok lementése</button>
+    <button class="my-5" wire:click.prevent="storeData()">Save data</button>
 </div>
 @push('scripts')
 

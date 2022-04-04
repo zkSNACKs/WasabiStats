@@ -8,7 +8,7 @@
                 </div>
                 <div class="col-10 col-md-3">
                     <select id="type" class="form-select my-1" wire:model="cat">
-                        <option>Choose...</option>
+                        <option>Choose version...</option>
                         @foreach ($categories as $category)
                             <option value="{{$category->id}}">{{$category->name}}</option>
                         @endforeach
