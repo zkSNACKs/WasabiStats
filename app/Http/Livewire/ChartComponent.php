@@ -44,15 +44,16 @@ class ChartComponent extends Component
                 $this->total = $data->total_count;
                 $this->daily = $data->daily_count;
             }
-
             $files = File::where('category_id',$id)->get();
             foreach($files as $file)
             {
                 $downloadeddate = Carbon::now()->addDays(-1)->format('Y-m-d');
                 $counts = FileCount::where('file_id',$file->id)
                     //->whereBetween('downloaded_at', [date($this->from_date), date($this->to_date)])
-                    ->where('downloaded_at',$downloadeddate)
+                    //->where('downloaded_at',$downloadeddate)
+                    ->orderBy('downloaded_at','DESC')
                     ->get();
+                    //dd($counts);
                 $name = $counts[0]->files->os;
                 $filecount = 0;
                     foreach($counts as $count)
@@ -81,10 +82,13 @@ class ChartComponent extends Component
             }
 
             $totaldownloads = CategoryCount::with('categories')
-                ->where('downloaded_at',$downloadeddate)->get()
+                ->where('downloaded_at',$downloadeddate)
+                ->get()
                 ->sortBy('categories.published_at',SORT_REGULAR,false);
-
+            //dd($downloadeddate);
+            dd($totaldownloads);
             foreach ($totaldownloads as $key => $value) {
+                //if(isset($value->total_count) && isset($value->categories->name) && isset($value->categories->published_at))
                 array_push($this->bardata,$value->total_count);
                 array_push($this->barname,$value->categories->name);
                 array_push($this->barpublished,$value->categories->published_at);
