@@ -53,7 +53,6 @@ class ChartComponent extends Component
                     //->where('downloaded_at',$downloadeddate)
                     ->orderBy('downloaded_at','DESC')
                     ->get();
-                    //dd($counts);
                 $name = $counts[0]->files->os;
                 $filecount = 0;
                     foreach($counts as $count)
@@ -85,10 +84,7 @@ class ChartComponent extends Component
                 ->where('downloaded_at',$downloadeddate)
                 ->get()
                 ->sortBy('categories.published_at',SORT_REGULAR,false);
-            //dd($downloadeddate);
-            dd($totaldownloads);
             foreach ($totaldownloads as $key => $value) {
-                //if(isset($value->total_count) && isset($value->categories->name) && isset($value->categories->published_at))
                 array_push($this->bardata,$value->total_count);
                 array_push($this->barname,$value->categories->name);
                 array_push($this->barpublished,$value->categories->published_at);
