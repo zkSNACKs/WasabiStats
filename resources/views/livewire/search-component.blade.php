@@ -28,11 +28,10 @@
                 </div>
                 @if(isset($total))
                 <div class="col text-end">
-                    <div class="text-small my-1">
-                        Downloads: <strong>Total</strong> {{$total}} |
-                        <strong>Date:</strong> {{$totalsearchdate}} |
+                    <div class="container text-small my-1">
+                         Downloads: <strong>Total:</strong> {{$total}} |
+                        <strong>By Date:</strong> {{$totalsearchdate}} |
                         <strong>Yesterday:</strong> {{$daily}}
-
                     </div>
                 </div>
                 @endif
