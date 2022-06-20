@@ -2,11 +2,14 @@
 
 namespace App\Http\Livewire;
 
-use App\Http\Resources\ChartViewResource;
+// use App\Http\Resources\ChartViewResource;
 use App\Models\CategoryCount;
 use App\Models\File;
 use App\Models\FileCategory;
 use App\Models\FileCount;
+// use App\Models\FreshCoin;
+// use App\Models\MonthlyCoinJoin;
+// use App\Models\MonthlyVolumes;
 use Carbon\Carbon;
 use Livewire\Component;
 
@@ -20,7 +23,19 @@ class ChartComponent extends Component
     public $to_date;
     public $piedata = [];
     public $piename = [];
+    public $freshdate = [];
+    public $freshwasabi = [];
+    public $freshsamuri = [];
+    public $freshotheri = [];
+    public $monthlydate = [];
+    public $monthlywasabi = [];
+    public $monthlysamuri = [];
+    public $monthlyotheri = [];
+    public $monthlyjoindate = [];
+    public $monthlyjoinwasabi = [];
+    public $monthlyjoinsamuri = [];
     public $total;
+    public $totalsearchdate;
     public $daily;
     public $nodata;
     public $bardata = [];
@@ -38,11 +53,13 @@ class ChartComponent extends Component
         if(isset($datas[0]))
         {
             $this->name = $datas[0]->categories->name.': from: '.$this->from_date.' to: '.$this->to_date;
+            $this->totalsearchdate = 0;
             foreach($datas as $data){
                 array_push($this->labes,$data->downloaded_at);
                 array_push($this->dats,$data->daily_count);
                 $this->total = $data->total_count;
                 $this->daily = $data->daily_count;
+                $this->totalsearchdate += $data->daily_count;
             }
             $files = File::where('category_id',$id)->get();
             foreach($files as $file)
@@ -89,6 +106,26 @@ class ChartComponent extends Component
                 array_push($this->barname,$value->categories->name);
                 array_push($this->barpublished,$value->categories->published_at);
             }
+            /* $freshcoins = FreshCoin::all();
+            foreach ($freshcoins as $key => $freshcoin) {
+                array_push($this->freshdate,$freshcoin->date);
+                array_push($this->freshwasabi,$freshcoin->wasabi);
+                array_push($this->freshsamuri,$freshcoin->samuri);
+                array_push($this->freshotheri,$freshcoin->otheri);
+            }
+            $monthlyvolumes = MonthlyVolumes::all();
+            foreach ($monthlyvolumes as $key => $monthlyvolume) {
+                array_push($this->monthlydate,$monthlyvolume->date);
+                array_push($this->monthlywasabi,$monthlyvolume->wasabi);
+                array_push($this->monthlysamuri,$monthlyvolume->samuri);
+                array_push($this->monthlyotheri,$monthlyvolume->otheri);
+            }
+            $monthlycoinjoins = MonthlyCoinJoin::all();
+            foreach ($monthlycoinjoins as $key => $monthlycoinjoin) {
+                array_push($this->monthlyjoindate,$monthlycoinjoin->date);
+                array_push($this->monthlyjoinwasabi,$monthlycoinjoin->wasabi);
+                array_push($this->monthlyjoinsamuri,$monthlycoinjoin->samuri);
+            }*/
         }
         else{
             $this->nodata = 'No relevant data! Please check the search conditions!';

@@ -2,6 +2,7 @@
     <div class="search">
         @livewire('search-component',[
             'total'=>$total,
+            'totalsearchdate'=>$totalsearchdate,
             'daily'=>$daily,
             'id'=>$category_id,
             'from_date'=> $from_date,
@@ -30,6 +31,33 @@
             </div>
         </div>
     </div>
+    {{-- @if ($freshdate != [])
+        <div class="container-fluid mt-5">
+            <div class="row">
+                <div class="col-12">
+                    <canvas id="myFreshCoinsChart"></canvas>
+                </div>
+            </div>
+        </div>
+    @endif
+    @if ($monthlydate != [])
+        <div class="container-fluid mt-5">
+            <div class="row">
+                <div class="col-12">
+                    <canvas id="myMonthyVolumes"></canvas>
+                </div>
+            </div>
+        </div>
+    @endif
+    @if ($monthlyjoindate != [])
+        <div class="container-fluid mt-5">
+            <div class="row">
+                <div class="col-12">
+                    <canvas id="myMonthyCoinJoins"></canvas>
+                </div>
+            </div>
+        </div>
+    @endif --}}
 </div>
 @push('scripts')
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
@@ -65,6 +93,328 @@
         },
         options: {
             plugins:{
+                legend: {
+                  labels: {
+                     color: 'white'
+                  },
+                }
+            },
+            scales: {
+                y: {
+                    grid:{
+                        color:'rgba(255,255,255,1)',
+                        lineWidth:0.2
+                    },
+                    ticks: {
+                        color: 'white'
+                    },
+                    beginAtZero: true,
+                },
+                x: {
+                    grid:{
+                        color:'rgba(255,255,255,1)',
+                        lineWidth:0.2
+                    },
+                    ticks: {
+                        color: 'white'
+                    },
+                    beginAtZero: true,
+                }
+            }
+        },
+    });
+</script>
+{{-- <script>
+    const ctxFresh = document.getElementById('myFreshCoinsChart').getContext('2d');
+    var datawasabi = @json($freshwasabi);
+    var datasamuri = @json($freshsamuri);
+    var dataotheri = @json($freshotheri);
+    const myFreshChart = new Chart(ctxFresh, {
+        type: 'line',
+        data: {
+            labels: @json($freshdate),
+            datasets: [
+                {
+                    label: 'Wasabi',
+                    data:datawasabi,
+                    fontColor:['white','black'],
+                    backgroundColor: [
+                        //'rgba(255, 99, 132, 0.2)',
+                        'rgba(119, 198, 0, 0.2)',
+                        /*'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'*/
+                    ],
+                    borderColor: [
+                        //'rgba(255, 99, 132, 1)',
+                        'rgba(119, 198, 0, 1)',
+                        /*'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'*/
+                    ],
+                    borderWidth: 2
+                },
+                {
+                    label: 'Samuri',
+                    data:datasamuri,
+                    fontColor:['white','black'],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        //'rgba(119, 198, 0, 0.2)',
+                        /*'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'*/
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        //'rgba(119, 198, 0, 1)',
+                        /*'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'*/
+                    ],
+                    borderWidth: 2
+                },
+                {
+                    label: 'Otheri',
+                    data:dataotheri,
+                    fontColor:['white','black'],
+                    backgroundColor: [
+                        //'rgba(255, 99, 132, 0.2)',
+                        //'rgba(119, 198, 0, 0.2)',
+                        //'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        //'rgba(153, 102, 255, 0.2)',
+                        //'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        //'rgba(255, 99, 132, 1)',
+                        //'rgba(119, 198, 0, 1)',
+                        //'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        //'rgba(153, 102, 255, 1)',
+                        //'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 2
+                }
+            ]
+        },
+        options: {
+            plugins:{
+                title: {
+                    display: true,
+                    text: 'Fresh Bitcoins CoinJoined'
+                },
+                legend: {
+                  labels: {
+                     color: 'white'
+                  },
+                }
+            },
+            scales: {
+                y: {
+                    grid:{
+                        color:'rgba(255,255,255,1)',
+                        lineWidth:0.2
+                    },
+                    ticks: {
+                        color: 'white'
+                    },
+                    beginAtZero: true,
+                },
+                x: {
+                    grid:{
+                        color:'rgba(255,255,255,1)',
+                        lineWidth:0.2
+                    },
+                    ticks: {
+                        color: 'white'
+                    },
+                    beginAtZero: true,
+                }
+            }
+        },
+    });
+</script> --}}
+<script>
+    const ctMonthly = document.getElementById('myMonthyVolumes').getContext('2d');
+    var datawasabim = @json($monthlywasabi);
+    var datasamurim = @json($monthlysamuri);
+    var dataotherim = @json($monthlyotheri);
+    const myMonthlyValuesChart = new Chart(ctMonthly, {
+        type: 'line',
+        data: {
+            labels: @json($monthlydate),
+            datasets: [
+                {
+                    label: 'Wasabi',
+                    data:datawasabim,
+                    fontColor:['white','black'],
+                    backgroundColor: [
+                        //'rgba(255, 99, 132, 0.2)',
+                        'rgba(119, 198, 0, 0.2)',
+                        /*'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'*/
+                    ],
+                    borderColor: [
+                        //'rgba(255, 99, 132, 1)',
+                        'rgba(119, 198, 0, 1)',
+                        /*'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'*/
+                    ],
+                    borderWidth: 2
+                },
+                {
+                    label: 'Samuri',
+                    data:datasamurim,
+                    fontColor:['white','black'],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        //'rgba(119, 198, 0, 0.2)',
+                        /*'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'*/
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        //'rgba(119, 198, 0, 1)',
+                        /*'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'*/
+                    ],
+                    borderWidth: 2
+                },
+                {
+                    label: 'Otheri',
+                    data:dataotherim,
+                    fontColor:['white','black'],
+                    backgroundColor: [
+                        //'rgba(255, 99, 132, 0.2)',
+                        //'rgba(119, 198, 0, 0.2)',
+                        //'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        //'rgba(153, 102, 255, 0.2)',
+                        //'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        //'rgba(255, 99, 132, 1)',
+                        //'rgba(119, 198, 0, 1)',
+                        //'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        //'rgba(153, 102, 255, 1)',
+                        //'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 2
+                }
+            ]
+        },
+        options: {
+            plugins:{
+                title: {
+                    display: true,
+                    text: 'Monthly CoinJoin Volumes'
+                },
+                legend: {
+                  labels: {
+                     color: 'white'
+                  },
+                }
+            },
+            scales: {
+                y: {
+                    grid:{
+                        color:'rgba(255,255,255,1)',
+                        lineWidth:0.2
+                    },
+                    ticks: {
+                        color: 'white'
+                    },
+                    beginAtZero: true,
+                },
+                x: {
+                    grid:{
+                        color:'rgba(255,255,255,1)',
+                        lineWidth:0.2
+                    },
+                    ticks: {
+                        color: 'white'
+                    },
+                    beginAtZero: true,
+                }
+            }
+        },
+    });
+</script>
+<script>
+    const ctMonthlyJoins = document.getElementById('myMonthyCoinJoins').getContext('2d');
+    var datawasabij = @json($monthlyjoinwasabi);
+    var datasamurij = @json($monthlyjoinsamuri);
+    const myMonthlyJoinChart = new Chart(ctMonthlyJoins, {
+        type: 'line',
+        data: {
+            labels: @json($monthlyjoindate),
+            datasets: [
+                {
+                    label: 'Wasabi',
+                    data:datawasabij,
+                    fontColor:['white','black'],
+                    backgroundColor: [
+                        //'rgba(255, 99, 132, 0.2)',
+                        'rgba(119, 198, 0, 0.2)',
+                        /*'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'*/
+                    ],
+                    borderColor: [
+                        //'rgba(255, 99, 132, 1)',
+                        'rgba(119, 198, 0, 1)',
+                        /*'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'*/
+                    ],
+                    borderWidth: 2
+                },
+                {
+                    label: 'Samuri',
+                    data:datasamurij,
+                    fontColor:['white','black'],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        //'rgba(119, 198, 0, 0.2)',
+                        /*'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'*/
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        //'rgba(119, 198, 0, 1)',
+                        /*'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'*/
+                    ],
+                    borderWidth: 2
+                }
+            ]
+        },
+        options: {
+            plugins:{
+                title: {
+                    display: true,
+                    text: 'Monthly CoinJoin Income'
+                },
                 legend: {
                   labels: {
                      color: 'white'
