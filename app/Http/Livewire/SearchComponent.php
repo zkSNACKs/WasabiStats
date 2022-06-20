@@ -15,11 +15,13 @@ class SearchComponent extends Component
     public $labels = [];
     public $datas = [];
     public $total;
+    public $totalsearchdate;
     public $daily;
 
-    public function mount($total=null, $daily=null, $id=null, $from_date=null, $to_date=null)
+    public function mount($total=null, $totalsearchdate=null, $daily=null, $id=null, $from_date=null, $to_date=null)
     {
         $this->total = $total;
+        $this->totalsearchdate = $totalsearchdate;
         $this->daily = $daily;
         $this->from_date = $from_date;
         $this->to_date = $to_date;
