@@ -24,9 +24,9 @@ class HomeComponent extends Component
     public function mount()
     {
         /*Set the default data show. to see the main page comment out the return row. */
-        $fromdate = date(Carbon::now()->addYear(-1)->format('Y-m-d'));
+        $fromdate = date(Carbon::now()->addMonths(-1)->format('Y-m-d'));
         $todate = date(Carbon::now()->format('Y-m-d'));
-        return redirect(route('search',['id'=>2, 'from_date'=>$fromdate, 'to_date'=>$todate]));
+        return redirect(route('search',['id'=>34, 'from_date'=>$fromdate, 'to_date'=>$todate]));
     }
 
     public function storeData(){
@@ -130,8 +130,6 @@ class HomeComponent extends Component
         }
 
     }
-
-
 
     public function render()
     {
