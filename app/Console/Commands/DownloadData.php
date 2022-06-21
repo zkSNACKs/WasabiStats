@@ -68,29 +68,28 @@ class DownloadData extends Command
                         {
                             $os = 'Debian/Linux';
                         }
-                        if(str_contains($value['name'],'.msi'))
+                        if(str_contains($value['name'],'.msi') ||
+                            str_contains($value['name'],'win7-x64')
+                        )
                         {
                             $os = 'Windows';
                         }
-                        if(str_contains($value['name'],'.dmg'))
+                        if(str_contains($value['name'],'.dmg') ||
+                            str_contains($value['name'],'macOS-x64') ||
+                            str_contains($value['name'],'osx-x64')
+                        )
                         {
                             $os = 'Mac';
                         }
-                        if(str_contains($value['name'],'.tar.gz'))
+                        if(str_contains($value['name'],'.tar.gz') ||
+                            str_contains($value['name'],'linux-x64')
+                        )
                         {
                             $os = 'Other Linux';
                         }
-                        if(str_contains($value['name'],'win7-x64'))
+                        if(str_contains($value['name'],'arm64'))
                         {
-                            $os = 'Win7-x64.zip';
-                        }
-                        if(str_contains($value['name'],'linux-x64'))
-                        {
-                            $os = 'Linux-x64.zip';
-                        }
-                        if(str_contains($value['name'],'osx-x64'))
-                        {
-                            $os = 'Mac(osx)-x64.zip';
+                            $os = 'Mac M1';
                         }
 
                         $file = File::firstOrCreate(
