@@ -109,7 +109,7 @@ class DownloadData extends Command
                             $filecount->daily_count = $value['download_count'] - $prevday->count;
                         }
                         else{
-                            $filecount->daily_count = 0;
+                            $filecount->daily_count = $value['download_count'];
                         }
                         $filecount->downloaded_at = $date;
                         $filecount->save();
@@ -122,7 +122,7 @@ class DownloadData extends Command
                     $categorycount->daily_count = $totalcount - $prevdaycat->total_count;
                 }
                 else{
-                    $categorycount->daily_count = 0;
+                    $categorycount->daily_count = $totalcount;
                 }
                 $categorycount->total_count = $totalcount;
                 $categorycount->downloaded_at = $date;
