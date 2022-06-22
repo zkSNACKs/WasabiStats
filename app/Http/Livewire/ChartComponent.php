@@ -76,9 +76,22 @@ class ChartComponent extends Component
                     {
                         $filecount += $count->count;
                     }
-                array_push($this->piedata,$filecount);
+                if(!in_array($name, $this->piename))
+                {
+                    array_push($this->piedata,$filecount);
+                    array_push($this->piename,$name);
+                }
+                if(in_array($name, $this->piename))
+                {
+                    foreach($this->piename as $k=> $piename)
+                    {
+                        if($piename == $name)
+                        {
+                            $this->piedata[$k] += $filecount;
+                        }
+                    }
+                }
 
-                array_push($this->piename,$name);
             }
             $totalpiedata = 0;
             foreach($this->piedata as $data)
