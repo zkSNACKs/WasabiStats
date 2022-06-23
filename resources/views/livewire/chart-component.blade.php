@@ -61,6 +61,7 @@
 </div>
 @push('scripts')
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-trendline"></script>
 <script>
     const ctx = document.getElementById('myChart').getContext('2d');
     var data = @json($dats);
@@ -88,6 +89,11 @@
                     'rgba(153, 102, 255, 1)',
                     'rgba(255, 159, 64, 1)'*/
                 ],
+                trendlineLinear: {
+	            	style: "rgba(255,105,180, .8)",
+	            	lineStyle: "solid",
+	            	width: 1,
+	            },
                 borderWidth: 2
             }]
         },
@@ -473,6 +479,11 @@
                     'rgba(153, 102, 255, 1)',
                     'rgba(255, 159, 64, 1)'*/
                 ],
+                trendlineLinear: {
+	            	style: "rgba(255,105,180, .8)",
+	            	lineStyle: "solid",
+	            	width: 1,
+	            },
                 borderWidth: 2
             }]
         },
