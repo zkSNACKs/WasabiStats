@@ -50,4 +50,28 @@ select option {
     color: #fff;
     border-color: var(--green);
 }
+.green {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: green;
+}
+.red {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: red;
+}
+.yellow {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: yellow;
+}
+.orange {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #ff7b00;
+}
 /*# sourceMappingURL=style.css.map */
