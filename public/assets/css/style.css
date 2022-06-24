@@ -74,14 +74,12 @@ select option {
 }
 .feature-box {
     background: rgba(0,0,0,.2);
-    padding: 20px;
+    padding: 20px 20px 0px 20px;
     color: #fff;
     position: relative;
     border: 2px solid rgba(73,88,107,.3);
     border-radius: 10px;
     height: 100%;
-    margin-bottom: 20px;
     word-break: break-all;
     font-size: 14px;
 }
-/*# sourceMappingURL=style.css.map */
