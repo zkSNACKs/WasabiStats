@@ -10,7 +10,7 @@
                 <p class="mb-0"><strong>inputCount:</strong> {{$item->inputCount}}</p>
                 <p class="mb-0"><strong>maxSuggestedAmount:</strong> {{$item->maxSuggestedAmount}}</p>
                 <p class="mb-0"><strong>inputRegistrationRemaining:</strong> {{$item->inputRegistrationRemaining}}</p>
-                <p class="mb-0"><strong>phase:</strong> {{$item->phase}}</p>
+                <p><strong>phase:</strong> {{$item->phase}}</p>
             </div>
         </div>
         @endforeach
