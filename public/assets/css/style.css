@@ -50,4 +50,35 @@ select option {
     color: #fff;
     border-color: var(--green);
 }
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+.yellow {
+    background-color: yellow;
+}
+.orange {
+    background-color: orange;
+}
+.green {
+    background-color: var(--green);
+}
+.red {
+    background-color: red;
+}
+.small-text {
+    font-size: 10px;
+}
+.feature-box {
+    background: rgba(0,0,0,.2);
+    padding: 20px;
+    color: #fff;
+    position: relative;
+    border: 2px solid rgba(73,88,107,.3);
+    border-radius: 10px;
+    height: 100%;
+    margin-bottom: 20px;
+}
 /*# sourceMappingURL=style.css.map */
