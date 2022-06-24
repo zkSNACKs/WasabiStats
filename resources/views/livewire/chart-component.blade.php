@@ -31,6 +31,10 @@
             </div>
         </div>
     </div>
+    <div class="statuses mx-4 mt-5">
+        @livewire('cloud-flare-stat')
+        @livewire('human-monitor')
+    </div>
     {{-- @if ($freshdate != [])
         <div class="container-fluid mt-5">
             <div class="row">
@@ -62,6 +66,16 @@
 @push('scripts')
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-trendline"></script>
+<script>
+    setInterval(() => {
+        Livewire.emit('refreshHumanMonitorComponent')
+    }, 1000);
+</script>
+<script>
+    setInterval(() => {
+        Livewire.emit('refreshCloudFlareComponent')
+    }, 10*60*1000);
+</script>
 <script>
     const ctx = document.getElementById('myChart').getContext('2d');
     var data = @json($dats);
