@@ -34,7 +34,7 @@
     <div class="statuses mx-4 mt-5">
         @livewire('human-monitor')
         <div class="row">
-            <div class="co-md-3">
+            <div class="col-md-3">
                 @livewire('cloud-flare-stat')
             </div>
         </div>

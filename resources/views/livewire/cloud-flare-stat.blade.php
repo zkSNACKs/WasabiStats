@@ -6,5 +6,5 @@
         @elseif($cloudFlareStatus['status']['indicator'] == 'major') orange
         @else red @endif">
     </span> {{$cloudFlareStatus['status']['indicator']}}</p>
-    <p class="small-text">Checked: {{(date('Y-m-d H:m:s T', strtotime($cloudFlareStatus['page']['updated_at'])))}}</p>
+    <!--<p class="small-text">Checked: {{(date('Y-m-d H:m:s T', strtotime($cloudFlareStatus['page']['updated_at'])))}}</p>-->
 </div>
