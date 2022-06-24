@@ -1,6 +1,5 @@
 <div class="feature-box cloudflare text-light">
-    <p>CloudFlare Status:</p>
-    <p><span class="status-dot
+    <p>CloudFlare Status: <span class="status-dot
         @if($cloudFlareStatus['status']['indicator'] == 'none') green
         @elseif($cloudFlareStatus['status']['indicator'] == 'minor') yellow
         @elseif($cloudFlareStatus['status']['indicator'] == 'major') orange

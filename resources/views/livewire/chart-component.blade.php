@@ -1,4 +1,4 @@
-<div class="chart">
+<div class="chart pb-5">
     <div class="search">
         @livewire('search-component',[
             'total'=>$total,
