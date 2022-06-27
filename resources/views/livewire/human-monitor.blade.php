@@ -2,7 +2,7 @@
     <p>Coinjoin lobbies</p>
     <div class="row"> 
         @foreach ($humanMonitor as $key => $item)
-        <div class="col-md-3">
+        <div class="col-md-3 mb-3">
             <div class="feature-box">
                 <!--<p class="mb-0">{{$key+1}}</p>-->
                 <p class="mb-0"><strong>roundId:</strong> {{$item->roundId}}</p>
