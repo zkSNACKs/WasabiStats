@@ -472,7 +472,7 @@ trait Difference
      */
     public function floatDiffInSeconds($date = null, $absolute = true)
     {
-        return (float) ($this->diffInMicroseconds($date, $absolute) / static::MICROSECONDS_PER_SECOND);
+        return $this->diffInMicroseconds($date, $absolute) / static::MICROSECONDS_PER_SECOND;
     }
 
     /**

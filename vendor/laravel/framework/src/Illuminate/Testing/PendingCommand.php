@@ -168,19 +168,6 @@ class PendingCommand
     }
 
     /**
-     * Specify that the given string shouldn't be contained in the command output.
-     *
-     * @param  string  $string
-     * @return $this
-     */
-    public function doesntExpectOutputToContain($string)
-    {
-        $this->test->unexpectedOutputSubstrings[$string] = false;
-
-        return $this;
-    }
-
-    /**
      * Specify a table that should be printed when the command runs.
      *
      * @param  array  $headers
@@ -344,10 +331,6 @@ class PendingCommand
         if ($output = array_search(true, $this->test->unexpectedOutput)) {
             $this->test->fail('Output "'.$output.'" was printed.');
         }
-
-        if ($output = array_search(true, $this->test->unexpectedOutputSubstrings)) {
-            $this->test->fail('Output "'.$output.'" was printed.');
-        }
     }
 
     /**
@@ -424,14 +407,6 @@ class PendingCommand
                 });
         }
 
-        foreach ($this->test->unexpectedOutputSubstrings as $text => $displayed) {
-            $mock->shouldReceive('doWrite')
-                 ->withArgs(fn ($output) => str_contains($output, $text))
-                 ->andReturnUsing(function () use ($text) {
-                     $this->test->unexpectedOutputSubstrings[$text] = true;
-                 });
-        }
-
         return $mock;
     }
 
@@ -445,7 +420,6 @@ class PendingCommand
         $this->test->expectedOutput = [];
         $this->test->expectedOutputSubstrings = [];
         $this->test->unexpectedOutput = [];
-        $this->test->unexpectedOutputSubstrings = [];
         $this->test->expectedTables = [];
         $this->test->expectedQuestions = [];
         $this->test->expectedChoices = [];

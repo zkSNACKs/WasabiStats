@@ -17,9 +17,6 @@ final class MultipartStream implements StreamInterface
     /** @var string */
     private $boundary;
 
-    /** @var StreamInterface */
-    private $stream;
-
     /**
      * @param array  $elements Array of associative arrays, each containing a
      *                         required "name" key mapping to the form field,
@@ -71,9 +68,6 @@ final class MultipartStream implements StreamInterface
         $stream = new AppendStream();
 
         foreach ($elements as $element) {
-            if (!is_array($element)) {
-                throw new \UnexpectedValueException("An array is expected");
-            }
             $this->addElement($stream, $element);
         }
 

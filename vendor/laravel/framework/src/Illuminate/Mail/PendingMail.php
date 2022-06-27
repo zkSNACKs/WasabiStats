@@ -117,11 +117,11 @@ class PendingMail
      * Send a new mailable message instance.
      *
      * @param  \Illuminate\Contracts\Mail\Mailable  $mailable
-     * @return \Illuminate\Mail\SentMessage|null
+     * @return void
      */
     public function send(MailableContract $mailable)
     {
-        return $this->mailer->send($this->fill($mailable));
+        $this->mailer->send($this->fill($mailable));
     }
 
     /**

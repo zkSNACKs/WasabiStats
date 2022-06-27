@@ -122,16 +122,6 @@ class CursorPaginator extends AbstractCursorPaginator implements Arrayable, Arra
     }
 
     /**
-     * Determine if the paginator is on the last page.
-     *
-     * @return bool
-     */
-    public function onLastPage()
-    {
-        return ! $this->hasMorePages();
-    }
-
-    /**
      * Get the instance as an array.
      *
      * @return array

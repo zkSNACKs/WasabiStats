@@ -520,10 +520,6 @@ trait HasAttributes
             return call_user_func(static::$lazyLoadingViolationCallback, $this, $key);
         }
 
-        if (! $this->exists || $this->wasRecentlyCreated) {
-            return;
-        }
-
         throw new LazyLoadingViolationException($this, $key);
     }
 
@@ -630,7 +626,7 @@ trait HasAttributes
      */
     protected function mutateAttributeMarkedAttribute($key, $value)
     {
-        if (array_key_exists($key, $this->attributeCastCache)) {
+        if (isset($this->attributeCastCache[$key])) {
             return $this->attributeCastCache[$key];
         }
 
@@ -640,10 +636,10 @@ trait HasAttributes
             return $value;
         }, $value, $this->attributes);
 
-        if ($attribute->withCaching || (is_object($value) && $attribute->withObjectCaching)) {
-            $this->attributeCastCache[$key] = $value;
-        } else {
+        if (! is_object($value) || ! $attribute->withObjectCaching) {
             unset($this->attributeCastCache[$key]);
+        } else {
+            $this->attributeCastCache[$key] = $value;
         }
 
         return $value;
@@ -1023,10 +1019,10 @@ trait HasAttributes
             )
         );
 
-        if ($attribute->withCaching || (is_object($value) && $attribute->withObjectCaching)) {
-            $this->attributeCastCache[$key] = $value;
-        } else {
+        if (! is_object($value) || ! $attribute->withObjectCaching) {
             unset($this->attributeCastCache[$key]);
+        } else {
+            $this->attributeCastCache[$key] = $value;
         }
     }
 
@@ -1060,10 +1056,6 @@ trait HasAttributes
         $this->attributes[$key] = $this->isEncryptedCastable($key)
             ? $this->castAttributeAsEncryptedString($key, $value)
             : $value;
-
-        if ($this->isClassCastable($key)) {
-            unset($this->classCastCache[$key]);
-        }
 
         return $this;
     }
@@ -1947,8 +1939,8 @@ trait HasAttributes
             return $this->fromDateTime($attribute) ===
                 $this->fromDateTime($original);
         } elseif ($this->hasCast($key, ['object', 'collection'])) {
-            return $this->fromJson($attribute) ===
-                $this->fromJson($original);
+            return $this->castAttribute($key, $attribute) ==
+                $this->castAttribute($key, $original);
         } elseif ($this->hasCast($key, ['real', 'float', 'double'])) {
             if ($original === null) {
                 return false;

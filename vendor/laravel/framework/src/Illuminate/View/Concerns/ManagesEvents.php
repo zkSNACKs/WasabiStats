@@ -55,7 +55,7 @@ trait ManagesEvents
         $composers = [];
 
         foreach ((array) $views as $view) {
-            $composers[] = $this->addViewEvent($view, $callback);
+            $composers[] = $this->addViewEvent($view, $callback, 'composing: ');
         }
 
         return $composers;

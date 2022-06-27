@@ -23,7 +23,7 @@ trait InteractsWithConsole
     public $expectedOutput = [];
 
     /**
-     * All of the expected text to be present in the output.
+     * All of the expected text to be present on the output.
      *
      * @var array
      */
@@ -35,13 +35,6 @@ trait InteractsWithConsole
      * @var array
      */
     public $unexpectedOutput = [];
-
-    /**
-     * All of the text that is not expected to be present in the output.
-     *
-     * @var array
-     */
-    public $unexpectedOutputSubstrings = [];
 
     /**
      * All of the expected output tables.

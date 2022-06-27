@@ -19,13 +19,6 @@ class Attribute
     public $set;
 
     /**
-     * Indicates if caching is enabled for this attribute.
-     *
-     * @var bool
-     */
-    public $withCaching = false;
-
-    /**
      * Indicates if caching of objects is enabled for this attribute.
      *
      * @var bool
@@ -87,18 +80,6 @@ class Attribute
     public function withoutObjectCaching()
     {
         $this->withObjectCaching = false;
-
-        return $this;
-    }
-
-    /**
-     * Enable caching for the attribute.
-     *
-     * @return static
-     */
-    public function shouldCache()
-    {
-        $this->withCaching = true;
 
         return $this;
     }

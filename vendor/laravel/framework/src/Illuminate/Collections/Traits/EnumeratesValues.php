@@ -15,7 +15,6 @@ use JsonSerializable;
 use Symfony\Component\VarDumper\VarDumper;
 use Traversable;
 use UnexpectedValueException;
-use UnitEnum;
 
 /**
  * @template TKey of array-key
@@ -320,22 +319,6 @@ trait EnumeratesValues
     public function firstWhere($key, $operator = null, $value = null)
     {
         return $this->first($this->operatorForWhere(...func_get_args()));
-    }
-
-    /**
-     * Get a single key's value from the first matching item in the collection.
-     *
-     * @param  string  $key
-     * @param  mixed  $default
-     * @return mixed
-     */
-    public function value($key, $default = null)
-    {
-        if ($value = $this->firstWhere($key)) {
-            return data_get($value, $key, $default);
-        }
-
-        return value($default);
     }
 
     /**
@@ -696,10 +679,8 @@ trait EnumeratesValues
     /**
      * Filter the items, removing any items that don't match the given type(s).
      *
-     * @template TWhereInstanceOf
-     *
-     * @param  class-string<TWhereInstanceOf>|array<array-key, class-string<TWhereInstanceOf>>  $type
-     * @return static<TKey, TWhereInstanceOf>
+     * @param  class-string|array<array-key, class-string>  $type
+     * @return static
      */
     public function whereInstanceOf($type)
     {
@@ -797,7 +778,7 @@ trait EnumeratesValues
 
             if (! is_array($result)) {
                 throw new UnexpectedValueException(sprintf(
-                    "%s::reduceSpread expects reducer to return an array, but got a '%s' instead.",
+                    "%s::reduceMany expects reducer to return an array, but got a '%s' instead.",
                     class_basename(static::class), gettype($result)
                 ));
             }
@@ -1006,8 +987,6 @@ trait EnumeratesValues
             return (array) $items->jsonSerialize();
         } elseif ($items instanceof Traversable) {
             return iterator_to_array($items);
-        } elseif ($items instanceof UnitEnum) {
-            return [$items];
         }
 
         return (array) $items;

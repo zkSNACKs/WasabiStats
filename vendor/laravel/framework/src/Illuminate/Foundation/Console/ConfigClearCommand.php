@@ -4,9 +4,7 @@ namespace Illuminate\Foundation\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
-use Symfony\Component\Console\Attribute\AsCommand;
 
-#[AsCommand(name: 'config:clear')]
 class ConfigClearCommand extends Command
 {
     /**
@@ -22,8 +20,6 @@ class ConfigClearCommand extends Command
      * This name is used to identify the command during lazy loading.
      *
      * @var string|null
-     *
-     * @deprecated
      */
     protected static $defaultName = 'config:clear';
 

@@ -278,7 +278,7 @@ abstract class Job
     /**
      * The number of seconds to wait before retrying a job that encountered an uncaught exception.
      *
-     * @return int|int[]|null
+     * @return int|null
      */
     public function backoff()
     {

@@ -28,7 +28,7 @@ final class DkimOptions
     /**
      * @return $this
      */
-    public function algorithm(string $algo): static
+    public function algorithm(int $algo): static
     {
         $this->options['algorithm'] = $algo;
 

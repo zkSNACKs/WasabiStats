@@ -14,13 +14,6 @@ class Sanctum
     public static $personalAccessTokenModel = 'Laravel\\Sanctum\\PersonalAccessToken';
 
     /**
-     * A callback that can get the token from the request.
-     *
-     * @var callable|null
-     */
-    public static $accessTokenRetrievalCallback;
-
-    /**
      * A callback that can add to the validation of the access token.
      *
      * @var callable|null
@@ -88,17 +81,6 @@ class Sanctum
     public static function usePersonalAccessTokenModel($model)
     {
         static::$personalAccessTokenModel = $model;
-    }
-
-    /**
-     * Specify a callback that should be used to fetch the access token from the request.
-     *
-     * @param  callable  $callback
-     * @return void
-     */
-    public static function getAccessTokenFromRequestUsing(callable $callback)
-    {
-        static::$accessTokenRetrievalCallback = $callback;
     }
 
     /**

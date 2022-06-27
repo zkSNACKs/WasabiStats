@@ -27,42 +27,42 @@ class Factory implements FactoryContract
     /**
      * The IoC container instance.
      *
-     * @var \Illuminate\Contracts\Container\Container|null
+     * @var \Illuminate\Contracts\Container\Container
      */
     protected $container;
 
     /**
      * All of the custom validator extensions.
      *
-     * @var array<string, \Closure|string>
+     * @var array
      */
     protected $extensions = [];
 
     /**
      * All of the custom implicit validator extensions.
      *
-     * @var array<string, \Closure|string>
+     * @var array
      */
     protected $implicitExtensions = [];
 
     /**
      * All of the custom dependent validator extensions.
      *
-     * @var array<string, \Closure|string>
+     * @var array
      */
     protected $dependentExtensions = [];
 
     /**
      * All of the custom validator message replacers.
      *
-     * @var array<string, \Closure|string>
+     * @var array
      */
     protected $replacers = [];
 
     /**
      * All of the fallback messages for custom rules.
      *
-     * @var array<string, string>
+     * @var array
      */
     protected $fallbackMessages = [];
 
@@ -313,7 +313,7 @@ class Factory implements FactoryContract
     /**
      * Get the container instance used by the validation factory.
      *
-     * @return \Illuminate\Contracts\Container\Container|null
+     * @return \Illuminate\Contracts\Container\Container
      */
     public function getContainer()
     {

@@ -460,10 +460,8 @@ interface Enumerable extends Arrayable, Countable, IteratorAggregate, Jsonable, 
     /**
      * Filter the items, removing any items that don't match the given type(s).
      *
-     * @template TWhereInstanceOf
-     *
-     * @param  class-string<TWhereInstanceOf>|array<array-key, class-string<TWhereInstanceOf>>  $type
-     * @return static<TKey, TWhereInstanceOf>
+     * @param  class-string|array<array-key, class-string>  $type
+     * @return static
      */
     public function whereInstanceOf($type);
 
@@ -1200,9 +1198,9 @@ interface Enumerable extends Arrayable, Countable, IteratorAggregate, Jsonable, 
     /**
      * Convert the object into something JSON serializable.
      *
-     * @return mixed
+     * @return array<TKey, mixed>
      */
-    public function jsonSerialize(): mixed;
+    public function jsonSerialize(): array;
 
     /**
      * Get the collection of items as JSON.

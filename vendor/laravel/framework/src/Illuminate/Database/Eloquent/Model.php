@@ -384,10 +384,10 @@ abstract class Model implements Arrayable, ArrayAccess, CanBeEscapedWhenCastToSt
     /**
      * Register a callback that is responsible for handling lazy loading violations.
      *
-     * @param  callable|null  $callback
+     * @param  callable  $callback
      * @return void
      */
-    public static function handleLazyLoadingViolationUsing(?callable $callback)
+    public static function handleLazyLoadingViolationUsing(callable $callback)
     {
         static::$lazyLoadingViolationCallback = $callback;
     }
@@ -561,7 +561,7 @@ abstract class Model implements Arrayable, ArrayAccess, CanBeEscapedWhenCastToSt
     /**
      * Get all of the models from the database.
      *
-     * @param  array|string  $columns
+     * @param  array|mixed  $columns
      * @return \Illuminate\Database\Eloquent\Collection<int, static>
      */
     public static function all($columns = ['*'])
@@ -919,36 +919,6 @@ abstract class Model implements Arrayable, ArrayAccess, CanBeEscapedWhenCastToSt
         }
 
         return $this->fill($attributes)->saveQuietly($options);
-    }
-
-    /**
-     * Increment a column's value by a given amount without raising any events.
-     *
-     * @param  string  $column
-     * @param  float|int  $amount
-     * @param  array  $extra
-     * @return int
-     */
-    protected function incrementQuietly($column, $amount = 1, array $extra = [])
-    {
-        return static::withoutEvents(function () use ($column, $amount, $extra) {
-            return $this->incrementOrDecrement($column, $amount, $extra, 'increment');
-        });
-    }
-
-    /**
-     * Decrement a column's value by a given amount without raising any events.
-     *
-     * @param  string  $column
-     * @param  float|int  $amount
-     * @param  array  $extra
-     * @return int
-     */
-    protected function decrementQuietly($column, $amount = 1, array $extra = [])
-    {
-        return static::withoutEvents(function () use ($column, $amount, $extra) {
-            return $this->incrementOrDecrement($column, $amount, $extra, 'decrement');
-        });
     }
 
     /**
@@ -1539,9 +1509,9 @@ abstract class Model implements Arrayable, ArrayAccess, CanBeEscapedWhenCastToSt
     /**
      * Convert the object into something JSON serializable.
      *
-     * @return mixed
+     * @return array
      */
-    public function jsonSerialize(): mixed
+    public function jsonSerialize(): array
     {
         return $this->toArray();
     }

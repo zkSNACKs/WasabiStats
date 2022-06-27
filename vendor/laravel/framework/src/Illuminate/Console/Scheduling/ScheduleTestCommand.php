@@ -2,12 +2,9 @@
 
 namespace Illuminate\Console\Scheduling;
 
-use Illuminate\Console\Application;
 use Illuminate\Console\Command;
-use Illuminate\Support\Carbon;
-use Symfony\Component\Console\Attribute\AsCommand;
+use Illuminate\Support\Str;
 
-#[AsCommand(name: 'schedule:test')]
 class ScheduleTestCommand extends Command
 {
     /**
@@ -23,8 +20,6 @@ class ScheduleTestCommand extends Command
      * This name is used to identify the command during lazy loading.
      *
      * @var string|null
-     *
-     * @deprecated
      */
     protected static $defaultName = 'schedule:test';
 
@@ -56,11 +51,7 @@ class ScheduleTestCommand extends Command
         }
 
         if (! empty($name = $this->option('name'))) {
-            $commandBinary = Application::phpBinary().' '.Application::artisanBinary();
-
-            $matches = array_filter($commandNames, function ($commandName) use ($commandBinary, $name) {
-                return trim(str_replace($commandBinary, '', $commandName)) === $name;
-            });
+            $matches = array_filter($commandNames, fn ($commandName) => Str::endsWith($commandName, $name));
 
             if (count($matches) !== 1) {
                 return $this->error('No matching scheduled command found.');
@@ -73,7 +64,7 @@ class ScheduleTestCommand extends Command
 
         $event = $commands[$index];
 
-        $this->line('<info>['.Carbon::now()->format('c').'] Running scheduled command:</info> '.$event->getSummaryForDisplay());
+        $this->line('<info>['.date('c').'] Running scheduled command:</info> '.$event->getSummaryForDisplay());
 
         $event->run($this->laravel);
     }

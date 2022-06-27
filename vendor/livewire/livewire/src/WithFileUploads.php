@@ -87,12 +87,12 @@ trait WithFileUploads
 
                 return true;
             })));
-        } elseif ($uploads instanceof TemporaryUploadedFile && $uploads->getFilename() === $tmpFilename) {
+        } elseif ($uploads instanceof TemporaryUploadedFile) {
             $uploads->delete();
 
             $this->emit('upload:removed', $name, $tmpFilename)->self();
 
-            $this->syncInput($name, null);
+            if ($uploads->getFilename() === $tmpFilename) $this->syncInput($name, null);
         }
     }
 

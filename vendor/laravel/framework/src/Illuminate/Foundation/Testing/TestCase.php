@@ -143,16 +143,6 @@ abstract class TestCase extends BaseTestCase
             $this->setUpFaker();
         }
 
-        foreach ($uses as $trait) {
-            if (method_exists($this, $method = 'setUp'.class_basename($trait))) {
-                $this->{$method}();
-            }
-
-            if (method_exists($this, $method = 'tearDown'.class_basename($trait))) {
-                $this->beforeApplicationDestroyed(fn () => $this->{$method}());
-            }
-        }
-
         return $uses;
     }
 

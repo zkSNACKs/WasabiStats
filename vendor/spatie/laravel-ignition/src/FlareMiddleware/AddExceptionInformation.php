@@ -12,8 +12,6 @@ class AddExceptionInformation implements FlareMiddleware
     {
         $throwable = $report->getThrowable();
 
-        $this->addUserDefinedContext($report);
-
         if (! $throwable instanceof QueryException) {
             return $next($report);
         }
@@ -23,28 +21,5 @@ class AddExceptionInformation implements FlareMiddleware
         ]);
 
         return $next($report);
-    }
-
-    private function addUserDefinedContext(Report $report): void
-    {
-        $throwable = $report->getThrowable();
-
-        if ($throwable === null) {
-            return;
-        }
-
-        if (! method_exists($throwable, 'context')) {
-            return;
-        }
-
-        $context = $throwable->context();
-
-        if (! is_array($context)) {
-            return;
-        }
-
-        foreach ($context as $key => $value) {
-            $report->context($key, $value);
-        }
     }
 }

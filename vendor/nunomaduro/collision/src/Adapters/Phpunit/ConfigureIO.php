@@ -25,7 +25,7 @@ final class ConfigureIO
 {
     /**
      * Configures both given input and output with
-     * options from the environment.
+     * options from the enviroment.
      *
      * @throws \ReflectionException
      */

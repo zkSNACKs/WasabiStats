@@ -816,11 +816,9 @@ class Configuration
                 return Readline\GNUReadline::class;
             } elseif (Readline\Libedit::isSupported()) {
                 return Readline\Libedit::class;
+            } elseif (Readline\HoaConsole::isSupported()) {
+                return Readline\HoaConsole::class;
             }
-        }
-
-        if (Readline\Userland::isSupported()) {
-            return Readline\Userland::class;
         }
 
         return Readline\Transient::class;
@@ -1208,7 +1206,7 @@ class Configuration
                 $this->pager = $pager;
             } elseif ($less = \exec('which less 2>/dev/null')) {
                 // check for the presence of less...
-                $this->pager = $less.' -R -F -X';
+                $this->pager = $less.' -R -S -F -X';
             }
         }
 

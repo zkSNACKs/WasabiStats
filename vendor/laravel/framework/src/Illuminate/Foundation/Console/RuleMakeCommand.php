@@ -3,10 +3,8 @@
 namespace Illuminate\Foundation\Console;
 
 use Illuminate\Console\GeneratorCommand;
-use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Input\InputOption;
 
-#[AsCommand(name: 'make:rule')]
 class RuleMakeCommand extends GeneratorCommand
 {
     /**
@@ -22,8 +20,6 @@ class RuleMakeCommand extends GeneratorCommand
      * This name is used to identify the command during lazy loading.
      *
      * @var string|null
-     *
-     * @deprecated
      */
     protected static $defaultName = 'make:rule';
 
@@ -65,19 +61,11 @@ class RuleMakeCommand extends GeneratorCommand
      */
     protected function getStub()
     {
-        $stub = '/stubs/rule.stub';
+        $relativePath = '/stubs/rule.stub';
 
-        if ($this->option('invokable')) {
-            $stub = '/stubs/rule.invokable.stub';
-        }
-
-        if ($this->option('implicit') && $this->option('invokable')) {
-            $stub = str_replace('.stub', '.implicit.stub', $stub);
-        }
-
-        return file_exists($customPath = $this->laravel->basePath(trim($stub, '/')))
+        return file_exists($customPath = $this->laravel->basePath(trim($relativePath, '/')))
             ? $customPath
-            : __DIR__.$stub;
+            : __DIR__.$relativePath;
     }
 
     /**
@@ -100,7 +88,6 @@ class RuleMakeCommand extends GeneratorCommand
     {
         return [
             ['implicit', 'i', InputOption::VALUE_NONE, 'Generate an implicit rule.'],
-            ['invokable', null, InputOption::VALUE_NONE, 'Generate a single method, invokable rule class.'],
         ];
     }
 }

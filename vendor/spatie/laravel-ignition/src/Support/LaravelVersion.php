@@ -6,6 +6,6 @@ class LaravelVersion
 {
     public static function major(): string
     {
-        return explode('.', app()->version())[0];
+        return substr(app()->version(), 0, 1);
     }
 }

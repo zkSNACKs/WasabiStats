@@ -13,7 +13,7 @@ class Pipeline implements PipelineContract
     /**
      * The container implementation.
      *
-     * @var \Illuminate\Contracts\Container\Container|null
+     * @var \Illuminate\Contracts\Container\Container
      */
     protected $container;
 

@@ -15,14 +15,6 @@ use Egulias\EmailValidator\Result\ValidEmail;
 
 class  FoldingWhiteSpace extends PartParser
 {
-    const FWS_TYPES = [
-        EmailLexer::S_SP,
-        EmailLexer::S_HTAB,
-        EmailLexer::S_CR,
-        EmailLexer::S_LF,
-        EmailLexer::CRLF
-    ];
-
     public function parse() : Result
     {
         if (!$this->isFWS()) {
@@ -81,6 +73,10 @@ class  FoldingWhiteSpace extends PartParser
             return false;
         }
 
-        return in_array($this->lexer->token['type'], self::FWS_TYPES);
+        return $this->lexer->token['type'] === EmailLexer::S_SP ||
+            $this->lexer->token['type'] === EmailLexer::S_HTAB ||
+            $this->lexer->token['type'] === EmailLexer::S_CR ||
+            $this->lexer->token['type'] === EmailLexer::S_LF ||
+            $this->lexer->token['type'] === EmailLexer::CRLF;
     }
 }

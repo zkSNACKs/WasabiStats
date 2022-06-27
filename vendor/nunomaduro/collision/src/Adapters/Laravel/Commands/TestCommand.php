@@ -34,7 +34,6 @@ class TestCommand extends Command
         {--min= : Indicates the minimum threshold enforcement for code coverage}
         {--p|parallel : Indicates if the tests should run in parallel}
         {--recreate-databases : Indicates if the test databases should be re-created}
-        {--drop-databases : Indicates if the test databases should be dropped}
     ';
 
     /**
@@ -239,8 +238,7 @@ class TestCommand extends Command
                 && !Str::startsWith($option, '--min')
                 && !Str::startsWith($option, '-p')
                 && !Str::startsWith($option, '--parallel')
-                && !Str::startsWith($option, '--recreate-databases')
-                && !Str::startsWith($option, '--drop-databases');
+                && !Str::startsWith($option, '--recreate-databases');
         }));
 
         if (!file_exists($file = base_path('phpunit.xml'))) {
@@ -273,7 +271,6 @@ class TestCommand extends Command
         return [
             'LARAVEL_PARALLEL_TESTING'                    => 1,
             'LARAVEL_PARALLEL_TESTING_RECREATE_DATABASES' => $this->option('recreate-databases'),
-            'LARAVEL_PARALLEL_TESTING_DROP_DATABASES' => $this->option('drop-databases'),
         ];
     }
 

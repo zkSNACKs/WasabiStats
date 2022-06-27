@@ -62,15 +62,15 @@ class PostgresBuilder extends Builder
     {
         $tables = [];
 
-        $excludedTables = $this->grammar->escapeNames(
-            $this->connection->getConfig('dont_drop') ?? ['spatial_ref_sys']
-        );
+        $excludedTables = $this->connection->getConfig('dont_drop') ?? ['spatial_ref_sys'];
 
         foreach ($this->getAllTables() as $row) {
             $row = (array) $row;
 
-            if (empty(array_intersect($this->grammar->escapeNames($row), $excludedTables))) {
-                $tables[] = $row['qualifiedname'] ?? reset($row);
+            $table = reset($row);
+
+            if (! in_array($table, $excludedTables)) {
+                $tables[] = $table;
             }
         }
 
@@ -95,7 +95,7 @@ class PostgresBuilder extends Builder
         foreach ($this->getAllViews() as $row) {
             $row = (array) $row;
 
-            $views[] = $row['qualifiedname'] ?? reset($row);
+            $views[] = reset($row);
         }
 
         if (empty($views)) {
@@ -239,10 +239,14 @@ class PostgresBuilder extends Builder
      */
     protected function parseSearchPath($searchPath)
     {
-        return array_map(function ($schema) {
-            return $schema === '$user'
+        $searchPath = $this->baseParseSearchPath($searchPath);
+
+        array_walk($searchPath, function (&$schema) {
+            $schema = $schema === '$user'
                 ? $this->connection->getConfig('username')
                 : $schema;
-        }, $this->baseParseSearchPath($searchPath));
+        });
+
+        return $searchPath;
     }
 }

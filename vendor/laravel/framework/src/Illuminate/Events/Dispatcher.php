@@ -147,7 +147,7 @@ class Dispatcher implements DispatcherContract
      * Register an event and payload to be fired later.
      *
      * @param  string  $event
-     * @param  object|array  $payload
+     * @param  array  $payload
      * @return void
      */
     public function push($event, $payload = [])

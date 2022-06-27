@@ -18,8 +18,12 @@ trait ParsesSearchPath
             $searchPath = $matches[0];
         }
 
-        return array_map(function ($schema) {
-            return trim($schema, '\'"');
-        }, $searchPath ?? []);
+        $searchPath ??= [];
+
+        array_walk($searchPath, static function (&$schema) {
+            $schema = trim($schema, '\'"');
+        });
+
+        return $searchPath;
     }
 }

@@ -3,10 +3,8 @@
 namespace Illuminate\Notifications\Messages;
 
 use Illuminate\Container\Container;
-use Illuminate\Contracts\Mail\Attachable;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Mail\Attachment;
 use Illuminate\Mail\Markdown;
 use Illuminate\Support\Traits\Conditionable;
 
@@ -243,20 +241,12 @@ class MailMessage extends SimpleMessage implements Renderable
     /**
      * Attach a file to the message.
      *
-     * @param  string|\Illuminate\Contracts\Mail\Attachable  $file
+     * @param  string  $file
      * @param  array  $options
      * @return $this
      */
     public function attach($file, array $options = [])
     {
-        if ($file instanceof Attachable) {
-            $file = $file->toMailAttachment();
-        }
-
-        if ($file instanceof Attachment) {
-            return $file->attachTo($this);
-        }
-
         $this->attachments[] = compact('file', 'options');
 
         return $this;

@@ -4,12 +4,9 @@ namespace Illuminate\Support;
 
 use Carbon\Carbon as BaseCarbon;
 use Carbon\CarbonImmutable as BaseCarbonImmutable;
-use Illuminate\Support\Traits\Conditionable;
 
 class Carbon extends BaseCarbon
 {
-    use Conditionable;
-
     /**
      * {@inheritdoc}
      */

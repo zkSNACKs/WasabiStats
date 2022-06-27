@@ -75,7 +75,7 @@ class GitHubChecker implements Checker
         $context = \stream_context_create([
             'http' => [
                 'user_agent' => 'PsySH/'.Shell::VERSION,
-                'timeout'    => 1.0,
+                'timeout'    => 3,
             ],
         ]);
 

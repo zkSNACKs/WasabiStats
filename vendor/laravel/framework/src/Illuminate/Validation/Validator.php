@@ -231,7 +231,6 @@ class Validator implements ValidatorContract
         'Different',
         'ExcludeIf',
         'ExcludeUnless',
-        'ExcludeWith',
         'ExcludeWithout',
         'Gt',
         'Gte',
@@ -258,7 +257,7 @@ class Validator implements ValidatorContract
      *
      * @var string[]
      */
-    protected $excludeRules = ['Exclude', 'ExcludeIf', 'ExcludeUnless', 'ExcludeWith', 'ExcludeWithout'];
+    protected $excludeRules = ['Exclude', 'ExcludeIf', 'ExcludeUnless', 'ExcludeWithout'];
 
     /**
      * The size related validation rules.
@@ -381,7 +380,9 @@ class Validator implements ValidatorContract
      */
     public function after($callback)
     {
-        $this->after[] = fn () => $callback($this);
+        $this->after[] = function () use ($callback) {
+            return $callback($this);
+        };
 
         return $this;
     }
@@ -816,11 +817,9 @@ class Validator implements ValidatorContract
 
             $messages = $messages ? (array) $messages : [get_class($rule)];
 
-            foreach ($messages as $key => $message) {
-                $key = is_string($key) ? $key : $attribute;
-
-                $this->messages->add($key, $this->makeReplacements(
-                    $message, $key, get_class($rule), []
+            foreach ($messages as $message) {
+                $this->messages->add($attribute, $this->makeReplacements(
+                    $message, $attribute, get_class($rule), []
                 ));
             }
         }
@@ -867,8 +866,6 @@ class Validator implements ValidatorContract
             $this->passes();
         }
 
-        $attributeWithPlaceholders = $attribute;
-
         $attribute = str_replace(
             [$this->dotPlaceholder, '__asterisk__'],
             ['.', '*'],
@@ -880,7 +877,7 @@ class Validator implements ValidatorContract
         }
 
         $this->messages->add($attribute, $this->makeReplacements(
-            $this->getMessage($attributeWithPlaceholders, $rule), $attribute, $rule, $parameters
+            $this->getMessage($attribute, $rule), $attribute, $rule, $parameters
         ));
 
         $this->failedRules[$attribute][$rule] = $parameters;

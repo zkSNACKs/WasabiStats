@@ -271,29 +271,12 @@ class ComponentTagCompiler
             return $class;
         }
 
-        $guess = collect($this->blade->getAnonymousComponentNamespaces())
-            ->filter(function ($directory, $prefix) use ($component) {
-                return Str::startsWith($component, $prefix.'::');
-            })
-            ->prepend('components', $component)
-            ->reduce(function ($carry, $directory, $prefix) use ($component, $viewFactory) {
-                if (! is_null($carry)) {
-                    return $carry;
-                }
+        if ($viewFactory->exists($view = $this->guessViewName($component))) {
+            return $view;
+        }
 
-                $componentName = Str::after($component, $prefix.'::');
-
-                if ($viewFactory->exists($view = $this->guessViewName($componentName, $directory))) {
-                    return $view;
-                }
-
-                if ($viewFactory->exists($view = $this->guessViewName($componentName, $directory).'.index')) {
-                    return $view;
-                }
-            });
-
-        if (! is_null($guess)) {
-            return $guess;
+        if ($viewFactory->exists($view = $this->guessViewName($component).'.index')) {
+            return $view;
         }
 
         throw new InvalidArgumentException(
@@ -358,14 +341,11 @@ class ComponentTagCompiler
      * Guess the view name for the given component.
      *
      * @param  string  $name
-     * @param  string  $prefix
      * @return string
      */
-    public function guessViewName($name, $prefix = 'components.')
+    public function guessViewName($name)
     {
-        if (! Str::endsWith($prefix, '.')) {
-            $prefix .= '.';
-        }
+        $prefix = 'components.';
 
         $delimiter = ViewFinderInterface::HINT_PATH_DELIMITER;
 
@@ -426,7 +406,7 @@ class ComponentTagCompiler
             <
                 \s*
                 x[\-\:]slot
-                (?:\:(?<inlineName>\w+(?:-\w+)*))?
+                (?:\:(?<inlineName>\w+))?
                 (?:\s+(:?)name=(?<name>(\"[^\"]+\"|\\\'[^\\\']+\\\'|[^\s>]+)))?
                 (?<attributes>
                     (?:
@@ -459,10 +439,6 @@ class ComponentTagCompiler
 
         $value = preg_replace_callback($pattern, function ($matches) {
             $name = $this->stripQuotes($matches['inlineName'] ?: $matches['name']);
-
-            if (Str::contains($name, '-')) {
-                $name = Str::camel($name);
-            }
 
             if ($matches[2] !== ':') {
                 $name = "'{$name}'";
