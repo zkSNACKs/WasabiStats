@@ -536,6 +536,7 @@
                     beginAtZero: true,
                 },
                 x: {
+                    display:false,
                     grid:{
                         color:'rgba(255,255,255,1)',
                         lineWidth:0.2
