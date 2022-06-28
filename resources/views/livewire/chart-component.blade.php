@@ -506,6 +506,7 @@
             }]
         },
         options: {
+            responsive: true,
             plugins:{
                 tooltip: {
                 callbacks: {
