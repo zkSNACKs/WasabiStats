@@ -1,5 +1,5 @@
 <div class="humanmonitor my-4 text-light">
-    <p>Coinjoin lobbies</p>
+    <p>Coinjoin main net lobbies</p>
     <div class="row">
         @if ($humanMonitor)
             @foreach ($humanMonitor as $key => $item)

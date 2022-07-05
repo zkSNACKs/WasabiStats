@@ -12,13 +12,13 @@ class HumanMonitor extends Component
     public function render()
     {
         try {
-            $humanMonitor = Http::get('https://wasabiwallet.io/WabiSabi/human-monitor')->json()['roundStates'];
+            $cjTest = Http::get('https://wasabiwallet.co/WabiSabi/human-monitor')->json()['roundStates'];
             $nodata = null;
         } catch (\Exception $th) {
             $nodata = 'No data from server!';
-            $humanMonitor = null;
+            $cjTest = null;
         }
 
-        return view('livewire.human-monitor',['humanMonitor' => $humanMonitor,'nodata' => $nodata]);
+        return view('livewire.cj-test',['cjTest' => $cjTest,'nodata' => $nodata]);
     }
 }
