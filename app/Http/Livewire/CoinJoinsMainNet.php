@@ -5,9 +5,9 @@ namespace App\Http\Livewire;
 use Illuminate\Support\Facades\Http;
 use Livewire\Component;
 
-class HumanMonitor extends Component
+class CJMain extends Component
 {
-    protected $listeners = ['refreshHumanMonitorComponent' => '$refresh'];
+    protected $listeners = ['refreshCJMainComponent' => '$refresh'];
 
     public function render()
     {
