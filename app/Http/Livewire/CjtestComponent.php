@@ -5,7 +5,7 @@ namespace App\Http\Livewire;
 use Illuminate\Support\Facades\Http;
 use Livewire\Component;
 
-class CoinJoinsTestNet extends Component
+class CjtestComponent extends Component
 {
     protected $listeners = ['refreshCoinJoinsTestNetComponent' => '$refresh'];
 
@@ -19,6 +19,6 @@ class CoinJoinsTestNet extends Component
             $cjTest = null;
         }
 
-        return view('livewire.cj-test',['cjTest' => $cjTest,'nodata' => $nodata]);
+        return view('livewire.cjtest-component',['cjTest' => $cjTest,'nodata' => $nodata]);
     }
 }

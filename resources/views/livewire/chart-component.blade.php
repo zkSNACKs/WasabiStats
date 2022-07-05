@@ -32,8 +32,8 @@
         </div>
     </div>
     <div class="statuses mx-4 mt-5">
-        @livewire('cj-main')
-        @livewire('cj-test')
+        @livewire('cjmain-component')
+        @livewire('cjtest-component')
         <div class="row">
             <div class="col-md-3">
                 @livewire('cloud-flare-stat')
