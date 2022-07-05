@@ -1,5 +1,7 @@
 :root {
     --green: #77C600;
+    --orange: rgb(255, 119, 0);
+    --pink: rgba(255, 0, 103);
 }
 * {
     margin: 0;
@@ -23,6 +25,15 @@ header {
 }
 .text-small {
     font-size: 14px;
+}
+.text-green {
+    color: var(--green);
+}
+.text-orange {
+    color: var(--orange);
+}
+.text-pink {
+    color: var(--pink);
 }
 .form-control, .form-select {
     border-radius: 0;

@@ -5,12 +5,12 @@
             @foreach ($cjMain as $key => $item)
                 <div class="col-md-3 mb-3">
                     <div class="feature-box">
-                        <p class="mb-0"><strong>roundId:</strong> {{$item['roundId']}}</p>
-                        <p class="mb-0"><strong>isBlameRound:</strong> {{$item['isBlameRound']}}</p>
-                        <p class="mb-0"><strong>inputCount:</strong> {{$item['inputCount']}}</p>
-                        <p class="mb-0"><strong>maxSuggestedAmount:</strong> {{$item['maxSuggestedAmount']}}</p>
-                        <p class="mb-0"><strong>inputRegistrationRemaining:</strong> {{$item['inputRegistrationRemaining']}}</p>
-                        <p><strong>phase:</strong> {{$item['phase']}}</p>
+                        <p class="mb-0"><strong>roundId:</strong> <span class="text-green">{{$item['roundId']}}</span></p>
+                        <p class="mb-0"><strong>isBlameRound:</strong> <span class="text-pink">{{$item['isBlameRound']}}</span></p>
+                        <p class="mb-0"><strong>inputCount:</strong> <span class="text-orange">{{$item['inputCount']}}</p>
+                        <p class="mb-0"><strong>maxSuggestedAmount:</strong> <span class="text-orange">{{$item['maxSuggestedAmount']}}</span></p>
+                        <p class="mb-0"><strong>inputRegistrationRemaining:</strong> <span class="text-green">{{$item['inputRegistrationRemaining']}}</span></p>
+                        <p><strong>phase:</strong> <span class="text-green">{{$item['phase']}}</span></p>
                     </div>
                 </div>
             @endforeach
