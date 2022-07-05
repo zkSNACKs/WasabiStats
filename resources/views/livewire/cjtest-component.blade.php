@@ -19,4 +19,5 @@
             {{$nodata}}
         @endif
     </div>
+
 </div>

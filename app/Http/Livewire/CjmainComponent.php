@@ -18,7 +18,6 @@ class CjmainComponent extends Component
             $nodata = 'No data from server!';
             $cjMain = null;
         }
-
         return view('livewire.cjmain-component',['cjMain' => $cjMain,'nodata' => $nodata]);
     }
 }

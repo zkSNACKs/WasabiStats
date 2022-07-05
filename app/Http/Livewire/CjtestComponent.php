@@ -18,7 +18,6 @@ class CjtestComponent extends Component
             $nodata = 'No data from server!';
             $cjTest = null;
         }
-
         return view('livewire.cjtest-component',['cjTest' => $cjTest,'nodata' => $nodata]);
     }
 }
