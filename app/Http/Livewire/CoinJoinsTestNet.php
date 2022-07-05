@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class CJTest extends Component
 {
-    protected $listeners = ['refreshCjTestComponent' => '$refresh'];
+    protected $listeners = ['refreshCJTestComponent' => '$refresh'];
 
     public function render()
     {
