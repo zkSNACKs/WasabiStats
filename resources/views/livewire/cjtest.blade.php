@@ -1,8 +1,8 @@
 <div class="humanmonitor my-4 text-light">
     <p>Coinjoin test net lobbies</p>
     <div class="row">
-        @if ($humanMonitor)
-            @foreach ($humanMonitor as $key => $item)
+        @if ($cjTest)
+            @foreach ($cjTest as $key => $item)
                 <div class="col-md-3 mb-3">
                     <div class="feature-box">
                         <p class="mb-0"><strong>roundId:</strong> {{$item['roundId']}}</p>
