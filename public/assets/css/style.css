@@ -1,7 +1,8 @@
 :root {
     --green: #77C600;
-    --orange: rgb(255, 119, 0);
-    --pink: rgba(255, 0, 103);
+    --orange: #ffab4a;
+    --pink: #f22c58;
+    --light-blue: #19f9d8;
 }
 * {
     margin: 0;
@@ -28,6 +29,9 @@ header {
 }
 .text-green {
     color: var(--green);
+}
+.text-blue {
+    color: var(--light-blue);
 }
 .text-orange {
     color: var(--orange);
