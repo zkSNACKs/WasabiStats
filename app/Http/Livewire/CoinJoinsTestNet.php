@@ -5,9 +5,9 @@ namespace App\Http\Livewire;
 use Illuminate\Support\Facades\Http;
 use Livewire\Component;
 
-class CJTest extends Component
+class CoinJoinsTestNet extends Component
 {
-    protected $listeners = ['refreshCJTestComponent' => '$refresh'];
+    protected $listeners = ['refreshCoinJoinsTestNetComponent' => '$refresh'];
 
     public function render()
     {

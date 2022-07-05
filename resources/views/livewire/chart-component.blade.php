@@ -73,12 +73,12 @@
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-trendline"></script>
 <script>
     setInterval(() => {
-        Livewire.emit('refreshCJMainComponent')
+        Livewire.emit('refreshCoinJoinsMainNetComponent')
     }, 1000);
 </script>
 <script>
     setInterval(() => {
-        Livewire.emit('refreshCJTestComponent')
+        Livewire.emit('refreshCoinJoinsTestNetComponent')
     }, 1000);
 </script>
 <script>
