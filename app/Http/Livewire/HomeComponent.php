@@ -6,6 +6,7 @@ use App\Models\CategoryCount;
 use App\Models\File;
 use App\Models\FileCategory;
 use App\Models\FileCount;
+use App\Models\Settings;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
@@ -23,10 +24,18 @@ class HomeComponent extends Component
 
     public function mount()
     {
+        $setting = Settings::find(1);
         /*Set the default data show. to see the main page comment out the return row. */
         $fromdate = date(Carbon::now()->addMonths(-1)->format('Y-m-d'));
         $todate = date(Carbon::now()->format('Y-m-d'));
-        return redirect(route('search',['id'=>38, 'from_date'=>$fromdate, 'to_date'=>$todate]));
+        if (!$setting->version_id) {
+            $id = 38;
+        }
+        else {
+            $id = $setting->version_id;
+        }
+
+        return redirect(route('search',['id'=>$id, 'from_date'=>$fromdate, 'to_date'=>$todate]));
     }
 
     public function storeData(){

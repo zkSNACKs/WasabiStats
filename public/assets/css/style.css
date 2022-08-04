@@ -98,3 +98,9 @@ select option {
     word-break: break-all;
     font-size: 14px;
 }
+.setting {
+    color: #fff;
+}
+.setting-form {
+    display: flex;
+}

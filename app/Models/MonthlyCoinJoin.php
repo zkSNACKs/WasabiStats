@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class MonthlyCoinJoin extends Model
 {
     use HasFactory;
+    protected $table = 'monthly_coin_joins';
 }
