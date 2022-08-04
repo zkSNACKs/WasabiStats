@@ -26,7 +26,7 @@ class HomeComponent extends Component
         /*Set the default data show. to see the main page comment out the return row. */
         $fromdate = date(Carbon::now()->addMonths(-1)->format('Y-m-d'));
         $todate = date(Carbon::now()->format('Y-m-d'));
-        return redirect(route('search',['id'=>36, 'from_date'=>$fromdate, 'to_date'=>$todate]));
+        return redirect(route('search',['id'=>38, 'from_date'=>$fromdate, 'to_date'=>$todate]));
     }
 
     public function storeData(){

@@ -1,7 +1,7 @@
 :root {
     --green: #77C600;
-    --orange: #ffab4a;
-    --pink: #f22c58;
+    --orange: rgb(255, 119, 0);
+    --pink: rgba(255, 0, 103);
     --light-blue: #19f9d8;
 }
 * {
