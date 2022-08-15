@@ -29,7 +29,7 @@ class HomeComponent extends Component
         $fromdate = date(Carbon::now()->addMonths(-1)->format('Y-m-d'));
         $todate = date(Carbon::now()->format('Y-m-d'));
         if (!$setting->version_id) {
-            $id = 38;
+            $id = 39;
         }
         else {
             $id = $setting->version_id;
