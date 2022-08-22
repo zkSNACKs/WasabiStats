@@ -3,7 +3,7 @@
     <div class="row">
         @if ($cjMain)
             @foreach ($cjMain as $key => $item)
-                <div class="col col-xl-3 mb-3">
+                <div class="col-6 col-sm col-xl-3 mb-3">
                     <div class="feature-box">
                         <p class="mb-0"><strong>roundId:</strong> <span class="text-blue">{{$item['roundId']}}</span></p>
                         <p class="mb-0"><strong>isBlameRound:</strong> <span class="text-pink">{{$item['isBlameRound']? 'true':'false'}}</span></p>
