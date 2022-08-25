@@ -566,7 +566,7 @@
 <script>
     const ctxstackedbar = document.getElementById('myStackedBarChart').getContext('2d');
     var daydata = @json($stackeddaydata);
-    var weekdata = @json($stackedweekdata);
+    var weekdata = @json($stackedweekdatashow);
     const myStackedBarChart = new Chart(ctxstackedbar, {
         type: 'bar',
         data: {

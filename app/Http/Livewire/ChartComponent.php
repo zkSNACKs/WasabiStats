@@ -43,6 +43,7 @@ class ChartComponent extends Component
     public $barpublished = [];
     public $stackeddaydata = [];
     public $stackedweekdata = [];
+    public $stackedweekdatashow = [];
     public $stackedname = [];
     public $stackedpublished = [];
 
@@ -121,7 +122,9 @@ class ChartComponent extends Component
                 array_push($this->barpublished,$value->categories->published_at);
             }
             $firstdate = CategoryCount::first()->downloaded_at;
-            $ids = FileCategory::where('published_at','>=',$firstdate)->get();
+            $ids = FileCategory::where('published_at','>=',$firstdate)
+                ->where('name', 'NOT LIKE', "%TestNet%")
+                ->get();
             foreach($ids as $id)
             {
                 $downloads = CategoryCount::where('category_id',$id->id)->orderBy('downloaded_at','ASC')->take(7)->get();
@@ -129,6 +132,7 @@ class ChartComponent extends Component
                 array_push($this->stackedpublished,$downloads[0]->categories->published_at);
                 array_push($this->stackeddaydata,$downloads[0]->total_count);
                 array_push($this->stackedweekdata,$downloads[count($downloads)-1]->total_count);
+                array_push($this->stackedweekdatashow,($downloads[count($downloads)-1]->total_count)-$downloads[0]->total_count);
             }
             /* $freshcoins = FreshCoin::all();
             foreach ($freshcoins as $key => $freshcoin) {
