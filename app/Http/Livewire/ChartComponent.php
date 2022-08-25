@@ -116,10 +116,14 @@ class ChartComponent extends Component
                 ->where('downloaded_at',$downloadeddate)
                 ->get()
                 ->sortBy('categories.published_at',SORT_REGULAR,false);
+
             foreach ($totaldownloads as $key => $value) {
-                array_push($this->bardata,$value->total_count);
-                array_push($this->barname,$value->categories->name);
-                array_push($this->barpublished,$value->categories->published_at);
+                if(!str_contains($value->categories->name, 'TestNet'))
+                {
+                    array_push($this->bardata,$value->total_count);
+                    array_push($this->barname,$value->categories->name);
+                    array_push($this->barpublished,$value->categories->published_at);
+                }
             }
             $firstdate = CategoryCount::first()->downloaded_at;
             $ids = FileCategory::where('published_at','>=',$firstdate)
