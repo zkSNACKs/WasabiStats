@@ -41,6 +41,10 @@ class ChartComponent extends Component
     public $bardata = [];
     public $barname = [];
     public $barpublished = [];
+    public $stackeddaydata = [];
+    public $stackedweekdata = [];
+    public $stackedname = [];
+    public $stackedpublished = [];
 
     public function mount($id=4, $from_date, $to_date){
 
@@ -66,8 +70,6 @@ class ChartComponent extends Component
             {
                 $downloadeddate = Carbon::now()->addDays(-1)->format('Y-m-d');
                 $counts = FileCount::where('file_id',$file->id)
-                    //->whereBetween('downloaded_at', [date($this->from_date), date($this->to_date)])
-                    //->where('downloaded_at',$downloadeddate)
                     ->orderBy('downloaded_at','DESC')
                     ->get();
                 $name = $counts[0]->files->os;
@@ -91,7 +93,6 @@ class ChartComponent extends Component
                         }
                     }
                 }
-
             }
             $totalpiedata = 0;
             foreach($this->piedata as $data)
@@ -118,6 +119,16 @@ class ChartComponent extends Component
                 array_push($this->bardata,$value->total_count);
                 array_push($this->barname,$value->categories->name);
                 array_push($this->barpublished,$value->categories->published_at);
+            }
+            $firstdate = CategoryCount::first()->downloaded_at;
+            $ids = FileCategory::where('published_at','>=',$firstdate)->get();
+            foreach($ids as $id)
+            {
+                $downloads = CategoryCount::where('category_id',$id->id)->orderBy('downloaded_at','ASC')->take(7)->get();
+                array_push($this->stackedname,$downloads[0]->categories->name);
+                array_push($this->stackedpublished,$downloads[0]->categories->published_at);
+                array_push($this->stackeddaydata,$downloads[0]->total_count);
+                array_push($this->stackedweekdata,$downloads[count($downloads)-1]->total_count);
             }
             /* $freshcoins = FreshCoin::all();
             foreach ($freshcoins as $key => $freshcoin) {

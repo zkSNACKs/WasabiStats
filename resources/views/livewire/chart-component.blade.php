@@ -31,6 +31,13 @@
             </div>
         </div>
     </div>
+    <div class="container-fluid mt-5">
+        <div class="row">
+            <div class="col-12">
+                <canvas id="myStackedBarChart"></canvas>
+            </div>
+        </div>
+    </div>
     <div class="statuses mx-4 mt-5">
         @livewire('cjmain-component')
         @livewire('cjtest-component')
@@ -542,6 +549,116 @@
                     beginAtZero: true,
                 },
                 x: {
+                    display:false,
+                    grid:{
+                        color:'rgba(255,255,255,1)',
+                        lineWidth:0.2
+                    },
+                    ticks: {
+                        color: 'white'
+                    },
+                    beginAtZero: true,
+                }
+            }
+        },
+    });
+</script>
+<script>
+    const ctxstackedbar = document.getElementById('myStackedBarChart').getContext('2d');
+    var daydata = @json($stackeddaydata);
+    var weekdata = @json($stackedweekdata);
+    const myStackedBarChart = new Chart(ctxstackedbar, {
+        type: 'bar',
+        data: {
+            labels: @json($stackedname),
+            datasets: [{
+                label: '1st day data',
+                data:daydata,
+                fontColor:['white','black'],
+                backgroundColor: [
+                    //'rgba(255, 99, 132, 0.2)',
+                    'rgba(119, 198, 0, 0.2)',
+                    /*'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'*/
+                ],
+                borderColor: [
+                    //'rgba(255, 99, 132, 1)',
+                    'rgba(119, 198, 0, 1)',
+                    /*'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'*/
+                ],
+                trendlineLinear: {
+	            	style: "rgba(119,198,0, 1)",
+	            	lineStyle: "solid",
+	            	width: 1,
+	            },
+                borderWidth: 2
+            },{
+                label: '1st week data',
+                data:weekdata,
+                fontColor:['white','black'],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    //'rgba(119, 198, 0, 0.2)',
+                    /*'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'*/
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    //'rgba(119, 198, 0, 1)',
+                    /*'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'*/
+                ],
+                trendlineLinear: {
+	            	style: "rgba(255,105,180, .8)",
+	            	lineStyle: "solid",
+	            	width: 1,
+	            },
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins:{
+                tooltip: {
+                callbacks: {
+                    label: function(tooltipItem) {
+                        let daylabel =  ['Download 1st day: '+ @json($stackeddaydata)[tooltipItem.dataIndex]
+                        , 'Download 1st week: '+ @json($stackedweekdata)[tooltipItem.dataIndex]
+                        , 'Published: '
+                        + @json($stackedpublished)[tooltipItem.dataIndex]]
+                        return daylabel;
+                    }
+                }
+            },
+                legend: {
+                  labels: {
+                     color: 'white'
+                  },
+                }
+            },
+            scales: {
+                y: {
+                    stacked: true,
+                    grid:{
+                        color:'rgba(255,255,255,1)',
+                        lineWidth:0.2
+                    },
+                    ticks: {
+                        color: 'white'
+                    },
+                    beginAtZero: true,
+                },
+                x: {
+                    stacked: true,
                     display:false,
                     grid:{
                         color:'rgba(255,255,255,1)',
