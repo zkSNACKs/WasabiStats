@@ -125,19 +125,27 @@ class ChartComponent extends Component
                     array_push($this->barpublished,$value->categories->published_at);
                 }
             }
+
             $firstdate = CategoryCount::first()->downloaded_at;
-            $ids = FileCategory::where('published_at','>=',$firstdate)
+            $categoryCounts = FileCategory::with('count')->where('published_at','>=',$firstdate)
                 ->where('name', 'NOT LIKE', "%TestNet%")
                 ->get();
-            foreach($ids as $id)
+            foreach($categoryCounts as $count)
             {
-                $downloads = CategoryCount::where('category_id',$id->id)->orderBy('downloaded_at','ASC')->take(7)->get();
-                array_push($this->stackedname,$downloads[0]->categories->name);
-                array_push($this->stackedpublished,$downloads[0]->categories->published_at);
-                array_push($this->stackeddaydata,$downloads[0]->total_count);
-                array_push($this->stackedweekdata,$downloads[count($downloads)-1]->total_count);
-                array_push($this->stackedweekdatashow,($downloads[count($downloads)-1]->total_count)-$downloads[0]->total_count);
+                array_push($this->stackedname,$count->count[0]->categories->name);
+                array_push($this->stackedpublished,$count->count[0]->categories->published_at);
+                array_push($this->stackeddaydata,$count->count[0]->total_count);
+                if(isset($count->count[6]))
+                {
+                    array_push($this->stackedweekdata,$count->count[6]->total_count);
+                    array_push($this->stackedweekdatashow,($count->count[6]->total_count)-$count->count[0]->total_count);
+                }
+                else {
+                    array_push($this->stackedweekdata,$count->count[count($count->count)-1]->total_count);
+                    array_push($this->stackedweekdatashow,($count->count[count($count->count)-1]->total_count)-$count->count[0]->total_count);
+                }
             }
+
             /* $freshcoins = FreshCoin::all();
             foreach ($freshcoins as $key => $freshcoin) {
                 array_push($this->freshdate,$freshcoin->date);
