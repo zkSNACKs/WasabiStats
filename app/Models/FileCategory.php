@@ -15,4 +15,7 @@ class FileCategory extends Model
     public function files(){
         return $this->hasMany(File::class);
     }
+    public function count(){
+        return $this->hasMany(CategoryCount::class,'category_id','id');
+    }
 }
