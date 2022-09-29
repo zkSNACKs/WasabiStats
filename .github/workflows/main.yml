@@ -9,11 +9,12 @@ jobs:
       uses: actions/checkout@v2
 
     - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@2.0.0
+      uses: SamKirkland/FTP-Deploy-Action@4.3.2
       with:
         server: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         server-dir: ./wasabistats.creativeagent.hu/
-        method: sftp
+        protocol: ftps
         port: 21
+        timeout: 600000
