@@ -28,12 +28,16 @@ class HomeComponent extends Component
         /*Set the default data show. to see the main page comment out the return row. */
         $fromdate = date(Carbon::now()->addMonths(-1)->format('Y-m-d'));
         $todate = date(Carbon::now()->format('Y-m-d'));
+        /*
         if (!$setting->version_id) {
             $id = 39;
         }
         else {
             $id = $setting->version_id;
         }
+        */
+        //default id
+        $id = 39;
 
         return redirect(route('search',['id'=>$id, 'from_date'=>$fromdate, 'to_date'=>$todate]));
     }
@@ -135,7 +139,7 @@ class HomeComponent extends Component
                 $categorycount->downloaded_at = $date;
                 $categorycount->save();
             DB::commit();
-            session()->flash('message',' Sikeresen letöltve!');
+            session()->flash('message',' Successful download!');
         }
 
     }
