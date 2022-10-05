@@ -15,6 +15,6 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         server-dir: ./wasabistats.creativeagent.hu/
-        protocol: ftps
+        protocol: sftp
         port: 21
         timeout: 600000
