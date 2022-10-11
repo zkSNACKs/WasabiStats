@@ -14,5 +14,3 @@ jobs:
         server: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
-        server-dir: ./wasabistats.creativeagent.hu/
-        timeout: 600000
