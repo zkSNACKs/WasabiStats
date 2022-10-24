@@ -20,3 +20,4 @@ jobs:
           **/node_modules/**
           **/.idea*
           **/.idea*/**
+        timeout: 180000
