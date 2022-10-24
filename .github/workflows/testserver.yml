@@ -14,3 +14,9 @@ jobs:
         server: ${{ secrets.HOST2 }}
         username: ${{ secrets.USERNAME2 }}
         password: ${{ secrets.PASSWORD2 }}
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+          **/.idea*
+          **/.idea*/**
