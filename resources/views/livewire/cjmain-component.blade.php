@@ -5,12 +5,20 @@
             @foreach ($cjMain as $key => $item)
                 <div class="col-6 col-sm col-xl-3 mb-3">
                     <div class="feature-box">
-                        <p class="mb-0"><strong>roundId:</strong> <span class="text-blue">{{$item['roundId']}}</span></p>
-                        <p class="mb-0"><strong>isBlameRound:</strong> <span class="text-pink">{{$item['isBlameRound']? 'true':'false'}}</span></p>
-                        <p class="mb-0"><strong>inputCount:</strong> <span class="text-orange">{{$item['inputCount']}}</p>
-                        <p class="mb-0"><strong>maxSuggestedAmount:</strong> <span class="text-orange">{{$item['maxSuggestedAmount']}}</span></p>
-                        <p class="mb-0"><strong>inputRegistrationRemaining:</strong> <span class="text-blue">{{$item['inputRegistrationRemaining']}}</span></p>
-                        <p><strong>phase:</strong> <span class="text-blue">{{$item['phase']}}</span></p>
+                        <p class="mb-0"><strong>Round ID:</strong> <span class="text-blue">{{$item['roundId']}}</span></p>
+                        <p class="mb-0">
+                        @if($item['isBlameRound'])
+                            <span class="text-pink">Blame round</span>
+                        @else
+                            <span class="text-pink">New round</span>
+                        @endif
+                        </p>
+                        <p class="mb-0"><strong>Input count:</strong> <span class="text-orange">{{$item['inputCount']}}</p>
+                        <p class="mb-0"><strong>Max suggested amount:</strong> <span class="text-orange">{{$item['maxSuggestedAmount']}}</span></p>
+                        @if ($item['phase'] === 'InputRegistration')
+                            <p class="mb-0"><strong>Next phase in:</strong> <span class="text-blue">{{$item['inputRegistrationRemaining']}}</span></p>
+                        @endif
+                        <p><strong>Phase:</strong> <span class="text-blue">{{$item['phase']}}</span></p>
                     </div>
                 </div>
             @endforeach
