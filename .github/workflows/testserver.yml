@@ -1,5 +1,5 @@
 on: push
-name: 🚀 Deploy to test server
+name: 🚀 Deploy to main server
 jobs:
   web-deploy:
     name: 🎉 Deploy
@@ -15,6 +15,7 @@ jobs:
         server: ${{ secrets.HOST2 }}
         username: ${{ secrets.USERNAME2 }}
         password: ${{ secrets.PASSWORD2 }}
+        server-dir: ./wasabistats/
         exclude: |
           **/.git*
           **/.git*/**
