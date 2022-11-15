@@ -1,25 +1,17 @@
 on: push
-name: 🚀 Deploy to main server
+name: 🚀 Deploy website on push
 jobs:
   web-deploy:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
-    timeout-minutes: 180
     steps:
     - name: 🚚 Get latest code
       uses: actions/checkout@v2
 
     - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@4.3.2
+      uses: SamKirkland/FTP-Deploy-Action@4.3.0
       with:
         server: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         server-dir: ./wasabistats.creativeagent.hu/
-        exclude: |
-          **/.git*
-          **/.git*/**
-          **/node_modules/**
-          **/.idea*
-          **/.idea*/**
-        timeout: 180000
