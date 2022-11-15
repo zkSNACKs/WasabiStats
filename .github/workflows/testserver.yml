@@ -1,5 +1,5 @@
 on: push
-name: 🚀 Deploy to main server
+name: 🚀 Deploy to Hostinger
 jobs:
   web-deploy:
     name: 🎉 Deploy
