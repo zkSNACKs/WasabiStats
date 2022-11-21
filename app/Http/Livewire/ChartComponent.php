@@ -109,7 +109,10 @@ class ChartComponent extends Component
             }
             foreach($this->piename as $key => $v)
             {
-                $this->piename[$key] = $v.': '.$this->piedata[$key].'%';
+                if (!str_contains($v,'.wasabisig')) {
+                    $this->piename[$key] = $v.': '.$this->piedata[$key].'%';
+                }
+
             }
 
             $totaldownloads = CategoryCount::with('categories')
