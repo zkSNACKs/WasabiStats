@@ -61,7 +61,7 @@ class DownloadData extends Command
                 );
                 $totalcount = 0;
                 foreach ($resp['assets'] as $value) {
-                    if(!str_contains($value['name'],'.asc'))
+                    if(!str_contains($value['name'],'.asc') && !str_contains($value['name'],'.wasabisig'))
                     {
                         $os = $value['name'];
                         if(str_contains($value['name'],'.deb'))
