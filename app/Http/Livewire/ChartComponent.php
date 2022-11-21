@@ -112,6 +112,9 @@ class ChartComponent extends Component
                 if (!str_contains($v,'.wasabisig')) {
                     $this->piename[$key] = $v.': '.$this->piedata[$key].'%';
                 }
+                if (str_contains($v,'.wasabisig')) {
+                    unset($this->piename[$key]);
+                }
 
             }
 
