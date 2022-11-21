@@ -72,7 +72,7 @@ class HomeComponent extends Component
                 );
                 $totalcount = 0;
                 foreach ($resp['assets'] as $value) {
-                    if(!str_contains($value['name'],'.asc') && !str_contains($value['name'],'SHA256SUMS'))
+                    if(!str_contains($value['name'],'.asc') && !str_contains($value['name'],'.wasabisig'))
                     {
                         $os = $value['name'];
                         if(str_contains($value['name'],'.deb'))
