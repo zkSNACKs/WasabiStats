@@ -25,10 +25,12 @@ class ChartComponent extends Component
     public $piename = [];
     public $freshdate = [];
     public $freshwasabi = [];
+    public $freshwasabi2 = [];
     public $freshsamuri = [];
     public $freshotheri = [];
     public $monthlydate = [];
     public $monthlywasabi = [];
+    public $monthlywasabi2 = [];
     public $monthlysamuri = [];
     public $monthlyotheri = [];
     public $monthlyjoindate = [];
