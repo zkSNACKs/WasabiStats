@@ -267,7 +267,7 @@
                 title: {
                     display: true,
                     text: 'Fresh Bitcoins CoinJoined',
-                    fontColor:['white','black'],
+                    color:'white',
                 },
                 legend: {
                   labels: {
@@ -406,7 +406,7 @@
                 title: {
                     display: true,
                     text: 'Monthly CoinJoin Volumes',
-                    fontColor:['white','black'],
+                    color:'white',
                 },
                 legend: {
                   labels: {
@@ -498,7 +498,8 @@
             plugins:{
                 title: {
                     display: true,
-                    text: 'Monthly CoinJoin Income'
+                    text: 'Monthly CoinJoin Income',
+                    color: 'white'
                 },
                 legend: {
                   labels: {
