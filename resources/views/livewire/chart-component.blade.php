@@ -161,7 +161,7 @@
         },
     });
 </script>
-{{-- <script>
+<script>
     const ctxFresh = document.getElementById('myFreshCoinsChart').getContext('2d');
     var datawasabi = @json($freshwasabi);
     var datawasabi2 = @json($freshwasabi2);
