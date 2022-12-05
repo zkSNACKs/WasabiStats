@@ -47,7 +47,7 @@
             </div>
         </div>
     </div>
-    {{-- @if ($freshdate != [])
+   @if ($freshdate != [])
         <div class="container-fluid mt-5">
             <div class="row">
                 <div class="col-12">
@@ -65,7 +65,7 @@
             </div>
         </div>
     @endif
-    @if ($monthlyjoindate != [])
+    {{-- @if ($monthlyjoindate != [])
         <div class="container-fluid mt-5">
             <div class="row">
                 <div class="col-12">
@@ -164,6 +164,7 @@
 {{-- <script>
     const ctxFresh = document.getElementById('myFreshCoinsChart').getContext('2d');
     var datawasabi = @json($freshwasabi);
+    var datawasabi2 = @json($freshwasabi2);
     var datasamuri = @json($freshsamuri);
     var dataotheri = @json($freshotheri);
     const myFreshChart = new Chart(ctxFresh, {
@@ -174,6 +175,28 @@
                 {
                     label: 'Wasabi',
                     data:datawasabi,
+                    fontColor:['white','black'],
+                    backgroundColor: [
+                        //'rgba(255, 99, 132, 0.2)',
+                        'rgba(119, 198, 0, 0.2)',
+                        /*'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'*/
+                    ],
+                    borderColor: [
+                        //'rgba(255, 99, 132, 1)',
+                        'rgba(119, 198, 0, 1)',
+                        /*'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'*/
+                    ],
+                    borderWidth: 2
+                },
+                {
+                    label: 'Wasabi2',
+                    data:datawasabi2,
                     fontColor:['white','black'],
                     backgroundColor: [
                         //'rgba(255, 99, 132, 0.2)',
@@ -279,6 +302,7 @@
 <script>
     const ctMonthly = document.getElementById('myMonthyVolumes').getContext('2d');
     var datawasabim = @json($monthlywasabi);
+    var datawasabim2 = @json($monthlywasabi2);
     var datasamurim = @json($monthlysamuri);
     var dataotherim = @json($monthlyotheri);
     const myMonthlyValuesChart = new Chart(ctMonthly, {
@@ -289,6 +313,28 @@
                 {
                     label: 'Wasabi',
                     data:datawasabim,
+                    fontColor:['white','black'],
+                    backgroundColor: [
+                        //'rgba(255, 99, 132, 0.2)',
+                        'rgba(119, 198, 0, 0.2)',
+                        /*'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'*/
+                    ],
+                    borderColor: [
+                        //'rgba(255, 99, 132, 1)',
+                        'rgba(119, 198, 0, 1)',
+                        /*'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'*/
+                    ],
+                    borderWidth: 2
+                },
+                {
+                    label: 'Wasabi2',
+                    data:datawasabim2,
                     fontColor:['white','black'],
                     backgroundColor: [
                         //'rgba(255, 99, 132, 0.2)',
