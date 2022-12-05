@@ -139,7 +139,7 @@
             scales: {
                 y: {
                     grid:{
-                        color:'rgba(255,255,255,1)',
+                        color:'rgba(255,255,255,0.5)',
                         lineWidth:0.2
                     },
                     ticks: {
@@ -149,7 +149,7 @@
                 },
                 x: {
                     grid:{
-                        color:'rgba(255,255,255,1)',
+                        color:'rgba(255,255,255,0.5)',
                         lineWidth:0.2
                     },
                     ticks: {
@@ -158,7 +158,7 @@
                     beginAtZero: true,
                 }
             }
-        },
+        }
     });
 </script>
 <script>
@@ -173,7 +173,7 @@
             labels: @json($freshdate),
             datasets: [
                 {
-                    label: 'Wasabi',
+                    label: 'Wasabi 1.0',
                     data:datawasabi,
                     fontColor:['white','black'],
                     backgroundColor: [
@@ -195,7 +195,7 @@
                     borderWidth: 2
                 },
                 {
-                    label: 'Wasabi2',
+                    label: 'Wasabi 2.0',
                     data:datawasabi2,
                     fontColor:['white','black'],
                     backgroundColor: [
@@ -229,7 +229,7 @@
                         'rgba(255, 159, 64, 0.2)'*/
                     ],
                     borderColor: [
-                        'rgba(255, 99, 132, 1)',
+                        'rgba(238, 20, 24, 1)',
                         //'rgba(119, 198, 0, 1)',
                         /*'rgba(255, 206, 86, 1)',
                         'rgba(75, 192, 192, 1)',
@@ -266,7 +266,8 @@
             plugins:{
                 title: {
                     display: true,
-                    text: 'Fresh Bitcoins CoinJoined'
+                    text: 'Fresh Bitcoins CoinJoined',
+                    fontColor:['white','black'],
                 },
                 legend: {
                   labels: {
@@ -277,7 +278,7 @@
             scales: {
                 y: {
                     grid:{
-                        color:'rgba(255,255,255,1)',
+                        color:'rgba(255,255,255,0.5)',
                         lineWidth:0.2
                     },
                     ticks: {
@@ -287,7 +288,7 @@
                 },
                 x: {
                     grid:{
-                        color:'rgba(255,255,255,1)',
+                        color:'rgba(255,255,255,0.5)',
                         lineWidth:0.2
                     },
                     ticks: {
@@ -311,12 +312,12 @@
             labels: @json($monthlydate),
             datasets: [
                 {
-                    label: 'Wasabi',
+                    label: 'Wasabi 1.0',
                     data:datawasabim,
                     fontColor:['white','black'],
                     backgroundColor: [
                         //'rgba(255, 99, 132, 0.2)',
-                        'rgba(119, 198, 0, 0.2)',
+                        'rgba(119, 198, 0, 0.1)',
                         /*'rgba(255, 206, 86, 0.2)',
                         'rgba(75, 192, 192, 0.2)',
                         'rgba(153, 102, 255, 0.2)',
@@ -324,7 +325,7 @@
                     ],
                     borderColor: [
                         //'rgba(255, 99, 132, 1)',
-                        'rgba(119, 198, 0, 1)',
+                        'rgba(119, 198, 0, 0.5)',
                         /*'rgba(255, 206, 86, 1)',
                         'rgba(75, 192, 192, 1)',
                         'rgba(153, 102, 255, 1)',
@@ -333,7 +334,7 @@
                     borderWidth: 2
                 },
                 {
-                    label: 'Wasabi2',
+                    label: 'Wasabi 2.0',
                     data:datawasabim2,
                     fontColor:['white','black'],
                     backgroundColor: [
@@ -359,7 +360,7 @@
                     data:datasamurim,
                     fontColor:['white','black'],
                     backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(238, 20, 24, 0.2)',
                         //'rgba(119, 198, 0, 0.2)',
                         /*'rgba(255, 206, 86, 0.2)',
                         'rgba(75, 192, 192, 0.2)',
@@ -404,7 +405,8 @@
             plugins:{
                 title: {
                     display: true,
-                    text: 'Monthly CoinJoin Volumes'
+                    text: 'Monthly CoinJoin Volumes',
+                    fontColor:['white','black'],
                 },
                 legend: {
                   labels: {
@@ -415,7 +417,7 @@
             scales: {
                 y: {
                     grid:{
-                        color:'rgba(255,255,255,1)',
+                        color:'rgba(255,255,255,0.5)',
                         lineWidth:0.2
                     },
                     ticks: {
@@ -425,7 +427,7 @@
                 },
                 x: {
                     grid:{
-                        color:'rgba(255,255,255,1)',
+                        color:'rgba(255,255,255,0.5)',
                         lineWidth:0.2
                     },
                     ticks: {
@@ -452,7 +454,7 @@
                     fontColor:['white','black'],
                     backgroundColor: [
                         //'rgba(255, 99, 132, 0.2)',
-                        'rgba(119, 198, 0, 0.2)',
+                        'rgba(119, 198, 0, 0.1)',
                         /*'rgba(255, 206, 86, 0.2)',
                         'rgba(75, 192, 192, 0.2)',
                         'rgba(153, 102, 255, 0.2)',
@@ -460,7 +462,7 @@
                     ],
                     borderColor: [
                         //'rgba(255, 99, 132, 1)',
-                        'rgba(119, 198, 0, 1)',
+                        'rgba(119, 198, 0, 0.5)',
                         /*'rgba(255, 206, 86, 1)',
                         'rgba(75, 192, 192, 1)',
                         'rgba(153, 102, 255, 1)',
@@ -473,7 +475,7 @@
                     data:datasamurij,
                     fontColor:['white','black'],
                     backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(238, 20, 24, 0.2)',
                         //'rgba(119, 198, 0, 0.2)',
                         /*'rgba(255, 206, 86, 0.2)',
                         'rgba(75, 192, 192, 0.2)',
@@ -481,7 +483,7 @@
                         'rgba(255, 159, 64, 0.2)'*/
                     ],
                     borderColor: [
-                        'rgba(255, 99, 132, 1)',
+                        'rgba(238, 20, 24, 1)',
                         //'rgba(119, 198, 0, 1)',
                         /*'rgba(255, 206, 86, 1)',
                         'rgba(75, 192, 192, 1)',
@@ -507,7 +509,7 @@
             scales: {
                 y: {
                     grid:{
-                        color:'rgba(255,255,255,1)',
+                        color:'rgba(255,255,255,0.5)',
                         lineWidth:0.2
                     },
                     ticks: {
@@ -517,7 +519,7 @@
                 },
                 x: {
                     grid:{
-                        color:'rgba(255,255,255,1)',
+                        color:'rgba(255,255,255,0.5)',
                         lineWidth:0.2
                     },
                     ticks: {
@@ -586,7 +588,7 @@
             scales: {
                 y: {
                     grid:{
-                        color:'rgba(255,255,255,1)',
+                        color:'rgba(255,255,255,0.5)',
                         lineWidth:0.2
                     },
                     ticks: {
@@ -597,7 +599,7 @@
                 x: {
                     display:false,
                     grid:{
-                        color:'rgba(255,255,255,1)',
+                        color:'rgba(255,255,255,0.5)',
                         lineWidth:0.2
                     },
                     ticks: {
@@ -695,7 +697,7 @@
                 y: {
                     stacked: true,
                     grid:{
-                        color:'rgba(255,255,255,1)',
+                        color:'rgba(255,255,255,0.5)',
                         lineWidth:0.2
                     },
                     ticks: {
@@ -707,7 +709,7 @@
                     stacked: true,
                     display:false,
                     grid:{
-                        color:'rgba(255,255,255,1)',
+                        color:'rgba(255,255,255,0.5)',
                         lineWidth:0.2
                     },
                     ticks: {
