@@ -152,10 +152,11 @@ class ChartComponent extends Component
                 }
             }
 
-            /* $freshcoins = FreshCoin::all();
+            $freshcoins = FreshCoin::all();
             foreach ($freshcoins as $key => $freshcoin) {
                 array_push($this->freshdate,$freshcoin->date);
                 array_push($this->freshwasabi,$freshcoin->wasabi);
+                array_push($this->freshwasabi,$freshcoin->wasabi2);
                 array_push($this->freshsamuri,$freshcoin->samuri);
                 array_push($this->freshotheri,$freshcoin->otheri);
             }
@@ -163,13 +164,15 @@ class ChartComponent extends Component
             foreach ($monthlyvolumes as $key => $monthlyvolume) {
                 array_push($this->monthlydate,$monthlyvolume->date);
                 array_push($this->monthlywasabi,$monthlyvolume->wasabi);
+                array_push($this->monthlywasabi,$monthlyvolume->wasabi2);
                 array_push($this->monthlysamuri,$monthlyvolume->samuri);
                 array_push($this->monthlyotheri,$monthlyvolume->otheri);
             }
-            $monthlycoinjoins = MonthlyCoinJoin::all();
+            /*$monthlycoinjoins = MonthlyCoinJoin::all();
             foreach ($monthlycoinjoins as $key => $monthlycoinjoin) {
                 array_push($this->monthlyjoindate,$monthlycoinjoin->date);
                 array_push($this->monthlyjoinwasabi,$monthlycoinjoin->wasabi);
+                array_push($this->monthlyjoinwasabi,$monthlycoinjoin->wasabi2);
                 array_push($this->monthlyjoinsamuri,$monthlycoinjoin->samuri);
             }*/
         }
