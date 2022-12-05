@@ -298,7 +298,7 @@
             }
         },
     });
-</script> --}}
+</script>
 <script>
     const ctMonthly = document.getElementById('myMonthyVolumes').getContext('2d');
     var datawasabim = @json($monthlywasabi);
@@ -437,7 +437,7 @@
         },
     });
 </script>
-<script>
+{{-- <script>
     const ctMonthlyJoins = document.getElementById('myMonthyCoinJoins').getContext('2d');
     var datawasabij = @json($monthlyjoinwasabi);
     var datasamurij = @json($monthlyjoinsamuri);
@@ -528,7 +528,7 @@
             }
         },
     });
-</script>
+</script> --}}
 <script>
     const ctxbar = document.getElementById('myBarChart').getContext('2d');
     var data = @json($bardata);
