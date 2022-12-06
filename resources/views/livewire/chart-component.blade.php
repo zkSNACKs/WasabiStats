@@ -360,10 +360,14 @@
 </script>
 <script>
     const ctMonthly = document.getElementById('AvgRemixCount').getContext('2d');
-    var datawasabim = @json($monthlywasabi / $freshwasabi);
-    var datawasabim2 = @json($monthlywasabi2 / $freshwasabi2);
-    var datasamurim = @json($monthlysamuri / $freshsamuri);
-    var dataotherim = @json($monthlyotheri / $freshotheri);
+    var datawasabim = @json($monthlywasabi);
+    var datawasabim2 = @json($monthlywasabi2);
+    var datasamurim = @json($monthlysamuri);
+    var dataotherim = @json($monthlyotheri);
+    var datawasabi = @json($freshwasabi);
+    var datawasabi2 = @json($freshwasabi2);
+    var datasamuri = @json($freshsamuri);
+    var dataotheri = @json($freshotheri);
     const myMonthlyValuesChart = new Chart(ctMonthly, {
         type: 'line',
         data: {
@@ -371,7 +375,7 @@
             datasets: [
                 {
                     label: 'Wasabi 1.0',
-                    data:datawasabim,
+                    data:datawasabim / datawasabi,
                     fontColor:['white','black'],
                     backgroundColor: [
                         'rgba(119, 198, 0, 0.1)'
