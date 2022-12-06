@@ -158,8 +158,8 @@
     const ctxFresh = document.getElementById('myFreshCoinsChart').getContext('2d');
     var datawasabi = @json($freshwasabi);
     var datawasabi2 = @json($freshwasabi2);
-    //var datasamuri = @json($freshsamuri);
-    //var dataotheri = @json($freshotheri);
+    var datasamuri = @json($freshsamuri);
+    var dataotheri = @json($freshotheri);
     const myFreshChart = new Chart(ctxFresh, {
         type: 'line',
         data: {
@@ -188,8 +188,8 @@
                         'rgba(119, 198, 0, 1)'
                     ],
                     borderWidth: 2
-                }
-                /*{
+                },
+                {
                     label: 'Samuri',
                     data:datasamuri,
                     fontColor:['white','black'],
@@ -199,7 +199,8 @@
                     borderColor: [
                         'rgba(238, 20, 24, 1)'
                     ],
-                    borderWidth: 2
+                    borderWidth: 2,
+                    showLine: false
                 },
                 {
                     label: 'Otheri',
@@ -212,7 +213,7 @@
                         'rgba(75, 192, 192, 1)'
                     ],
                     borderWidth: 2
-                }*/
+                }
             ]
         },
         options: {
@@ -257,8 +258,8 @@
     const ctMonthly = document.getElementById('myMonthyVolumes').getContext('2d');
     var datawasabim = @json($monthlywasabi);
     var datawasabim2 = @json($monthlywasabi2);
-    //var datasamurim = @json($monthlysamuri);
-    //var dataotherim = @json($monthlyotheri);
+    var datasamurim = @json($monthlysamuri);
+    var dataotherim = @json($monthlyotheri);
     const myMonthlyValuesChart = new Chart(ctMonthly, {
         type: 'line',
         data: {
@@ -287,8 +288,8 @@
                         'rgba(119, 198, 0, 1)'
                     ],
                     borderWidth: 2
-                }
-                /*{
+                },
+                {
                     label: 'Samuri',
                     data:datasamurim,
                     fontColor:['white','black'],
@@ -311,7 +312,7 @@
                         'rgba(75, 192, 192, 1)'
                     ],
                     borderWidth: 2
-                }*/
+                }
             ]
         },
         options: {
@@ -356,8 +357,8 @@
     const ctAvgRemixCount = document.getElementById('AvgRemixCount').getContext('2d');
     var avgwasabi = @json($avgwasabi);
     var avgwasabi2 = @json($avgwasabi2);
-    //var avgsamuri = @json($avgsamuri);
-    //var avgotheri = @json($avgotheri);
+    var avgsamuri = @json($avgsamuri);
+    var avgotheri = @json($avgotheri);
 
     const AvgRemixCountChart = new Chart(ctAvgRemixCount, {
         type: 'line',
@@ -387,8 +388,8 @@
                         'rgba(119, 198, 0, 1)'
                     ],
                     borderWidth: 2
-                }
-                /*{
+                },
+                {
                     label: 'Samuri',
                     data:avgsamuri,
                     fontColor:['white','black'],
@@ -411,7 +412,7 @@
                         'rgba(75, 192, 192, 1)'
                     ],
                     borderWidth: 2
-                }*/
+                }
             ]
         },
         options: {
