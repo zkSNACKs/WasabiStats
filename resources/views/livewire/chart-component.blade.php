@@ -359,7 +359,7 @@
     });
 </script>
 <script>
-    const ctMonthly = document.getElementById('AvgRemixCount').getContext('2d');
+    const ctAvgRemixCount = document.getElementById('AvgRemixCount').getContext('2d');
     var datawasabim = @json($monthlywasabi);
     var datawasabim2 = @json($monthlywasabi2);
     var datasamurim = @json($monthlysamuri);
@@ -368,10 +368,10 @@
     var datawasabi2 = @json($freshwasabi2);
     var datasamuri = @json($freshsamuri);
     var dataotheri = @json($freshotheri);
-    const myMonthlyValuesChart = new Chart(ctMonthly, {
+    const AvgRemixCountChart = new Chart(ctAvgRemixCount, {
         type: 'line',
         data: {
-            labels: @json($monthlydate),
+            labels: xxx,
             datasets: [
                 {
                     label: 'Wasabi 1.0',
