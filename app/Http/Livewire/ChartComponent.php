@@ -53,11 +53,6 @@ class ChartComponent extends Component
     public $stackedweekdatashow = [];
     public $stackedname = [];
     public $stackedpublished = [];
-    public $avgdate = [];
-    public $avgwasabi = [];
-    public $avgwasabi2 = [];
-    public $avgsamuri = [];
-    public $avgotheri = [];
 
     public function mount($id=4, $from_date, $to_date){
 
