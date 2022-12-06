@@ -47,33 +47,27 @@
             </div>
         </div>
     </div>
-   @if ($freshdate != [])
-        <div class="container-fluid mt-5">
-            <div class="row">
-                <div class="col-12">
-                    <canvas id="myFreshCoinsChart"></canvas>
-                </div>
-            </div>
-        </div>
-    @endif
-    @if ($monthlydate != [])
-        <div class="container-fluid mt-5">
-            <div class="row">
-                <div class="col-12">
-                    <canvas id="myMonthyVolumes"></canvas>
-                </div>
-            </div>
-        </div>
-    @endif
-    @if ($freshdate != [] && $monthlydate != [])
     <div class="container-fluid mt-5">
         <div class="row">
-            <div class="col-12">
+            @if ($freshdate != [])
+                <div class="col-xl-6">
+                    <canvas id="myFreshCoinsChart"></canvas>
+                </div>
+            @endif
+            @if ($monthlydate != [])
+                <div class="col-xl-6">
+                    <canvas id="myMonthyVolumes"></canvas>
+                </div>
+            @endif
+        </div>
+    </div>
+    <div class="container-fluid mt-5">
+        <div class="row">
+            <div class="col-xl-6">
                 <canvas id="AvgRemixCount"></canvas>
             </div>
         </div>
     </div>
-    @endif
     {{-- @if ($monthlyjoindate != [])
         <div class="container-fluid mt-5">
             <div class="row">
@@ -360,22 +354,19 @@
 </script>
 <script>
     const ctAvgRemixCount = document.getElementById('AvgRemixCount').getContext('2d');
-    var datawasabim = @json($monthlywasabi);
-    var datawasabim2 = @json($monthlywasabi2);
-    var datasamurim = @json($monthlysamuri);
-    var dataotherim = @json($monthlyotheri);
-    var datawasabi = @json($freshwasabi);
-    var datawasabi2 = @json($freshwasabi2);
-    var datasamuri = @json($freshsamuri);
-    var dataotheri = @json($freshotheri);
+    var avgwasabi = @json($avgwasabi);
+    var avgwasabi2 = @json($avgwasabi2);
+    var avgsamuri = @json($avgsamuri);
+    var avgotheri = @json($avgotheri);
+
     const AvgRemixCountChart = new Chart(ctAvgRemixCount, {
         type: 'line',
         data: {
-            labels: xxx,
+            labels: @json($avgdate),
             datasets: [
                 {
                     label: 'Wasabi 1.0',
-                    data:datawasabim / datawasabi,
+                    data:avgwasabi,
                     fontColor:['white','black'],
                     backgroundColor: [
                         'rgba(119, 198, 0, 0.1)'
@@ -387,7 +378,7 @@
                 },
                 {
                     label: 'Wasabi 2.0',
-                    data:datawasabim2,
+                    data:avgwasabi2,
                     fontColor:['white','black'],
                     backgroundColor: [
                         'rgba(119, 198, 0, 0.2)'
@@ -399,7 +390,7 @@
                 },
                 {
                     label: 'Samuri',
-                    data:datasamurim,
+                    data:avgsamuri,
                     fontColor:['white','black'],
                     backgroundColor: [
                         'rgba(238, 20, 24, 0.2)'
@@ -411,7 +402,7 @@
                 },
                 {
                     label: 'Otheri',
-                    data:dataotherim,
+                    data:avgotheri,
                     fontColor:['white','black'],
                     backgroundColor: [
                         'rgba(75, 192, 192, 0.2)'
