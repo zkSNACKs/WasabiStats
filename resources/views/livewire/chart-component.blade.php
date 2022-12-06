@@ -65,6 +65,15 @@
             </div>
         </div>
     @endif
+    @if ($freshdate != [] && $monthlydate != [])
+    <div class="container-fluid mt-5">
+        <div class="row">
+            <div class="col-12">
+                <canvas id="AvgRemixCount"></canvas>
+            </div>
+        </div>
+    </div>
+    @endif
     {{-- @if ($monthlyjoindate != [])
         <div class="container-fluid mt-5">
             <div class="row">
@@ -316,6 +325,105 @@
                 title: {
                     display: true,
                     text: 'Monthly CoinJoin Volumes',
+                    color:'white',
+                },
+                legend: {
+                  labels: {
+                     color: 'white'
+                  },
+                }
+            },
+            scales: {
+                y: {
+                    grid:{
+                        color:'rgba(255,255,255,0.5)',
+                        lineWidth:0.2
+                    },
+                    ticks: {
+                        color: 'white'
+                    },
+                    beginAtZero: true,
+                },
+                x: {
+                    grid:{
+                        color:'rgba(255,255,255,0.5)',
+                        lineWidth:0.2
+                    },
+                    ticks: {
+                        color: 'white'
+                    },
+                    beginAtZero: true,
+                }
+            }
+        },
+    });
+</script>
+<script>
+    const ctMonthly = document.getElementById('AvgRemixCount').getContext('2d');
+    var datawasabim = @json($monthlywasabi / $freshwasabi);
+    var datawasabim2 = @json($monthlywasabi2 / $freshwasabi2);
+    var datasamurim = @json($monthlysamuri / $freshsamuri);
+    var dataotherim = @json($monthlyotheri / $freshotheri);
+    const myMonthlyValuesChart = new Chart(ctMonthly, {
+        type: 'line',
+        data: {
+            labels: @json($monthlydate),
+            datasets: [
+                {
+                    label: 'Wasabi 1.0',
+                    data:datawasabim,
+                    fontColor:['white','black'],
+                    backgroundColor: [
+                        'rgba(119, 198, 0, 0.1)'
+                    ],
+                    borderColor: [
+                        'rgba(119, 198, 0, 0.5)'
+                    ],
+                    borderWidth: 2
+                },
+                {
+                    label: 'Wasabi 2.0',
+                    data:datawasabim2,
+                    fontColor:['white','black'],
+                    backgroundColor: [
+                        'rgba(119, 198, 0, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(119, 198, 0, 1)'
+                    ],
+                    borderWidth: 2
+                },
+                {
+                    label: 'Samuri',
+                    data:datasamurim,
+                    fontColor:['white','black'],
+                    backgroundColor: [
+                        'rgba(238, 20, 24, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(238, 20, 24, 1)'
+                    ],
+                    borderWidth: 2
+                },
+                {
+                    label: 'Otheri',
+                    data:dataotherim,
+                    fontColor:['white','black'],
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)'
+                    ],
+                    borderWidth: 2
+                }
+            ]
+        },
+        options: {
+            plugins:{
+                title: {
+                    display: true,
+                    text: 'Avarage Remix Count',
                     color:'white',
                 },
                 legend: {
