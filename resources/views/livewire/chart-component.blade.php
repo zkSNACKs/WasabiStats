@@ -47,15 +47,15 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid mt-5">
+    <div class="container-fluid">
         <div class="row">
             @if ($freshdate != [])
-                <div class="col-xl-6">
+                <div class="col-xl-6 my-4">
                     <canvas id="myFreshCoinsChart"></canvas>
                 </div>
             @endif
             @if ($monthlydate != [])
-                <div class="col-xl-6">
+                <div class="col-xl-6 my-4">
                     <canvas id="myMonthyVolumes"></canvas>
                 </div>
             @endif
@@ -63,7 +63,7 @@
     </div>
     <div class="container-fluid mt-5">
         <div class="row">
-            <div class="col-xl-6">
+            <div class="col-xl-6 my-4">
                 <canvas id="AvgRemixCount"></canvas>
             </div>
         </div>
