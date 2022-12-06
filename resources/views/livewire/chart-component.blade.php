@@ -200,7 +200,7 @@
                         'rgba(238, 20, 24, 1)'
                     ],
                     borderWidth: 2,
-                    showLine: false
+                    hidden: true
                 },
                 {
                     label: 'Otheri',
@@ -212,7 +212,8 @@
                     borderColor: [
                         'rgba(75, 192, 192, 1)'
                     ],
-                    borderWidth: 2
+                    borderWidth: 2,
+                    hidden: true
                 }
             ]
         },
@@ -299,7 +300,8 @@
                     borderColor: [
                         'rgba(238, 20, 24, 1)'
                     ],
-                    borderWidth: 2
+                    borderWidth: 2,
+                    hidden: true
                 },
                 {
                     label: 'Otheri',
@@ -311,7 +313,8 @@
                     borderColor: [
                         'rgba(75, 192, 192, 1)'
                     ],
-                    borderWidth: 2
+                    borderWidth: 2,
+                    hidden: true
                 }
             ]
         },
@@ -399,7 +402,8 @@
                     borderColor: [
                         'rgba(238, 20, 24, 1)'
                     ],
-                    borderWidth: 2
+                    borderWidth: 2,
+                    hidden: true
                 },
                 {
                     label: 'Otheri',
@@ -411,7 +415,8 @@
                     borderColor: [
                         'rgba(75, 192, 192, 1)'
                     ],
-                    borderWidth: 2
+                    borderWidth: 2,
+                    hidden: true
                 }
             ]
         },
