@@ -33,6 +33,11 @@ class ChartComponent extends Component
     public $monthlywasabi2 = [];
     public $monthlysamuri = [];
     public $monthlyotheri = [];
+    public $avgdate = [];
+    public $avgwasabi = [];
+    public $avgwasabi2 = [];
+    public $avgsamuri = [];
+    public $avgotheri = [];
     public $monthlyjoindate = [];
     public $monthlyjoinwasabi = [];
     public $monthlyjoinsamuri = [];
@@ -174,6 +179,37 @@ class ChartComponent extends Component
                 array_push($this->monthlywasabi2,$monthlyvolume->wasabi2);
                 array_push($this->monthlysamuri,$monthlyvolume->samuri);
                 array_push($this->monthlyotheri,$monthlyvolume->otheri);
+            }
+            $monthlyvolumes = MonthlyVolumes::all();
+            foreach ($monthlyvolumes as $key => $monthlyvolume) {
+                $fresh = FreshCoin::where('date',$monthlyvolume->date)->first();
+                if (!is_null($fresh)) {
+                    array_push($this->avgdate,$monthlyvolume->date);
+                    if($fresh->wasabi > 0)
+                    {
+                        array_push($this->avgwasabi,$monthlyvolume->wasabi / $fresh->wasabi);
+                    } else{
+                        array_push($this->avgwasabi,0);
+                    }
+                    if($fresh->wasabi2 > 0)
+                    {
+                        array_push($this->avgwasabi2,$monthlyvolume->wasabi2 / $fresh->wasabi2);
+                    } else{
+                        array_push($this->avgwasabi2,0);
+                    }
+                    if($fresh->samuri > 0)
+                    {
+                        array_push($this->avgsamuri,$monthlyvolume->samuri / $fresh->samuri);
+                    } else{
+                        array_push($this->avgsamuri,0);
+                    }
+                    if($fresh->otheri > 0)
+                    {
+                        array_push($this->avgotheri,$monthlyvolume->otheri / $fresh->otheri);
+                    } else{
+                        array_push($this->avgotheri,0);
+                    }
+                }
             }
             /*$monthlycoinjoins = MonthlyCoinJoin::all();
             foreach ($monthlycoinjoins as $key => $monthlycoinjoin) {
