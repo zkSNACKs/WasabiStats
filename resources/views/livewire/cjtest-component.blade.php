@@ -4,7 +4,7 @@
         @if ($cjTest)
             @foreach ($cjTest as $key => $item)
                 <div class="col-6 col-sm col-xl-3 mb-3">
-                    <div class="feature-box">
+                    <div class="feature-box @if(!$item['isBlameRound']) active @endif">
                         <p class="mb-0"><strong>Round ID:</strong> <span class="text-blue">{{$item['roundId']}}</span></p>
                         <p class="mb-0">
                         @if($item['isBlameRound'])
