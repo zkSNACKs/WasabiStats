@@ -188,8 +188,8 @@
                         'rgba(119, 198, 0, 1)'
                     ],
                     borderWidth: 2
-                },
-                {
+                }
+                /*{
                     label: 'Samuri',
                     data:datasamuri,
                     fontColor:['white','black'],
@@ -214,7 +214,7 @@
                     ],
                     borderWidth: 2,
                     hidden: true
-                }
+                }*/
             ]
         },
         options: {
@@ -289,8 +289,8 @@
                         'rgba(119, 198, 0, 1)'
                     ],
                     borderWidth: 2
-                },
-                {
+                }
+                /*{
                     label: 'Samuri',
                     data:datasamurim,
                     fontColor:['white','black'],
@@ -315,7 +315,7 @@
                     ],
                     borderWidth: 2,
                     hidden: true
-                }
+                }*/
             ]
         },
         options: {
@@ -391,8 +391,8 @@
                         'rgba(119, 198, 0, 1)'
                     ],
                     borderWidth: 2
-                },
-                {
+                }
+                /*{
                     label: 'Samuri',
                     data:avgsamuri,
                     fontColor:['white','black'],
@@ -417,7 +417,7 @@
                     ],
                     borderWidth: 2,
                     hidden: true
-                }
+                }*/
             ]
         },
         options: {
