@@ -171,7 +171,7 @@
                         'rgba(255, 119, 0, 0.2)'
                     ],
                     borderColor: [
-                        'rgba(255, 119, 0, 0.5)'
+                        'rgba(255, 119, 0, 1)'
                     ],
                     borderWidth: 2
                 },
