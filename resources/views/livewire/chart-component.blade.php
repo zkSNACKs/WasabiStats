@@ -543,12 +543,12 @@
     });
 </script>
 <script>
-    const ctxFresh = document.getElementById('NeverMixed').getContext('2d');
+    const ctNeverMixed = document.getElementById('NeverMixed').getContext('2d');
     var nevermixedwasabi = @json($nevermixedwasabi);
     var nevermixedwasabi2 = @json($nevermixedwasabi2);
     var nevermixedsamuri = @json($nevermixedsamuri);
     var nevermixedotheri = @json($nevermixedotheri);
-    const myNeverMixedChart = new Chart(ctxFresh, {
+    const myNeverMixedChart = new Chart(ctNeverMixed, {
         type: 'line',
         data: {
             labels: @json($nevermixeddate),
@@ -644,12 +644,12 @@
     });
 </script>
 <script>
-    const ctxFresh = document.getElementById('PostmixConsolidation').getContext('2d');
+    const ctPostmixConsolidation = document.getElementById('PostmixConsolidation').getContext('2d');
     var postmixedwasabi = @json($postmixedwasabi);
     var postmixedwasabi2 = @json($postmixedwasabi2);
     var postmixedsamuri = @json($postmixedsamuri);
     var postmixedotheri = @json($postmixedotheri);
-    const myFPostmixConsolidationChart = new Chart(ctxFresh, {
+    const myPostmixConsolidationChart = new Chart(ctPostmixConsolidation, {
         type: 'line',
         data: {
             labels: @json($postmixeddate),
