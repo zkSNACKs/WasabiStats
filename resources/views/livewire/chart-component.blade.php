@@ -168,10 +168,10 @@
                     data:datawasabi,
                     fontColor:['white','black'],
                     backgroundColor: [
-                        'rgba(119, 198, 0, 0.2)'
+                        'rgba(255, 119, 0, 0.2)'
                     ],
                     borderColor: [
-                        'rgba(119, 198, 0, 0.5)'
+                        'rgba(255, 119, 0, 0.5)'
                     ],
                     borderWidth: 2
                 },
