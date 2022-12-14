@@ -40,6 +40,7 @@ class ChartComponent extends Component
     public $avgotheri = [];
     public $monthlyjoindate = [];
     public $monthlyjoinwasabi = [];
+    public $monthlyjoinwasabi2 = [];
     public $monthlyjoinsamuri = [];
     public $total;
     public $totalsearchdate;
@@ -206,13 +207,13 @@ class ChartComponent extends Component
                     }
                 }
             }
-            /*$monthlycoinjoins = MonthlyCoinJoin::all();
+            $monthlycoinjoins = MonthlyCoinJoin::all();
             foreach ($monthlycoinjoins as $key => $monthlycoinjoin) {
                 array_push($this->monthlyjoindate,$monthlycoinjoin->date);
                 array_push($this->monthlyjoinwasabi,$monthlycoinjoin->wasabi);
-                array_push($this->monthlyjoinwasabi,$monthlycoinjoin->wasabi2);
+                array_push($this->monthlyjoinwasabi2,$monthlycoinjoin2->wasabi2);
                 array_push($this->monthlyjoinsamuri,$monthlycoinjoin->samuri);
-            }*/
+            }
         }
         else{
             $this->nodata = 'No relevant data! Please check the search conditions!';

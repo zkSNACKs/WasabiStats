@@ -59,24 +59,16 @@
                     <canvas id="myMonthyVolumes"></canvas>
                 </div>
             @endif
-        </div>
-    </div>
-    <div class="container-fluid mt-5">
-        <div class="row">
             <div class="col-xl-6 my-4">
                 <canvas id="AvgRemixCount"></canvas>
             </div>
+            @if ($monthlyjoindate != [])
+            <div class="col-xl-6 my-4">
+                <canvas id="myMonthyCoinJoins"></canvas>
+            </div>
+            @endif
         </div>
     </div>
-    {{-- @if ($monthlyjoindate != [])
-        <div class="container-fluid mt-5">
-            <div class="row">
-                <div class="col-12">
-                    <canvas id="myMonthyCoinJoins"></canvas>
-                </div>
-            </div>
-        </div>
-    @endif --}}
 </div>
 @push('scripts')
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
@@ -458,9 +450,10 @@
         },
     });
 </script>
-{{-- <script>
+<script>
     const ctMonthlyJoins = document.getElementById('myMonthyCoinJoins').getContext('2d');
     var datawasabij = @json($monthlyjoinwasabi);
+    var datawasabi2j = @json($monthlyjoinwasabi2);
     var datasamurij = @json($monthlyjoinsamuri);
     const myMonthlyJoinChart = new Chart(ctMonthlyJoins, {
         type: 'line',
@@ -468,7 +461,7 @@
             labels: @json($monthlyjoindate),
             datasets: [
                 {
-                    label: 'Wasabi',
+                    label: 'Wasabi 1.0',
                     data:datawasabij,
                     fontColor:['white','black'],
                     backgroundColor: [
@@ -480,6 +473,18 @@
                     borderWidth: 2
                 },
                 {
+                    label: 'Wasabi 2.0',
+                    data:datawasabij,
+                    fontColor:['white','black'],
+                    backgroundColor: [
+                        'rgba(119, 198, 0, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(119, 198, 0, 1)'
+                    ],
+                    borderWidth: 2
+                }
+                /*{
                     label: 'Samuri',
                     data:datasamurij,
                     fontColor:['white','black'],
@@ -490,7 +495,7 @@
                         'rgba(238, 20, 24, 1)'
                     ],
                     borderWidth: 2
-                }
+                }*/
             ]
         },
         options: {
@@ -530,7 +535,7 @@
             }
         },
     });
-</script> --}}
+</script>
 <script>
     const ctxbar = document.getElementById('myBarChart').getContext('2d');
     var data = @json($bardata);
