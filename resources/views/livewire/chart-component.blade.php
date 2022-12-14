@@ -453,7 +453,7 @@
 <script>
     const ctMonthlyJoins = document.getElementById('myMonthyCoinJoins').getContext('2d');
     var datawasabij = @json($monthlyjoinwasabi);
-    var datawasabi2j = @json($monthlyjoinwasabi2);
+    var datawasabij2 = @json($monthlyjoinwasabi2);
     var datasamurij = @json($monthlyjoinsamuri);
     const myMonthlyJoinChart = new Chart(ctMonthlyJoins, {
         type: 'line',
@@ -474,7 +474,7 @@
                 },
                 {
                     label: 'Wasabi 2.0',
-                    data:datawasabij,
+                    data:datawasabij2,
                     fontColor:['white','black'],
                     backgroundColor: [
                         'rgba(119, 198, 0, 0.2)'
@@ -502,7 +502,7 @@
             plugins:{
                 title: {
                     display: true,
-                    text: 'Monthly CoinJoin Income',
+                    text: 'Monthly CoinJoins',
                     color: 'white'
                 },
                 legend: {
