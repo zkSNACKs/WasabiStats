@@ -656,7 +656,7 @@
             datasets: [
                 {
                     label: 'Wasabi 1.0',
-                    data:datawasabi,
+                    data:postmixedwasabi,
                     fontColor:['white','black'],
                     backgroundColor: [
                         'rgba(119, 198, 0, 0.2)'
@@ -668,7 +668,7 @@
                 },
                 {
                     label: 'Wasabi 2.0',
-                    data:datawasabi2,
+                    data:postmixedwasabi2,
                     fontColor:['white','black'],
                     backgroundColor: [
                         'rgba(119, 198, 0, 0.2)'
@@ -680,7 +680,7 @@
                 }
                 /*{
                     label: 'Samuri',
-                    data:datasamuri,
+                    data:postmixedsamuri,
                     fontColor:['white','black'],
                     backgroundColor: [
                         'rgba(238, 20, 24, 0.2)'
@@ -693,7 +693,7 @@
                 },
                 {
                     label: 'Otheri',
-                    data:dataotheri,
+                    data:postmixedotheri,
                     fontColor:['white','black'],
                     backgroundColor: [
                         'rgba(75, 192, 192, 0.2)'
