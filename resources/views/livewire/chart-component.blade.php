@@ -548,7 +548,7 @@
     var nevermixedwasabi2 = @json($nevermixedwasabi2);
     var nevermixedsamuri = @json($nevermixedsamuri);
     var nevermixedotheri = @json($nevermixedotheri);
-    const myFreshChart = new Chart(ctxFresh, {
+    const myNeverMixedChart = new Chart(ctxFresh, {
         type: 'line',
         data: {
             labels: @json($nevermixeddate),
@@ -649,7 +649,7 @@
     var postmixedwasabi2 = @json($postmixedwasabi2);
     var postmixedsamuri = @json($postmixedsamuri);
     var postmixedotheri = @json($postmixedotheri);
-    const myFreshChart = new Chart(ctxFresh, {
+    const myFPostmixConsolidationChart = new Chart(ctxFresh, {
         type: 'line',
         data: {
             labels: @json($postmixeddate),
