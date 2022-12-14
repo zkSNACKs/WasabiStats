@@ -269,10 +269,10 @@
                     data:datawasabim,
                     fontColor:['white','black'],
                     backgroundColor: [
-                        'rgba(119, 198, 0, 0.1)'
+                        'rgba(255, 119, 0, 0.2)'
                     ],
                     borderColor: [
-                        'rgba(119, 198, 0, 0.5)'
+                        'rgba(255, 119, 0, 1)'
                     ],
                     borderWidth: 2
                 },
@@ -371,10 +371,10 @@
                     data:avgwasabi,
                     fontColor:['white','black'],
                     backgroundColor: [
-                        'rgba(119, 198, 0, 0.1)'
+                        'rgba(255, 119, 0, 0.2)'
                     ],
                     borderColor: [
-                        'rgba(119, 198, 0, 0.5)'
+                        'rgba(255, 119, 0, 1)'
                     ],
                     borderWidth: 2
                 },
@@ -471,10 +471,10 @@
                     data:datawasabij,
                     fontColor:['white','black'],
                     backgroundColor: [
-                        'rgba(119, 198, 0, 0.1)'
+                        'rgba(255, 119, 0, 0.2)'
                     ],
                     borderColor: [
-                        'rgba(119, 198, 0, 0.5)'
+                        'rgba(255, 119, 0, 1)'
                     ],
                     borderWidth: 2
                 },
@@ -558,10 +558,10 @@
                     data:nevermixedwasabi,
                     fontColor:['white','black'],
                     backgroundColor: [
-                        'rgba(119, 198, 0, 0.2)'
+                        'rgba(255, 119, 0, 0.2)'
                     ],
                     borderColor: [
-                        'rgba(119, 198, 0, 0.5)'
+                        'rgba(255, 119, 0, 1)'
                     ],
                     borderWidth: 2
                 },
@@ -659,10 +659,10 @@
                     data:postmixedwasabi,
                     fontColor:['white','black'],
                     backgroundColor: [
-                        'rgba(119, 198, 0, 0.2)'
+                        'rgba(255, 119, 0, 0.2)'
                     ],
                     borderColor: [
-                        'rgba(119, 198, 0, 0.5)'
+                        'rgba(255, 119, 0, 1)'
                     ],
                     borderWidth: 2
                 },
