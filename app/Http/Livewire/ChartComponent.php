@@ -57,6 +57,19 @@ class ChartComponent extends Component
     public $stackedname = [];
     public $stackedpublished = [];
 
+    public $nevermixeddate = [];
+    public $nevermixedwasabi = [];
+    public $nevermixedwasabi2 = [];
+    public $nevermixedsamuri = [];
+    public $nevermixedotheri = [];
+
+    public $postmixeddate = [];
+    public $postmixedwasabi = [];
+    public $postmixedwasabi2 = [];
+    public $postmixedsamuri = [];
+    public $postmixedotheri = [];
+
+
     public function mount($id=4, $from_date, $to_date){
 
         $this->category_id = $id;
