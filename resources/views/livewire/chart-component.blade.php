@@ -67,6 +67,12 @@
                 <canvas id="myMonthyCoinJoins"></canvas>
             </div>
             @endif
+            <div class="col-xl-6 my-4">
+                <canvas id="NeverMixed"></canvas>
+            </div>
+            <div class="col-xl-6 my-4">
+                <canvas id="PostmixConsolidation"></canvas>
+            </div>
         </div>
     </div>
 </div>
@@ -504,6 +510,208 @@
                     display: true,
                     text: 'Monthly CoinJoins',
                     color: 'white'
+                },
+                legend: {
+                  labels: {
+                     color: 'white'
+                  },
+                }
+            },
+            scales: {
+                y: {
+                    grid:{
+                        color:'rgba(255,255,255,0.5)',
+                        lineWidth:0.2
+                    },
+                    ticks: {
+                        color: 'white'
+                    },
+                    beginAtZero: true,
+                },
+                x: {
+                    grid:{
+                        color:'rgba(255,255,255,0.5)',
+                        lineWidth:0.2
+                    },
+                    ticks: {
+                        color: 'white'
+                    },
+                    beginAtZero: true,
+                }
+            }
+        },
+    });
+</script>
+<script>
+    const ctxFresh = document.getElementById('NeverMixed').getContext('2d');
+    var nevermixedwasabi = @json($nevermixedwasabi);
+    var nevermixedwasabi2 = @json($nevermixedwasabi2);
+    var nevermixedsamuri = @json($nevermixedsamuri);
+    var nevermixedotheri = @json($nevermixedotheri);
+    const myFreshChart = new Chart(ctxFresh, {
+        type: 'line',
+        data: {
+            labels: @json($nevermixeddate),
+            datasets: [
+                {
+                    label: 'Wasabi 1.0',
+                    data:nevermixedwasabi,
+                    fontColor:['white','black'],
+                    backgroundColor: [
+                        'rgba(119, 198, 0, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(119, 198, 0, 0.5)'
+                    ],
+                    borderWidth: 2
+                },
+                {
+                    label: 'Wasabi 2.0',
+                    data:nevermixedwasabi2,
+                    fontColor:['white','black'],
+                    backgroundColor: [
+                        'rgba(119, 198, 0, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(119, 198, 0, 1)'
+                    ],
+                    borderWidth: 2
+                }
+                /*{
+                    label: 'Samuri',
+                    data:nevermixedsamuri,
+                    fontColor:['white','black'],
+                    backgroundColor: [
+                        'rgba(238, 20, 24, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(238, 20, 24, 1)'
+                    ],
+                    borderWidth: 2,
+                    hidden: true
+                },
+                {
+                    label: 'Otheri',
+                    data:nevermixedotheri,
+                    fontColor:['white','black'],
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)'
+                    ],
+                    borderWidth: 2,
+                    hidden: true
+                }*/
+            ]
+        },
+        options: {
+            plugins:{
+                title: {
+                    display: true,
+                    text: 'Never Mixed',
+                    color:'white',
+                },
+                legend: {
+                  labels: {
+                     color: 'white'
+                  },
+                }
+            },
+            scales: {
+                y: {
+                    grid:{
+                        color:'rgba(255,255,255,0.5)',
+                        lineWidth:0.2
+                    },
+                    ticks: {
+                        color: 'white'
+                    },
+                    beginAtZero: true,
+                },
+                x: {
+                    grid:{
+                        color:'rgba(255,255,255,0.5)',
+                        lineWidth:0.2
+                    },
+                    ticks: {
+                        color: 'white'
+                    },
+                    beginAtZero: true,
+                }
+            }
+        },
+    });
+</script>
+<script>
+    const ctxFresh = document.getElementById('PostmixConsolidation').getContext('2d');
+    var postmixedwasabi = @json($postmixedwasabi);
+    var postmixedwasabi2 = @json($postmixedwasabi2);
+    var postmixedsamuri = @json($postmixedsamuri);
+    var postmixedotheri = @json($postmixedotheri);
+    const myFreshChart = new Chart(ctxFresh, {
+        type: 'line',
+        data: {
+            labels: @json($postmixeddate),
+            datasets: [
+                {
+                    label: 'Wasabi 1.0',
+                    data:datawasabi,
+                    fontColor:['white','black'],
+                    backgroundColor: [
+                        'rgba(119, 198, 0, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(119, 198, 0, 0.5)'
+                    ],
+                    borderWidth: 2
+                },
+                {
+                    label: 'Wasabi 2.0',
+                    data:datawasabi2,
+                    fontColor:['white','black'],
+                    backgroundColor: [
+                        'rgba(119, 198, 0, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(119, 198, 0, 1)'
+                    ],
+                    borderWidth: 2
+                }
+                /*{
+                    label: 'Samuri',
+                    data:datasamuri,
+                    fontColor:['white','black'],
+                    backgroundColor: [
+                        'rgba(238, 20, 24, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(238, 20, 24, 1)'
+                    ],
+                    borderWidth: 2,
+                    hidden: true
+                },
+                {
+                    label: 'Otheri',
+                    data:dataotheri,
+                    fontColor:['white','black'],
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)'
+                    ],
+                    borderWidth: 2,
+                    hidden: true
+                }*/
+            ]
+        },
+        options: {
+            plugins:{
+                title: {
+                    display: true,
+                    text: 'Postmix Consolidation',
+                    color:'white',
                 },
                 legend: {
                   labels: {

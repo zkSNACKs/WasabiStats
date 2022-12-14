@@ -10,6 +10,8 @@ use App\Models\FileCount;
 use App\Models\FreshCoin;
 use App\Models\MonthlyCoinJoin;
 use App\Models\MonthlyVolumes;
+use App\Models\NeverMixed;
+use App\Models\PostmixConsolidation;
 use Carbon\Carbon;
 use Livewire\Component;
 
@@ -213,6 +215,20 @@ class ChartComponent extends Component
                 array_push($this->monthlyjoinwasabi,$monthlycoinjoin->wasabi);
                 array_push($this->monthlyjoinwasabi2,$monthlycoinjoin->wasabi2);
                 array_push($this->monthlyjoinsamuri,$monthlycoinjoin->samuri);
+            }
+            $nevermixeds = NeverMixed::all();
+            foreach ($nevermixeds as $key => $nevermixed) {
+                array_push($this->nevermixeddate,$nevermixed->date);
+                array_push($this->nevermixedwasabi,$nevermixed->wasabi);
+                array_push($this->nevermixedwasabi2,$nevermixed->wasabi2);
+                array_push($this->nevermixedsamuri,$nevermixed->samuri);
+            }
+            $postmixeds = PostmixConsolidation::all();
+            foreach ($postmixeds as $key => $postmixed) {
+                array_push($this->postmixeddate,$postmixed->date);
+                array_push($this->postmixedwasabi,$postmixed->wasabi);
+                array_push($this->postmixedwasabi2,$postmixed->wasabi2);
+                array_push($this->postmixedsamuri,$postmixed->samuri);
             }
         }
         else{
