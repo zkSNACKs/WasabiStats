@@ -211,7 +211,7 @@ class ChartComponent extends Component
             foreach ($monthlycoinjoins as $key => $monthlycoinjoin) {
                 array_push($this->monthlyjoindate,$monthlycoinjoin->date);
                 array_push($this->monthlyjoinwasabi,$monthlycoinjoin->wasabi);
-                array_push($this->monthlyjoinwasabi2,$monthlycoinjoin2->wasabi2);
+                array_push($this->monthlyjoinwasabi2,$monthlycoinjoin->wasabi2);
                 array_push($this->monthlyjoinsamuri,$monthlycoinjoin->samuri);
             }
         }
