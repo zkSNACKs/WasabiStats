@@ -219,7 +219,7 @@
             plugins:{
                 title: {
                     display: true,
-                    text: 'Fresh Bitcoins CoinJoined',
+                    text: 'Fresh Volume',
                     color:'white',
                 },
                 legend: {
@@ -320,7 +320,7 @@
             plugins:{
                 title: {
                     display: true,
-                    text: 'Monthly CoinJoin Volumes',
+                    text: 'Total CoinJoin Volumes',
                     color:'white',
                 },
                 legend: {
@@ -508,7 +508,7 @@
             plugins:{
                 title: {
                     display: true,
-                    text: 'Monthly CoinJoins',
+                    text: 'Number of CoinJoins',
                     color: 'white'
                 },
                 legend: {
