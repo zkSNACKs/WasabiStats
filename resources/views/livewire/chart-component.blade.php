@@ -320,7 +320,7 @@
             plugins:{
                 title: {
                     display: true,
-                    text: 'Total CoinJoin Volumes',
+                    text: 'Total Volume',
                     color:'white',
                 },
                 legend: {
