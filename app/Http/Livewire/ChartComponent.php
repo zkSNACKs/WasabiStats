@@ -8,6 +8,7 @@ use App\Models\File;
 use App\Models\FileCategory;
 use App\Models\FileCount;
 use App\Models\FreshCoin;
+use App\Models\FreshDailyCoin;
 use App\Models\MonthlyCoinJoin;
 use App\Models\MonthlyVolumes;
 use App\Models\NeverMixed;
