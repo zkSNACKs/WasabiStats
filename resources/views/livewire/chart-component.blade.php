@@ -224,7 +224,7 @@
             plugins:{
                 title: {
                     display: true,
-                    text: 'Fresh Volume',
+                    text: 'Fresh Monthly Volume',
                     color:'white',
                 },
                 legend: {
