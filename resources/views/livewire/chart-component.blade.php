@@ -54,6 +54,11 @@
                     <canvas id="myFreshCoinsChart"></canvas>
                 </div>
             @endif
+            @if ($freshdailydate != [])
+                <div class="col-xl-6 my-4">
+                    <canvas id="myFreshDailyCoinsChart"></canvas>
+                </div>
+            @endif
             @if ($monthlydate != [])
                 <div class="col-xl-6 my-4">
                     <canvas id="myMonthyVolumes"></canvas>
@@ -220,6 +225,107 @@
                 title: {
                     display: true,
                     text: 'Fresh Volume',
+                    color:'white',
+                },
+                legend: {
+                  labels: {
+                     color: 'white'
+                  },
+                }
+            },
+            scales: {
+                y: {
+                    grid:{
+                        color:'rgba(255,255,255,0.5)',
+                        lineWidth:0.2
+                    },
+                    ticks: {
+                        color: 'white'
+                    },
+                    beginAtZero: true,
+                },
+                x: {
+                    grid:{
+                        color:'rgba(255,255,255,0.5)',
+                        lineWidth:0.2
+                    },
+                    ticks: {
+                        color: 'white'
+                    },
+                    beginAtZero: true,
+                }
+            }
+        },
+    });
+</script>
+<script>
+    const ctxFreshDaily = document.getElementById('myFreshDailyCoinsChart').getContext('2d');
+    var datawasabid = @json($freshdailywasabi);
+    var datawasabid2 = @json($freshdailywasabi2);
+    var datasamurid = @json($freshdailysamuri);
+    var dataotherid = @json($freshdailyotheri);
+    const myFreshDailyChart = new Chart(ctxFreshDaily, {
+        type: 'line',
+        data: {
+            labels: @json($freshdate),
+            datasets: [
+                {
+                    label: 'Wasabi 1.0',
+                    data:datawasabid,
+                    fontColor:['white','black'],
+                    backgroundColor: [
+                        'rgba(255, 119, 0, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 119, 0, 1)'
+                    ],
+                    borderWidth: 2
+                },
+                {
+                    label: 'Wasabi 2.0',
+                    data:datawasabid2,
+                    fontColor:['white','black'],
+                    backgroundColor: [
+                        'rgba(119, 198, 0, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(119, 198, 0, 1)'
+                    ],
+                    borderWidth: 2
+                }
+                /*{
+                    label: 'Samuri',
+                    data:datasamurid,
+                    fontColor:['white','black'],
+                    backgroundColor: [
+                        'rgba(238, 20, 24, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(238, 20, 24, 1)'
+                    ],
+                    borderWidth: 2,
+                    hidden: true
+                },
+                {
+                    label: 'Otheri',
+                    data:dataotherid,
+                    fontColor:['white','black'],
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)'
+                    ],
+                    borderWidth: 2,
+                    hidden: true
+                }*/
+            ]
+        },
+        options: {
+            plugins:{
+                title: {
+                    display: true,
+                    text: 'Fresh Daily Volume',
                     color:'white',
                 },
                 legend: {

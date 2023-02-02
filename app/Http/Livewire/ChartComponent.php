@@ -25,25 +25,36 @@ class ChartComponent extends Component
     public $to_date;
     public $piedata = [];
     public $piename = [];
+
     public $freshdate = [];
     public $freshwasabi = [];
     public $freshwasabi2 = [];
     public $freshsamuri = [];
     public $freshotheri = [];
+
+    public $freshdailydate = [];
+    public $freshdailywasabi = [];
+    public $freshdailywasabi2 = [];
+    public $freshdailysamuri = [];
+    public $freshdailyotheri = [];
+
     public $monthlydate = [];
     public $monthlywasabi = [];
     public $monthlywasabi2 = [];
     public $monthlysamuri = [];
     public $monthlyotheri = [];
+
     public $avgdate = [];
     public $avgwasabi = [];
     public $avgwasabi2 = [];
     public $avgsamuri = [];
     public $avgotheri = [];
+
     public $monthlyjoindate = [];
     public $monthlyjoinwasabi = [];
     public $monthlyjoinwasabi2 = [];
     public $monthlyjoinsamuri = [];
+
     public $total;
     public $totalsearchdate;
     public $daily;
@@ -51,6 +62,7 @@ class ChartComponent extends Component
     public $bardata = [];
     public $barname = [];
     public $barpublished = [];
+
     public $stackeddaydata = [];
     public $stackedweekdata = [];
     public $stackedweekdatashow = [];
@@ -182,6 +194,14 @@ class ChartComponent extends Component
                 array_push($this->freshwasabi2,$freshcoin->wasabi2);
                 array_push($this->freshsamuri,$freshcoin->samuri);
                 array_push($this->freshotheri,$freshcoin->otheri);
+            }
+            $freshdailycoins = FreshDailyCoin::all();
+            foreach ($freshcoins as $key => $freshcoin) {
+                array_push($this->freshdailydate,$freshdailycoin->date);
+                array_push($this->freshdailywasabi,$freshdailycoin->wasabi);
+                array_push($this->freshdailywasabi2,$freshdailycoin->wasabi2);
+                array_push($this->freshdailysamuri,$freshdailycoin->samuri);
+                array_push($this->freshdailyotheri,$freshdailycoin->otheri);
             }
             $monthlyvolumes = MonthlyVolumes::all();
             foreach ($monthlyvolumes as $key => $monthlyvolume) {
