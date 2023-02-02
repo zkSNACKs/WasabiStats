@@ -267,7 +267,7 @@
     const myFreshDailyChart = new Chart(ctxFreshDaily, {
         type: 'line',
         data: {
-            labels: @json($freshdate),
+            labels: @json($freshdailydate),
             datasets: [
                 {
                     label: 'Wasabi 1.0',
