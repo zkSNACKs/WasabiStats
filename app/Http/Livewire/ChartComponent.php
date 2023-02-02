@@ -197,7 +197,7 @@ class ChartComponent extends Component
                 array_push($this->freshotheri,$freshcoin->otheri);
             }
             $freshdailycoins = FreshDailyCoin::all();
-            foreach ($freshdailycoins as $key => $freshcoin) {
+            foreach ($freshdailycoins as $key => $freshdailycoin) {
                 array_push($this->freshdailydate,$freshdailycoin->date);
                 array_push($this->freshdailywasabi,$freshdailycoin->wasabi);
                 array_push($this->freshdailywasabi2,$freshdailycoin->wasabi2);
