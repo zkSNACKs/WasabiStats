@@ -196,7 +196,8 @@ class ChartComponent extends Component
                 array_push($this->freshsamuri,$freshcoin->samuri);
                 array_push($this->freshotheri,$freshcoin->otheri);
             }
-            $freshdailycoins = FreshDailyCoin::all();
+            //$freshdailycoins = FreshDailyCoin::all();
+            $freshdailycoins = FreshDailyCoin::whereBetWeen('date',[$this->from_date, $this->to_date])->get();
             foreach ($freshdailycoins as $key => $freshdailycoin) {
                 array_push($this->freshdailydate,$freshdailycoin->date);
                 array_push($this->freshdailywasabi,$freshdailycoin->wasabi);
