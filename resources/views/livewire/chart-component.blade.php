@@ -224,7 +224,7 @@
             plugins:{
                 title: {
                     display: true,
-                    text: 'Fresh Monthly Volume',
+                    text: 'Monthly Fresh Bitcoin',
                     color:'white',
                 },
                 legend: {
@@ -325,7 +325,7 @@
             plugins:{
                 title: {
                     display: true,
-                    text: 'Fresh Daily Volume',
+                    text: 'Daily Fresh Bitcoin',
                     color:'white',
                 },
                 legend: {
@@ -426,7 +426,7 @@
             plugins:{
                 title: {
                     display: true,
-                    text: 'Total Volume',
+                    text: 'Monthly Volume',
                     color:'white',
                 },
                 legend: {
