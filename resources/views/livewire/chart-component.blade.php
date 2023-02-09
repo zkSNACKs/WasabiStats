@@ -64,6 +64,11 @@
                     <canvas id="myMonthyVolumes"></canvas>
                 </div>
             @endif
+             @if ($dailydate != [])
+                <div class="col-xl-6 my-4">
+                    <canvas id="myDailyVolumes"></canvas>
+                </div>
+            @endif
             <div class="col-xl-6 my-4">
                 <canvas id="AvgRemixCount"></canvas>
             </div>
@@ -368,7 +373,7 @@
     const myMonthlyValuesChart = new Chart(ctMonthly, {
         type: 'line',
         data: {
-            labels: @json($monthlydate),
+            labels: @json($dailydate),
             datasets: [
                 {
                     label: 'Wasabi 1.0',
@@ -410,6 +415,107 @@
                 {
                     label: 'Otheri',
                     data:dataotherim,
+                    fontColor:['white','black'],
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)'
+                    ],
+                    borderWidth: 2,
+                    hidden: true
+                }*/
+            ]
+        },
+        options: {
+            plugins:{
+                title: {
+                    display: true,
+                    text: 'Monthly Volume',
+                    color:'white',
+                },
+                legend: {
+                  labels: {
+                     color: 'white'
+                  },
+                }
+            },
+            scales: {
+                y: {
+                    grid:{
+                        color:'rgba(255,255,255,0.5)',
+                        lineWidth:0.2
+                    },
+                    ticks: {
+                        color: 'white'
+                    },
+                    beginAtZero: true,
+                },
+                x: {
+                    grid:{
+                        color:'rgba(255,255,255,0.5)',
+                        lineWidth:0.2
+                    },
+                    ticks: {
+                        color: 'white'
+                    },
+                    beginAtZero: true,
+                }
+            }
+        },
+    });
+</script>
+<script>
+    const ctDaily = document.getElementById('myDailyVolumes').getContext('2d');
+    var datawasabidaily = @json($dailywasabi);
+    var datawasabidaily2 = @json($dailywasabi2);
+    var datasamuridaily = @json($dailysamuri);
+    var dataotheridaily = @json($dailyotheri);
+    const myMDailyValuesChart = new Chart(ctDaily, {
+        type: 'line',
+        data: {
+            labels: @json($monthlydate),
+            datasets: [
+                {
+                    label: 'Wasabi 1.0',
+                    data:datawasabidaily,
+                    fontColor:['white','black'],
+                    backgroundColor: [
+                        'rgba(255, 119, 0, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 119, 0, 1)'
+                    ],
+                    borderWidth: 2
+                },
+                {
+                    label: 'Wasabi 2.0',
+                    data:datawasabidaily2,
+                    fontColor:['white','black'],
+                    backgroundColor: [
+                        'rgba(119, 198, 0, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(119, 198, 0, 1)'
+                    ],
+                    borderWidth: 2
+                }
+                /*{
+                    label: 'Samuri',
+                    data:datasamuridaily,
+                    fontColor:['white','black'],
+                    backgroundColor: [
+                        'rgba(238, 20, 24, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(238, 20, 24, 1)'
+                    ],
+                    borderWidth: 2,
+                    hidden: true
+                },
+                {
+                    label: 'Otheri',
+                    data:dataotheridaily,
                     fontColor:['white','black'],
                     backgroundColor: [
                         'rgba(75, 192, 192, 0.2)'

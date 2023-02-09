@@ -11,6 +11,7 @@ use App\Models\FreshCoin;
 use App\Models\FreshDailyCoin;
 use App\Models\MonthlyCoinJoin;
 use App\Models\MonthlyVolumes;
+use App\Models\DailyVolumes;
 use App\Models\NeverMixed;
 use App\Models\PostmixConsolidation;
 use Carbon\Carbon;
@@ -44,6 +45,12 @@ class ChartComponent extends Component
     public $monthlywasabi2 = [];
     public $monthlysamuri = [];
     public $monthlyotheri = [];
+
+    public $dailydate = [];
+    public $dailywasabi = [];
+    public $dailywasabi2 = [];
+    public $dailysamuri = [];
+    public $dailyotheri = [];
 
     public $avgdate = [];
     public $avgwasabi = [];
@@ -243,6 +250,14 @@ class ChartComponent extends Component
                         array_push($this->avgotheri,0);
                     }
                 }
+            }
+            $dailyvolumes = DailyVolume::whereBetWeen('date',[$this->from_date, $this->to_date])->get();
+            foreach ($dailyvolumes as $key => $dailyvolume) {
+                array_push($this->dailydate,$dailyvolume->date);
+                array_push($this->dailywasabi,$dailyvolume->wasabi);
+                array_push($this->dailywasabi2,$dailyvolume->wasabi2);
+                array_push($this->dailysamuri,$dailyvolume->samuri);
+                array_push($this->dailyotheri,$dailyvolume->otheri);
             }
             $monthlycoinjoins = MonthlyCoinJoin::all();
             foreach ($monthlycoinjoins as $key => $monthlycoinjoin) {
