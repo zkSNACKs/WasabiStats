@@ -373,7 +373,7 @@
     const myMonthlyValuesChart = new Chart(ctMonthly, {
         type: 'line',
         data: {
-            labels: @json($dailydate),
+            labels: @json($monthlydate),
             datasets: [
                 {
                     label: 'Wasabi 1.0',
@@ -474,7 +474,7 @@
     const myMDailyValuesChart = new Chart(ctDaily, {
         type: 'line',
         data: {
-            labels: @json($monthlydate),
+            labels: @json($dailydate),
             datasets: [
                 {
                     label: 'Wasabi 1.0',
@@ -532,7 +532,7 @@
             plugins:{
                 title: {
                     display: true,
-                    text: 'Monthly Volume',
+                    text: 'Daily Volume',
                     color:'white',
                 },
                 legend: {
