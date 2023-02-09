@@ -251,7 +251,7 @@ class ChartComponent extends Component
                     }
                 }
             }
-            $dailyvolumes = DailyVolume::whereBetWeen('date',[$this->from_date, $this->to_date])->get();
+            $dailyvolumes = DailyVolumes::whereBetWeen('date',[$this->from_date, $this->to_date])->get();
             foreach ($dailyvolumes as $key => $dailyvolume) {
                 array_push($this->dailydate,$dailyvolume->date);
                 array_push($this->dailywasabi,$dailyvolume->wasabi);
