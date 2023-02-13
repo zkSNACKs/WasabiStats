@@ -122,7 +122,7 @@
                     'rgba(119, 198, 0, 1)'
                 ],
                 trendlineLinear: {
-	            	style: "rgba(255,105,180, .8)",
+	            	style: "rgba(255,105,180, .5)",
 	            	lineStyle: "solid",
 	            	width: 1,
 	            },
@@ -195,6 +195,11 @@
                     borderColor: [
                         'rgba(119, 198, 0, 1)'
                     ],
+                    trendlineLinear: {
+                        style: "rgba(255,105,180, .5)",
+                        lineStyle: "solid",
+                        width: 1,
+                    },
                     borderWidth: 2
                 }
                 /*{
@@ -296,6 +301,11 @@
                     borderColor: [
                         'rgba(119, 198, 0, 1)'
                     ],
+                    trendlineLinear: {
+                        style: "rgba(255,105,180, .5)",
+                        lineStyle: "solid",
+                        width: 1,
+                    },
                     borderWidth: 2
                 }
                 /*{
@@ -397,6 +407,11 @@
                     borderColor: [
                         'rgba(119, 198, 0, 1)'
                     ],
+                    trendlineLinear: {
+                        style: "rgba(255,105,180, .5)",
+                        lineStyle: "solid",
+                        width: 1,
+                    },
                     borderWidth: 2
                 }
                 /*{
@@ -498,6 +513,11 @@
                     borderColor: [
                         'rgba(119, 198, 0, 1)'
                     ],
+                    trendlineLinear: {
+                        style: "rgba(255,105,180, .5)",
+                        lineStyle: "solid",
+                        width: 1,
+                    },
                     borderWidth: 2
                 }
                 /*{
@@ -600,6 +620,11 @@
                     borderColor: [
                         'rgba(119, 198, 0, 1)'
                     ],
+                    trendlineLinear: {
+                        style: "rgba(255,105,180, .5)",
+                        lineStyle: "solid",
+                        width: 1,
+                    },
                     borderWidth: 2
                 }
                 /*{
@@ -700,6 +725,11 @@
                     borderColor: [
                         'rgba(119, 198, 0, 1)'
                     ],
+                    trendlineLinear: {
+                        style: "rgba(255,105,180, .5)",
+                        lineStyle: "solid",
+                        width: 1,
+                    },
                     borderWidth: 2
                 }
                 /*{
@@ -787,6 +817,11 @@
                     borderColor: [
                         'rgba(119, 198, 0, 1)'
                     ],
+                    trendlineLinear: {
+                        style: "rgba(255,105,180, .5)",
+                        lineStyle: "solid",
+                        width: 1,
+                    },
                     borderWidth: 2
                 }
                 /*{
@@ -888,6 +923,11 @@
                     borderColor: [
                         'rgba(119, 198, 0, 1)'
                     ],
+                    trendlineLinear: {
+                        style: "rgba(255,105,180, .5)",
+                        lineStyle: "solid",
+                        width: 1,
+                    },
                     borderWidth: 2
                 }
                 /*{
@@ -974,7 +1014,7 @@
                     'rgba(119, 198, 0, 1)'
                 ],
                 trendlineLinear: {
-	            	style: "rgba(255,105,180, .8)",
+	            	style: "rgba(255,105,180, .5)",
 	            	lineStyle: "solid",
 	            	width: 1,
 	            },
@@ -1061,7 +1101,7 @@
                     'rgba(255, 99, 132, 1)'
                 ],
                 trendlineLinear: {
-	            	style: "rgba(255,105,180, .8)",
+	            	style: "rgba(255,105,180, .5)",
 	            	lineStyle: "solid",
 	            	width: 1,
 	            },
