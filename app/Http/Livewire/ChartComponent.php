@@ -224,7 +224,7 @@ class ChartComponent extends Component
             foreach ($monthlyvolumes as $key => $monthlyvolume) {
                 $fresh = FreshCoin::where('date',$monthlyvolume->date)->first();
                 if (!is_null($fresh)) {
-                    array_push($this->avgdate,$monthlyvolume->date);
+                    array_push($this->avgdate,substr($monthlyvolume->date, 0, -3));
                     if($fresh->wasabi > 0)
                     {
                         array_push($this->avgwasabi,$monthlyvolume->wasabi / $fresh->wasabi);
