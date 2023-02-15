@@ -261,7 +261,7 @@ class ChartComponent extends Component
             }
             $monthlycoinjoins = MonthlyCoinJoin::all();
             foreach ($monthlycoinjoins as $key => $monthlycoinjoin) {
-                array_push($this->monthlyjoindate,$monthlycoinjoin->date);
+                array_push($this->monthlyjoindate,substr($monthlycoinjoin->date, 0, -3));
                 array_push($this->monthlyjoinwasabi,$monthlycoinjoin->wasabi);
                 array_push($this->monthlyjoinwasabi2,$monthlycoinjoin->wasabi2);
                 array_push($this->monthlyjoinsamuri,$monthlycoinjoin->samuri);
