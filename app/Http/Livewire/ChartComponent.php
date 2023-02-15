@@ -197,7 +197,7 @@ class ChartComponent extends Component
 
             $freshcoins = FreshCoin::all();
             foreach ($freshcoins as $key => $freshcoin) {
-                array_push($this->freshdate,$freshcoin->date);
+                array_push($this->freshdate,substr($freshcoin->date, 0, -3));
                 array_push($this->freshwasabi,$freshcoin->wasabi);
                 array_push($this->freshwasabi2,$freshcoin->wasabi2);
                 array_push($this->freshsamuri,$freshcoin->samuri);
@@ -214,7 +214,7 @@ class ChartComponent extends Component
             }
             $monthlyvolumes = MonthlyVolumes::all();
             foreach ($monthlyvolumes as $key => $monthlyvolume) {
-                array_push($this->monthlydate,$monthlyvolume->date);
+                array_push($this->monthlydate,substr($monthlyvolume->date, 0, -3));
                 array_push($this->monthlywasabi,$monthlyvolume->wasabi);
                 array_push($this->monthlywasabi2,$monthlyvolume->wasabi2);
                 array_push($this->monthlysamuri,$monthlyvolume->samuri);
@@ -268,14 +268,14 @@ class ChartComponent extends Component
             }
             $nevermixeds = NeverMixed::all();
             foreach ($nevermixeds as $key => $nevermixed) {
-                array_push($this->nevermixeddate,$nevermixed->date);
+                array_push($this->nevermixeddate,substr($nevermixed->date, 0, -3));
                 array_push($this->nevermixedwasabi,$nevermixed->wasabi);
                 array_push($this->nevermixedwasabi2,$nevermixed->wasabi2);
                 array_push($this->nevermixedsamuri,$nevermixed->samuri);
             }
             $postmixeds = PostmixConsolidation::all();
             foreach ($postmixeds as $key => $postmixed) {
-                array_push($this->postmixeddate,$postmixed->date);
+                array_push($this->postmixeddate,substr($postmixed->date, 0, -3));
                 array_push($this->postmixedwasabi,$postmixed->wasabi);
                 array_push($this->postmixedwasabi2,$postmixed->wasabi2);
                 array_push($this->postmixedsamuri,$postmixed->samuri);
