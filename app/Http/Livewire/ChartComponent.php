@@ -293,6 +293,7 @@ class ChartComponent extends Component
                 array_push($this->unspentcapacitywasabi,$unspentcapacity->wasabi);
                 array_push($this->unspentcapacitywasabi2,$unspentcapacity->wasabi2);
                 array_push($this->unspentcapacitysamuri,$unspentcapacity->samuri);
+                array_push($this->unspentcapacitytotal,$unspentcapacity->wasabi + $unspentcapacity->wasabi2);
             }
         }
         else{

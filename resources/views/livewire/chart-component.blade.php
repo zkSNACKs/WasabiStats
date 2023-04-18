@@ -975,6 +975,7 @@
     var unspentcapacitywasabi2 = @json($unspentcapacitywasabi2);
     var unspentcapacitysamuri = @json($unspentcapacitysamuri);
     var unspentcapacityotheri = @json($unspentcapacityotheri);
+    var unspentcapacitytotal = @json($unspentcapacitytotal);
     const myUnspentCapacityChart = new Chart(ctUnspentCapacity, {
         type: 'line',
         data: {
@@ -1001,6 +1002,18 @@
                     ],
                     borderColor: [
                         'rgba(119, 198, 0, 1)'
+                    ],
+                    borderWidth: 2
+                },
+                {
+                    label: 'Wasabi Total',
+                    data:unspentcapacitytotal,
+                    fontColor:['white','black'],
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)'
                     ],
                     borderWidth: 2
                 }
