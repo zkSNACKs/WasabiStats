@@ -290,9 +290,9 @@ class ChartComponent extends Component
             $unspenscapacities = UnspentCapacity::all();
             foreach ($unspenscapacities as $key => $unspentcapacity) {
                 array_push($this->unspentcapacitydate,$unspentcapacity->date);
-                array_push($this->unspentcapacitwasabi,$unspentcapacity->wasabi);
-                array_push($this->unspentcapacitwasabi2,$unspentcapacity->wasabi2);
-                array_push($this->unspentcapacitsamuri,$unspentcapacity->samuri);
+                array_push($this->unspentcapacitywasabi,$unspentcapacity->wasabi);
+                array_push($this->unspentcapacitywasabi2,$unspentcapacity->wasabi2);
+                array_push($this->unspentcapacitysamuri,$unspentcapacity->samuri);
             }
         }
         else{
