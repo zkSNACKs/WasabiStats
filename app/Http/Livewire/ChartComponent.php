@@ -14,6 +14,7 @@ use App\Models\MonthlyVolumes;
 use App\Models\DailyVolumes;
 use App\Models\NeverMixed;
 use App\Models\PostmixConsolidation;
+use App\Models\UnspentCapacity;
 use Carbon\Carbon;
 use Livewire\Component;
 
@@ -88,6 +89,12 @@ class ChartComponent extends Component
     public $postmixedwasabi2 = [];
     public $postmixedsamuri = [];
     public $postmixedotheri = [];
+
+    public $unspentcapacitydate = [];
+    public $unspentcapacitywasabi = [];
+    public $unspentcapacitywasabi2 = [];
+    public $unspentcapacitysamuri = [];
+    public $unspentcapacityotheri = [];
 
 
     public function mount($id=4, $from_date, $to_date){
@@ -279,6 +286,13 @@ class ChartComponent extends Component
                 array_push($this->postmixedwasabi,$postmixed->wasabi);
                 array_push($this->postmixedwasabi2,$postmixed->wasabi2);
                 array_push($this->postmixedsamuri,$postmixed->samuri);
+            }
+            $unspenscapacities = UnspentCapacity::all();
+            foreach ($unspenscapacities as $key => $unspentcapacity) {
+                array_push($this->unspentcapacitydate,$unspentcapacity->date);
+                array_push($this->unspentcapacitwasabi,$unspentcapacity->wasabi);
+                array_push($this->unspentcapacitwasabi2,$unspentcapacity->wasabi2);
+                array_push($this->unspentcapacitsamuri,$unspentcapacity->samuri);
             }
         }
         else{
