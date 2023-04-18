@@ -95,6 +95,7 @@ class ChartComponent extends Component
     public $unspentcapacitywasabi2 = [];
     public $unspentcapacitysamuri = [];
     public $unspentcapacityotheri = [];
+    public $unspentcapacitytotal = [];
 
 
     public function mount($id=4, $from_date, $to_date){
