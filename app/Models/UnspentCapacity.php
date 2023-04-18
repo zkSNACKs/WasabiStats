@@ -9,5 +9,5 @@ class UnspentCapacity extends Model
 {
     use HasFactory;
 
-    protected $table = 'unspent_capacities';
+    protected $table = 'unspent_capacity';
 }
