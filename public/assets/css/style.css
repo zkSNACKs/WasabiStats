@@ -12,7 +12,7 @@
     font-family: 'Poppins', sans-serif;
 }
 body {
-    background: linear-gradient(143deg, rgba(73, 88, 107, 1) 0%, rgba(0, 16, 31, 1) 55%);
+    background: linear-gradient(143deg, rgba(70, 70, 70, 1) 0%, rgba(0, 0, 0, 1) 55%);
     min-height: 100vh;
 }
 header {
@@ -20,6 +20,16 @@ header {
     -webkit-backdrop-filter: saturate(180%) blur(20px);
     backdrop-filter: saturate(180%) blur(20px);
     color: #fff;
+    width: 100%;
+    top: 0;
+}
+@media only screen and (min-width:1024px) {
+    body {
+        padding-top: 70px;
+    }
+    header {
+        position: fixed;
+    }
 }
 .logo {
     height: 30px;
@@ -106,4 +116,8 @@ select option {
 }
 .setting-form {
     display: flex;
+}
+.form-select:focus {
+    border-color: var(--green);
+    box-shadow:0 0 0 .25rem rgba(119,198,0,.25);
 }
