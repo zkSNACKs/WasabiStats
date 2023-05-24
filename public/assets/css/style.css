@@ -22,6 +22,7 @@ header {
     color: #fff;
     width: 100%;
     top: 0;
+    z-index: 100;
 }
 @media only screen and (min-width:1024px) {
     body {
@@ -117,7 +118,7 @@ select option {
 .setting-form {
     display: flex;
 }
-.form-select:focus {
+.form-select:focus, .form-control:focus {
     border-color: var(--green);
     box-shadow:0 0 0 .25rem rgba(119,198,0,.25);
 }
