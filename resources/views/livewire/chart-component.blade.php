@@ -107,6 +107,11 @@
         Livewire.emit('refreshCloudFlareComponent')
     }, 10*60*1000);
 </script>
+<script type="text/javascript">
+    function replaceZeroWithNull(array) {
+      return array.map((item) => (item === 0 ? null : item));
+    };
+</script>
 <script>
     const ctx = document.getElementById('myChart').getContext('2d');
     var data = @json($dats);
@@ -171,6 +176,7 @@
     var datawasabi2 = @json($freshwasabi2);
     var datasamuri = @json($freshsamuri);
     var dataotheri = @json($freshotheri);
+
     const myFreshChart = new Chart(ctxFresh, {
         type: 'line',
         data: {
@@ -178,7 +184,7 @@
             datasets: [
                 {
                     label: 'Wasabi 1.0',
-                    data:datawasabi,
+                    data:replaceZeroWithNull(datawasabi),
                     fontColor:['white','black'],
                     backgroundColor: [
                         'rgba(255, 119, 0, 0.2)'
@@ -186,11 +192,12 @@
                     borderColor: [
                         'rgba(255, 119, 0, 1)'
                     ],
-                    borderWidth: 2
+                    borderWidth: 2,
+                    spanGaps: false
                 },
                 {
                     label: 'Wasabi 2.0',
-                    data:datawasabi2,
+                    data:replaceZeroWithNull(datawasabi2),
                     fontColor:['white','black'],
                     backgroundColor: [
                         'rgba(119, 198, 0, 0.2)'
@@ -198,7 +205,8 @@
                     borderColor: [
                         'rgba(119, 198, 0, 1)'
                     ],
-                    borderWidth: 2
+                    borderWidth: 2,
+                    spanGaps: false
                 }
                 /*{
                     label: 'Samuri',
@@ -385,7 +393,7 @@
             datasets: [
                 {
                     label: 'Wasabi 1.0',
-                    data:datawasabim,
+                    data:replaceZeroWithNull(datawasabim),
                     fontColor:['white','black'],
                     backgroundColor: [
                         'rgba(255, 119, 0, 0.2)'
@@ -393,11 +401,12 @@
                     borderColor: [
                         'rgba(255, 119, 0, 1)'
                     ],
-                    borderWidth: 2
+                    borderWidth: 2,
+                    spanGaps: false
                 },
                 {
                     label: 'Wasabi 2.0',
-                    data:datawasabim2,
+                    data:replaceZeroWithNull(datawasabim2),
                     fontColor:['white','black'],
                     backgroundColor: [
                         'rgba(119, 198, 0, 0.2)'
@@ -405,7 +414,8 @@
                     borderColor: [
                         'rgba(119, 198, 0, 1)'
                     ],
-                    borderWidth: 2
+                    borderWidth: 2,
+                    spanGaps: false
                 }
                 /*{
                     label: 'Samuri',
@@ -593,7 +603,7 @@
             datasets: [
                 {
                     label: 'Wasabi 1.0',
-                    data:avgwasabi,
+                    data:replaceZeroWithNull(avgwasabi),
                     fontColor:['white','black'],
                     backgroundColor: [
                         'rgba(255, 119, 0, 0.2)'
@@ -601,11 +611,12 @@
                     borderColor: [
                         'rgba(255, 119, 0, 1)'
                     ],
-                    borderWidth: 2
+                    borderWidth: 2,
+                    spanGaps: false
                 },
                 {
                     label: 'Wasabi 2.0',
-                    data:avgwasabi2,
+                    data:replaceZeroWithNull(avgwasabi2),
                     fontColor:['white','black'],
                     backgroundColor: [
                         'rgba(119, 198, 0, 0.2)'
@@ -613,7 +624,8 @@
                     borderColor: [
                         'rgba(119, 198, 0, 1)'
                     ],
-                    borderWidth: 2
+                    borderWidth: 2,
+                    spanGaps: false
                 }
                 /*{
                     label: 'Samuri',
@@ -693,7 +705,7 @@
             datasets: [
                 {
                     label: 'Wasabi 1.0',
-                    data:datawasabij,
+                    data:replaceZeroWithNull(datawasabij),
                     fontColor:['white','black'],
                     backgroundColor: [
                         'rgba(255, 119, 0, 0.2)'
@@ -701,11 +713,12 @@
                     borderColor: [
                         'rgba(255, 119, 0, 1)'
                     ],
-                    borderWidth: 2
+                    borderWidth: 2,
+                    spanGaps: false
                 },
                 {
                     label: 'Wasabi 2.0',
-                    data:datawasabij2,
+                    data:replaceZeroWithNull(datawasabij2),
                     fontColor:['white','black'],
                     backgroundColor: [
                         'rgba(119, 198, 0, 0.2)'
@@ -713,7 +726,8 @@
                     borderColor: [
                         'rgba(119, 198, 0, 1)'
                     ],
-                    borderWidth: 2
+                    borderWidth: 2,
+                    spanGaps: false
                 }
                 /*{
                     label: 'Samuri',
@@ -780,7 +794,7 @@
             datasets: [
                 {
                     label: 'Wasabi 1.0',
-                    data:nevermixedwasabi,
+                    data:replaceZeroWithNull(nevermixedwasabi),
                     fontColor:['white','black'],
                     backgroundColor: [
                         'rgba(255, 119, 0, 0.2)'
@@ -788,11 +802,12 @@
                     borderColor: [
                         'rgba(255, 119, 0, 1)'
                     ],
-                    borderWidth: 2
+                    borderWidth: 2,
+                    spanGaps: false
                 },
                 {
                     label: 'Wasabi 2.0',
-                    data:nevermixedwasabi2,
+                    data:replaceZeroWithNull(nevermixedwasabi2),
                     fontColor:['white','black'],
                     backgroundColor: [
                         'rgba(119, 198, 0, 0.2)'
@@ -800,7 +815,8 @@
                     borderColor: [
                         'rgba(119, 198, 0, 1)'
                     ],
-                    borderWidth: 2
+                    borderWidth: 2,
+                    spanGaps: false
                 }
                 /*{
                     label: 'Samuri',
@@ -881,7 +897,7 @@
             datasets: [
                 {
                     label: 'Wasabi 1.0',
-                    data:postmixedwasabi,
+                    data:replaceZeroWithNull(postmixedwasabi),
                     fontColor:['white','black'],
                     backgroundColor: [
                         'rgba(255, 119, 0, 0.2)'
@@ -889,11 +905,12 @@
                     borderColor: [
                         'rgba(255, 119, 0, 1)'
                     ],
-                    borderWidth: 2
+                    borderWidth: 2,
+                    spanGaps: false
                 },
                 {
                     label: 'Wasabi 2.0',
-                    data:postmixedwasabi2,
+                    data:replaceZeroWithNull(postmixedwasabi2),
                     fontColor:['white','black'],
                     backgroundColor: [
                         'rgba(119, 198, 0, 0.2)'
@@ -901,7 +918,8 @@
                     borderColor: [
                         'rgba(119, 198, 0, 1)'
                     ],
-                    borderWidth: 2
+                    borderWidth: 2,
+                    spanGaps: false
                 }
                 /*{
                     label: 'Samuri',
