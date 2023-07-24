@@ -1,3 +1,18 @@
+<script>
+    // Function to get URL parameter by name
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+
+    var showAll = getParameterByName('show') === 'all';
+</script>
+
 <div class="chart pb-5">
     <div class="search">
         @livewire('search-component',[
@@ -177,64 +192,54 @@
     var datasamuri = @json($freshsamuri);
     var dataotheri = @json($freshotheri);
 
+    var datasets = [
+        {
+            label: 'Wasabi 1.0',
+            data: replaceZeroWithNull(datawasabi),
+            fontColor: ['white', 'black'],
+            backgroundColor: ['rgba(255, 119, 0, 0.2)'],
+            borderColor: ['rgba(255, 119, 0, 1)'],
+            borderWidth: 2,
+            spanGaps: false,
+        },
+        {
+            label: 'Wasabi 2.0',
+            data: replaceZeroWithNull(datawasabi2),
+            fontColor: ['white', 'black'],
+            backgroundColor: ['rgba(119, 198, 0, 0.2)'],
+            borderColor: ['rgba(119, 198, 0, 1)'],
+            borderWidth: 2,
+            spanGaps: false,
+        },
+    ];
+
+    if (showAll) {
+        // Add the 'Samuri' and 'Otheri' datasets when 'show' is equal to 'all'
+        datasets.push({
+            label: 'Samuri',
+            data: datasamuri,
+            fontColor: ['white', 'black'],
+            backgroundColor: ['rgba(238, 20, 24, 0.2)'],
+            borderColor: ['rgba(238, 20, 24, 1)'],
+            borderWidth: 2,
+            hidden: true,
+        });
+        datasets.push({
+            label: 'Otheri',
+            data: dataotheri,
+            fontColor: ['white', 'black'],
+            backgroundColor: ['rgba(75, 192, 192, 0.2)'],
+            borderColor: ['rgba(75, 192, 192, 1)'],
+            borderWidth: 2,
+            hidden: true,
+        });
+    }
+
     const myFreshChart = new Chart(ctxFresh, {
         type: 'line',
         data: {
             labels: @json($freshdate),
-            datasets: [
-                {
-                    label: 'Wasabi 1.0',
-                    data:replaceZeroWithNull(datawasabi),
-                    fontColor:['white','black'],
-                    backgroundColor: [
-                        'rgba(255, 119, 0, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 119, 0, 1)'
-                    ],
-                    borderWidth: 2,
-                    spanGaps: false
-                },
-                {
-                    label: 'Wasabi 2.0',
-                    data:replaceZeroWithNull(datawasabi2),
-                    fontColor:['white','black'],
-                    backgroundColor: [
-                        'rgba(119, 198, 0, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(119, 198, 0, 1)'
-                    ],
-                    borderWidth: 2,
-                    spanGaps: false
-                }
-                /*{
-                    label: 'Samuri',
-                    data:datasamuri,
-                    fontColor:['white','black'],
-                    backgroundColor: [
-                        'rgba(238, 20, 24, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(238, 20, 24, 1)'
-                    ],
-                    borderWidth: 2,
-                    hidden: true
-                },
-                {
-                    label: 'Otheri',
-                    data:dataotheri,
-                    fontColor:['white','black'],
-                    backgroundColor: [
-                        'rgba(75, 192, 192, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(75, 192, 192, 1)'
-                    ],
-                    borderWidth: 2,
-                    hidden: true
-                }*/
-            ]
+            datasets: datasets,
         },
         options: {
             plugins:{
