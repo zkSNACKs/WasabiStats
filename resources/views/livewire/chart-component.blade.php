@@ -854,6 +854,7 @@
             ],
             borderWidth: 2,
         });
+        /*
         datasets.push({
             label: 'Otheri',
             data:nevermixedotheri,
@@ -866,6 +867,7 @@
             ],
             borderWidth: 2,
         });
+        */
     }
 
     const myNeverMixedChart = new Chart(ctNeverMixed, {
@@ -961,6 +963,7 @@
             ],
             borderWidth: 2,
         });
+        /*
         datasets.push({
             label: 'Otheri',
             data:postmixedotheri,
@@ -973,6 +976,7 @@
             ],
             borderWidth: 2,
         });
+        */
     }
 
     const myPostmixConsolidationChart = new Chart(ctPostmixConsolidation, {
@@ -1079,6 +1083,7 @@
             ],
             borderWidth: 2,
         });
+        /*
         datasets.push({
             label: 'Otheri',
             data:unspentcapacityotheri,
@@ -1091,6 +1096,7 @@
             ],
             borderWidth: 2,
         });
+        */
     }
 
     const myUnspentCapacityChart = new Chart(ctUnspentCapacity, {
