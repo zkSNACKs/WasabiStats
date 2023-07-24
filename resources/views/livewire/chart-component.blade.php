@@ -10,7 +10,7 @@
         return decodeURIComponent(results[2].replace(/\+/g, ' '));
     }
 
-    var showAll = getParameterByName('show') === 'all';
+    var showAll = getParameterByName('godmode') === 'true';
 </script>
 
 <div class="chart pb-5">
