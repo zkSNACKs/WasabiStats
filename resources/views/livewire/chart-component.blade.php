@@ -221,8 +221,7 @@
             fontColor: ['white', 'black'],
             backgroundColor: ['rgba(238, 20, 24, 0.2)'],
             borderColor: ['rgba(238, 20, 24, 1)'],
-            borderWidth: 2,
-            hidden: true,
+            borderWidth: 2
         });
         datasets.push({
             label: 'Otheri',
@@ -230,8 +229,7 @@
             fontColor: ['white', 'black'],
             backgroundColor: ['rgba(75, 192, 192, 0.2)'],
             borderColor: ['rgba(75, 192, 192, 1)'],
-            borderWidth: 2,
-            hidden: true,
+            borderWidth: 2
         });
     }
 
@@ -285,67 +283,71 @@
     var datawasabid2 = @json($freshdailywasabi2);
     var datasamurid = @json($freshdailysamuri);
     var dataotherid = @json($freshdailyotheri);
+
+    var datasets = [
+        {
+            label: 'Wasabi 1.0',
+            data:datawasabid,
+            fontColor:['white','black'],
+            backgroundColor: [
+                'rgba(255, 119, 0, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 119, 0, 1)'
+            ],
+            borderWidth: 2
+        },
+        {
+            label: 'Wasabi 2.0',
+            data:datawasabid2,
+            fontColor:['white','black'],
+            backgroundColor: [
+                'rgba(119, 198, 0, 0.2)'
+            ],
+            borderColor: [
+                'rgba(119, 198, 0, 1)'
+            ],
+            trendlineLinear: {
+                style: "rgba(255,105,180, .5)",
+                lineStyle: "solid",
+                width: 1,
+            },
+            borderWidth: 2
+        },
+    ];
+    if (showAll) {
+        // Add the 'Samuri' and 'Otheri' datasets when 'show' is equal to 'all'
+        datasets.push({
+            label: 'Samuri',
+            data:datasamurid,
+            fontColor:['white','black'],
+            backgroundColor: [
+                'rgba(238, 20, 24, 0.2)'
+            ],
+            borderColor: [
+                'rgba(238, 20, 24, 1)'
+            ],
+            borderWidth: 2,
+        });
+        datasets.push({
+            label: 'Otheri',
+            data:dataotherid,
+            fontColor:['white','black'],
+            backgroundColor: [
+                'rgba(75, 192, 192, 0.2)'
+            ],
+            borderColor: [
+                'rgba(75, 192, 192, 1)'
+            ],
+            borderWidth: 2,
+        });
+    }
+
     const myFreshDailyChart = new Chart(ctxFreshDaily, {
         type: 'line',
         data: {
             labels: @json($freshdailydate),
-            datasets: [
-                {
-                    label: 'Wasabi 1.0',
-                    data:datawasabid,
-                    fontColor:['white','black'],
-                    backgroundColor: [
-                        'rgba(255, 119, 0, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 119, 0, 1)'
-                    ],
-                    borderWidth: 2
-                },
-                {
-                    label: 'Wasabi 2.0',
-                    data:datawasabid2,
-                    fontColor:['white','black'],
-                    backgroundColor: [
-                        'rgba(119, 198, 0, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(119, 198, 0, 1)'
-                    ],
-                    trendlineLinear: {
-                        style: "rgba(255,105,180, .5)",
-                        lineStyle: "solid",
-                        width: 1,
-                    },
-                    borderWidth: 2
-                }
-                /*{
-                    label: 'Samuri',
-                    data:datasamurid,
-                    fontColor:['white','black'],
-                    backgroundColor: [
-                        'rgba(238, 20, 24, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(238, 20, 24, 1)'
-                    ],
-                    borderWidth: 2,
-                    hidden: true
-                },
-                {
-                    label: 'Otheri',
-                    data:dataotherid,
-                    fontColor:['white','black'],
-                    backgroundColor: [
-                        'rgba(75, 192, 192, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(75, 192, 192, 1)'
-                    ],
-                    borderWidth: 2,
-                    hidden: true
-                }*/
-            ]
+            datasets: datasets,
         },
         options: {
             plugins:{
@@ -391,64 +393,68 @@
     var datawasabim2 = @json($monthlywasabi2);
     var datasamurim = @json($monthlysamuri);
     var dataotherim = @json($monthlyotheri);
+
+    var datasets = [
+        {
+            label: 'Wasabi 1.0',
+            data:replaceZeroWithNull(datawasabim),
+            fontColor:['white','black'],
+            backgroundColor: [
+                'rgba(255, 119, 0, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 119, 0, 1)'
+            ],
+            borderWidth: 2,
+            spanGaps: false
+        },
+        {
+            label: 'Wasabi 2.0',
+            data:replaceZeroWithNull(datawasabim2),
+            fontColor:['white','black'],
+            backgroundColor: [
+                'rgba(119, 198, 0, 0.2)'
+            ],
+            borderColor: [
+                'rgba(119, 198, 0, 1)'
+            ],
+            borderWidth: 2,
+            spanGaps: false
+        },
+    ];
+    if (showAll) {
+        // Add the 'Samuri' and 'Otheri' datasets when 'show' is equal to 'all'
+        datasets.push({
+            label: 'Samuri',
+            data:datasamurim,
+            fontColor:['white','black'],
+            backgroundColor: [
+                'rgba(238, 20, 24, 0.2)'
+            ],
+            borderColor: [
+                'rgba(238, 20, 24, 1)'
+            ],
+            borderWidth: 2,
+        });
+        datasets.push({
+            label: 'Otheri',
+            data:dataotherim,
+            fontColor:['white','black'],
+            backgroundColor: [
+                'rgba(75, 192, 192, 0.2)'
+            ],
+            borderColor: [
+                'rgba(75, 192, 192, 1)'
+            ],
+            borderWidth: 2,
+        });
+    }
+
     const myMonthlyValuesChart = new Chart(ctMonthly, {
         type: 'line',
         data: {
             labels: @json($monthlydate),
-            datasets: [
-                {
-                    label: 'Wasabi 1.0',
-                    data:replaceZeroWithNull(datawasabim),
-                    fontColor:['white','black'],
-                    backgroundColor: [
-                        'rgba(255, 119, 0, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 119, 0, 1)'
-                    ],
-                    borderWidth: 2,
-                    spanGaps: false
-                },
-                {
-                    label: 'Wasabi 2.0',
-                    data:replaceZeroWithNull(datawasabim2),
-                    fontColor:['white','black'],
-                    backgroundColor: [
-                        'rgba(119, 198, 0, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(119, 198, 0, 1)'
-                    ],
-                    borderWidth: 2,
-                    spanGaps: false
-                }
-                /*{
-                    label: 'Samuri',
-                    data:datasamurim,
-                    fontColor:['white','black'],
-                    backgroundColor: [
-                        'rgba(238, 20, 24, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(238, 20, 24, 1)'
-                    ],
-                    borderWidth: 2,
-                    hidden: true
-                },
-                {
-                    label: 'Otheri',
-                    data:dataotherim,
-                    fontColor:['white','black'],
-                    backgroundColor: [
-                        'rgba(75, 192, 192, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(75, 192, 192, 1)'
-                    ],
-                    borderWidth: 2,
-                    hidden: true
-                }*/
-            ]
+            datasets: datasets,
         },
         options: {
             plugins:{
@@ -494,67 +500,71 @@
     var datawasabidaily2 = @json($dailywasabi2);
     var datasamuridaily = @json($dailysamuri);
     var dataotheridaily = @json($dailyotheri);
+
+    var datasets = [
+        {
+            label: 'Wasabi 1.0',
+            data:datawasabidaily,
+            fontColor:['white','black'],
+            backgroundColor: [
+                'rgba(255, 119, 0, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 119, 0, 1)'
+            ],
+            borderWidth: 2
+        },
+        {
+            label: 'Wasabi 2.0',
+            data:datawasabidaily2,
+            fontColor:['white','black'],
+            backgroundColor: [
+                'rgba(119, 198, 0, 0.2)'
+            ],
+            borderColor: [
+                'rgba(119, 198, 0, 1)'
+            ],
+            trendlineLinear: {
+                style: "rgba(255,105,180, .5)",
+                lineStyle: "solid",
+                width: 1,
+            },
+            borderWidth: 2
+        },
+    ];
+    if (showAll) {
+        // Add the 'Samuri' and 'Otheri' datasets when 'show' is equal to 'all'
+        datasets.push({
+            label: 'Samuri',
+            data:datasamuridaily,
+            fontColor:['white','black'],
+            backgroundColor: [
+                'rgba(238, 20, 24, 0.2)'
+            ],
+            borderColor: [
+                'rgba(238, 20, 24, 1)'
+            ],
+            borderWidth: 2,
+        });
+        datasets.push({
+            label: 'Otheri',
+            data:dataotheridaily,
+            fontColor:['white','black'],
+            backgroundColor: [
+                'rgba(75, 192, 192, 0.2)'
+            ],
+            borderColor: [
+                'rgba(75, 192, 192, 1)'
+            ],
+            borderWidth: 2,
+        });
+    }
+
     const myMDailyValuesChart = new Chart(ctDaily, {
         type: 'line',
         data: {
             labels: @json($dailydate),
-            datasets: [
-                {
-                    label: 'Wasabi 1.0',
-                    data:datawasabidaily,
-                    fontColor:['white','black'],
-                    backgroundColor: [
-                        'rgba(255, 119, 0, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 119, 0, 1)'
-                    ],
-                    borderWidth: 2
-                },
-                {
-                    label: 'Wasabi 2.0',
-                    data:datawasabidaily2,
-                    fontColor:['white','black'],
-                    backgroundColor: [
-                        'rgba(119, 198, 0, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(119, 198, 0, 1)'
-                    ],
-                    trendlineLinear: {
-                        style: "rgba(255,105,180, .5)",
-                        lineStyle: "solid",
-                        width: 1,
-                    },
-                    borderWidth: 2
-                }
-                /*{
-                    label: 'Samuri',
-                    data:datasamuridaily,
-                    fontColor:['white','black'],
-                    backgroundColor: [
-                        'rgba(238, 20, 24, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(238, 20, 24, 1)'
-                    ],
-                    borderWidth: 2,
-                    hidden: true
-                },
-                {
-                    label: 'Otheri',
-                    data:dataotheridaily,
-                    fontColor:['white','black'],
-                    backgroundColor: [
-                        'rgba(75, 192, 192, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(75, 192, 192, 1)'
-                    ],
-                    borderWidth: 2,
-                    hidden: true
-                }*/
-            ]
+            datasets: datasets,
         },
         options: {
             plugins:{
@@ -601,64 +611,67 @@
     var avgsamuri = @json($avgsamuri);
     var avgotheri = @json($avgotheri);
 
+    var datasets = [
+        {
+            label: 'Wasabi 1.0',
+            data:replaceZeroWithNull(avgwasabi),
+            fontColor:['white','black'],
+            backgroundColor: [
+                'rgba(255, 119, 0, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 119, 0, 1)'
+            ],
+            borderWidth: 2,
+            spanGaps: false
+        },
+        {
+            label: 'Wasabi 2.0',
+            data:replaceZeroWithNull(avgwasabi2),
+            fontColor:['white','black'],
+            backgroundColor: [
+                'rgba(119, 198, 0, 0.2)'
+            ],
+            borderColor: [
+                'rgba(119, 198, 0, 1)'
+            ],
+            borderWidth: 2,
+            spanGaps: false
+        },
+    ];
+    if (showAll) {
+        // Add the 'Samuri' and 'Otheri' datasets when 'show' is equal to 'all'
+        datasets.push({
+            label: 'Samuri',
+            data:avgsamuri,
+            fontColor:['white','black'],
+            backgroundColor: [
+                'rgba(238, 20, 24, 0.2)'
+            ],
+            borderColor: [
+                'rgba(238, 20, 24, 1)'
+            ],
+            borderWidth: 2,
+        });
+        datasets.push({
+            label: 'Otheri',
+            data:avgotheri,
+            fontColor:['white','black'],
+            backgroundColor: [
+                'rgba(75, 192, 192, 0.2)'
+            ],
+            borderColor: [
+                'rgba(75, 192, 192, 1)'
+            ],
+            borderWidth: 2,
+        });
+    }
+
     const AvgRemixCountChart = new Chart(ctAvgRemixCount, {
         type: 'line',
         data: {
             labels: @json($avgdate),
-            datasets: [
-                {
-                    label: 'Wasabi 1.0',
-                    data:replaceZeroWithNull(avgwasabi),
-                    fontColor:['white','black'],
-                    backgroundColor: [
-                        'rgba(255, 119, 0, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 119, 0, 1)'
-                    ],
-                    borderWidth: 2,
-                    spanGaps: false
-                },
-                {
-                    label: 'Wasabi 2.0',
-                    data:replaceZeroWithNull(avgwasabi2),
-                    fontColor:['white','black'],
-                    backgroundColor: [
-                        'rgba(119, 198, 0, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(119, 198, 0, 1)'
-                    ],
-                    borderWidth: 2,
-                    spanGaps: false
-                }
-                /*{
-                    label: 'Samuri',
-                    data:avgsamuri,
-                    fontColor:['white','black'],
-                    backgroundColor: [
-                        'rgba(238, 20, 24, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(238, 20, 24, 1)'
-                    ],
-                    borderWidth: 2,
-                    hidden: true
-                },
-                {
-                    label: 'Otheri',
-                    data:avgotheri,
-                    fontColor:['white','black'],
-                    backgroundColor: [
-                        'rgba(75, 192, 192, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(75, 192, 192, 1)'
-                    ],
-                    borderWidth: 2,
-                    hidden: true
-                }*/
-            ]
+            datasets: datasets,
         },
         options: {
             plugins:{
@@ -703,50 +716,56 @@
     var datawasabij = @json($monthlyjoinwasabi);
     var datawasabij2 = @json($monthlyjoinwasabi2);
     var datasamurij = @json($monthlyjoinsamuri);
+
+    var datasets = [
+        {
+            label: 'Wasabi 1.0',
+            data:replaceZeroWithNull(datawasabij),
+            fontColor:['white','black'],
+            backgroundColor: [
+                'rgba(255, 119, 0, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 119, 0, 1)'
+            ],
+            borderWidth: 2,
+            spanGaps: false
+        },
+        {
+            label: 'Wasabi 2.0',
+            data:replaceZeroWithNull(datawasabij2),
+            fontColor:['white','black'],
+            backgroundColor: [
+                'rgba(119, 198, 0, 0.2)'
+            ],
+            borderColor: [
+                'rgba(119, 198, 0, 1)'
+            ],
+            borderWidth: 2,
+            spanGaps: false
+        },
+    ];
+    if (showAll) {
+        // Add the 'Samuri' and 'Otheri' datasets when 'show' is equal to 'all'
+        datasets.push({
+            label: 'Samuri',
+            data:datasamurij,
+            fontColor:['white','black'],
+            backgroundColor: [
+                'rgba(238, 20, 24, 0.2)'
+            ],
+            borderColor: [
+                'rgba(238, 20, 24, 1)'
+            ],
+            borderWidth: 2,
+        });
+    }
+
     const myMonthlyJoinChart = new Chart(ctMonthlyJoins, {
         type: 'line',
         data: {
             labels: @json($monthlyjoindate),
-            datasets: [
-                {
-                    label: 'Wasabi 1.0',
-                    data:replaceZeroWithNull(datawasabij),
-                    fontColor:['white','black'],
-                    backgroundColor: [
-                        'rgba(255, 119, 0, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 119, 0, 1)'
-                    ],
-                    borderWidth: 2,
-                    spanGaps: false
-                },
-                {
-                    label: 'Wasabi 2.0',
-                    data:replaceZeroWithNull(datawasabij2),
-                    fontColor:['white','black'],
-                    backgroundColor: [
-                        'rgba(119, 198, 0, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(119, 198, 0, 1)'
-                    ],
-                    borderWidth: 2,
-                    spanGaps: false
-                }
-                /*{
-                    label: 'Samuri',
-                    data:datasamurij,
-                    fontColor:['white','black'],
-                    backgroundColor: [
-                        'rgba(238, 20, 24, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(238, 20, 24, 1)'
-                    ],
-                    borderWidth: 2
-                }*/
-            ]
+            datasets: datasets,
         },
         options: {
             plugins:{
@@ -792,64 +811,68 @@
     var nevermixedwasabi2 = @json($nevermixedwasabi2);
     var nevermixedsamuri = @json($nevermixedsamuri);
     var nevermixedotheri = @json($nevermixedotheri);
+
+    var datasets = [
+        {
+            label: 'Wasabi 1.0',
+            data:replaceZeroWithNull(nevermixedwasabi),
+            fontColor:['white','black'],
+            backgroundColor: [
+                'rgba(255, 119, 0, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 119, 0, 1)'
+            ],
+            borderWidth: 2,
+            spanGaps: false
+        },
+        {
+            label: 'Wasabi 2.0',
+            data:replaceZeroWithNull(nevermixedwasabi2),
+            fontColor:['white','black'],
+            backgroundColor: [
+                'rgba(119, 198, 0, 0.2)'
+            ],
+            borderColor: [
+                'rgba(119, 198, 0, 1)'
+            ],
+            borderWidth: 2,
+            spanGaps: false
+        },
+    ];
+    if (showAll) {
+        // Add the 'Samuri' and 'Otheri' datasets when 'show' is equal to 'all'
+        datasets.push({
+            label: 'Samuri',
+            data:nevermixedsamuri,
+            fontColor:['white','black'],
+            backgroundColor: [
+                'rgba(238, 20, 24, 0.2)'
+            ],
+            borderColor: [
+                'rgba(238, 20, 24, 1)'
+            ],
+            borderWidth: 2,
+        });
+        datasets.push({
+            label: 'Otheri',
+            data:nevermixedotheri,
+            fontColor:['white','black'],
+            backgroundColor: [
+                'rgba(75, 192, 192, 0.2)'
+            ],
+            borderColor: [
+                'rgba(75, 192, 192, 1)'
+            ],
+            borderWidth: 2,
+        });
+    }
+
     const myNeverMixedChart = new Chart(ctNeverMixed, {
         type: 'line',
         data: {
             labels: @json($nevermixeddate),
-            datasets: [
-                {
-                    label: 'Wasabi 1.0',
-                    data:replaceZeroWithNull(nevermixedwasabi),
-                    fontColor:['white','black'],
-                    backgroundColor: [
-                        'rgba(255, 119, 0, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 119, 0, 1)'
-                    ],
-                    borderWidth: 2,
-                    spanGaps: false
-                },
-                {
-                    label: 'Wasabi 2.0',
-                    data:replaceZeroWithNull(nevermixedwasabi2),
-                    fontColor:['white','black'],
-                    backgroundColor: [
-                        'rgba(119, 198, 0, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(119, 198, 0, 1)'
-                    ],
-                    borderWidth: 2,
-                    spanGaps: false
-                }
-                /*{
-                    label: 'Samuri',
-                    data:nevermixedsamuri,
-                    fontColor:['white','black'],
-                    backgroundColor: [
-                        'rgba(238, 20, 24, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(238, 20, 24, 1)'
-                    ],
-                    borderWidth: 2,
-                    hidden: true
-                },
-                {
-                    label: 'Otheri',
-                    data:nevermixedotheri,
-                    fontColor:['white','black'],
-                    backgroundColor: [
-                        'rgba(75, 192, 192, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(75, 192, 192, 1)'
-                    ],
-                    borderWidth: 2,
-                    hidden: true
-                }*/
-            ]
+            datasets: datasets
         },
         options: {
             plugins:{
@@ -895,64 +918,68 @@
     var postmixedwasabi2 = @json($postmixedwasabi2);
     var postmixedsamuri = @json($postmixedsamuri);
     var postmixedotheri = @json($postmixedotheri);
+
+    var datasets = [
+        {
+            label: 'Wasabi 1.0',
+            data:replaceZeroWithNull(postmixedwasabi),
+            fontColor:['white','black'],
+            backgroundColor: [
+                'rgba(255, 119, 0, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 119, 0, 1)'
+            ],
+            borderWidth: 2,
+            spanGaps: false
+        },
+        {
+            label: 'Wasabi 2.0',
+            data:replaceZeroWithNull(postmixedwasabi2),
+            fontColor:['white','black'],
+            backgroundColor: [
+                'rgba(119, 198, 0, 0.2)'
+            ],
+            borderColor: [
+                'rgba(119, 198, 0, 1)'
+            ],
+            borderWidth: 2,
+            spanGaps: false
+        },
+    ];
+    if (showAll) {
+        // Add the 'Samuri' and 'Otheri' datasets when 'show' is equal to 'all'
+        datasets.push({
+            label: 'Samuri',
+            data:postmixedsamuri,
+            fontColor:['white','black'],
+            backgroundColor: [
+                'rgba(238, 20, 24, 0.2)'
+            ],
+            borderColor: [
+                'rgba(238, 20, 24, 1)'
+            ],
+            borderWidth: 2,
+        });
+        datasets.push({
+            label: 'Otheri',
+            data:postmixedotheri,
+            fontColor:['white','black'],
+            backgroundColor: [
+                'rgba(75, 192, 192, 0.2)'
+            ],
+            borderColor: [
+                'rgba(75, 192, 192, 1)'
+            ],
+            borderWidth: 2,
+        });
+    }
+
     const myPostmixConsolidationChart = new Chart(ctPostmixConsolidation, {
         type: 'line',
         data: {
             labels: @json($postmixeddate),
-            datasets: [
-                {
-                    label: 'Wasabi 1.0',
-                    data:replaceZeroWithNull(postmixedwasabi),
-                    fontColor:['white','black'],
-                    backgroundColor: [
-                        'rgba(255, 119, 0, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 119, 0, 1)'
-                    ],
-                    borderWidth: 2,
-                    spanGaps: false
-                },
-                {
-                    label: 'Wasabi 2.0',
-                    data:replaceZeroWithNull(postmixedwasabi2),
-                    fontColor:['white','black'],
-                    backgroundColor: [
-                        'rgba(119, 198, 0, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(119, 198, 0, 1)'
-                    ],
-                    borderWidth: 2,
-                    spanGaps: false
-                }
-                /*{
-                    label: 'Samuri',
-                    data:postmixedsamuri,
-                    fontColor:['white','black'],
-                    backgroundColor: [
-                        'rgba(238, 20, 24, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(238, 20, 24, 1)'
-                    ],
-                    borderWidth: 2,
-                    hidden: true
-                },
-                {
-                    label: 'Otheri',
-                    data:postmixedotheri,
-                    fontColor:['white','black'],
-                    backgroundColor: [
-                        'rgba(75, 192, 192, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(75, 192, 192, 1)'
-                    ],
-                    borderWidth: 2,
-                    hidden: true
-                }*/
-            ]
+            datasets: datasets,
         },
         options: {
             plugins:{
@@ -999,74 +1026,78 @@
     var unspentcapacitysamuri = @json($unspentcapacitysamuri);
     var unspentcapacityotheri = @json($unspentcapacityotheri);
     var unspentcapacitytotal = @json($unspentcapacitytotal);
+
+    var datasets = [
+        {
+            label: 'Wasabi 1.0',
+            data:unspentcapacitywasabi,
+            fontColor:['white','black'],
+            backgroundColor: [
+                'rgba(255, 119, 0, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 119, 0, 1)'
+            ],
+            borderWidth: 2
+        },
+        {
+            label: 'Wasabi 2.0',
+            data:unspentcapacitywasabi2,
+            fontColor:['white','black'],
+            backgroundColor: [
+                'rgba(119, 198, 0, 0.2)'
+            ],
+            borderColor: [
+                'rgba(119, 198, 0, 1)'
+            ],
+            borderWidth: 2
+        },
+        {
+            label: 'Wasabi Total',
+            data:unspentcapacitytotal,
+            fontColor:['white','black'],
+            backgroundColor: [
+                'rgba(75, 192, 192, 0.2)'
+            ],
+            borderColor: [
+                'rgba(75, 192, 192, 1)'
+            ],
+            borderWidth: 2
+        },
+    ];
+    if (showAll) {
+        // Add the 'Samuri' and 'Otheri' datasets when 'show' is equal to 'all'
+        datasets.push({
+            label: 'Samuri',
+            data:unspentcapacitysamuri,
+            fontColor:['white','black'],
+            backgroundColor: [
+                'rgba(238, 20, 24, 0.2)'
+            ],
+            borderColor: [
+                'rgba(238, 20, 24, 1)'
+            ],
+            borderWidth: 2,
+        });
+        datasets.push({
+            label: 'Otheri',
+            data:unspentcapacityotheri,
+            fontColor:['white','black'],
+            backgroundColor: [
+                'rgba(75, 192, 192, 0.2)'
+            ],
+            borderColor: [
+                'rgba(75, 192, 192, 1)'
+            ],
+            borderWidth: 2,
+        });
+    }
+
     const myUnspentCapacityChart = new Chart(ctUnspentCapacity, {
         type: 'line',
         data: {
             labels: @json($unspentcapacitydate),
-            datasets: [
-                {
-                    label: 'Wasabi 1.0',
-                    data:unspentcapacitywasabi,
-                    fontColor:['white','black'],
-                    backgroundColor: [
-                        'rgba(255, 119, 0, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 119, 0, 1)'
-                    ],
-                    borderWidth: 2
-                },
-                {
-                    label: 'Wasabi 2.0',
-                    data:unspentcapacitywasabi2,
-                    fontColor:['white','black'],
-                    backgroundColor: [
-                        'rgba(119, 198, 0, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(119, 198, 0, 1)'
-                    ],
-                    borderWidth: 2
-                },
-                {
-                    label: 'Wasabi Total',
-                    data:unspentcapacitytotal,
-                    fontColor:['white','black'],
-                    backgroundColor: [
-                        'rgba(75, 192, 192, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(75, 192, 192, 1)'
-                    ],
-                    borderWidth: 2
-                }
-                /*{
-                    label: 'Samuri',
-                    data:unspentcapacitysamuri,
-                    fontColor:['white','black'],
-                    backgroundColor: [
-                        'rgba(238, 20, 24, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(238, 20, 24, 1)'
-                    ],
-                    borderWidth: 2,
-                    hidden: true
-                },
-                {
-                    label: 'Otheri',
-                    data:unspentcapacityotheri,
-                    fontColor:['white','black'],
-                    backgroundColor: [
-                        'rgba(75, 192, 192, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(75, 192, 192, 1)'
-                    ],
-                    borderWidth: 2,
-                    hidden: true
-                }*/
-            ]
+            datasets: datasets,
         },
         options: {
             plugins:{
