@@ -287,7 +287,7 @@
     var datasets = [
         {
             label: 'Wasabi 1.0',
-            data:datawasabid,
+            data: replaceZeroWithNull(datawasabid),
             fontColor:['white','black'],
             backgroundColor: [
                 'rgba(255, 119, 0, 0.2)'
@@ -504,7 +504,7 @@
     var datasets = [
         {
             label: 'Wasabi 1.0',
-            data:datawasabidaily,
+            data: replaceZeroWithNull(datawasabidaily),
             fontColor:['white','black'],
             backgroundColor: [
                 'rgba(255, 119, 0, 0.2)'
