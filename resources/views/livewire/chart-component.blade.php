@@ -105,8 +105,8 @@
     </div>
 </div>
 @push('scripts')
-<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-trendline"></script>
+<script src="{{asset('assets/js/chart.min.js')}}"></script>
+<script src="{{asset('assets/js/chartjs-plugin-trendline.js')}}"></script>
 <script>
     setInterval(() => {
         Livewire.emit('refreshCoinJoinsMainNetComponent')

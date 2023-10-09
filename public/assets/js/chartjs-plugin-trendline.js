@@ -1,0 +1,18 @@
+/**
+ * Minified by jsDelivr using Terser v5.19.2.
+ * Original file: /npm/chartjs-plugin-trendline@2.0.5/src/chartjs-plugin-trendline.js
+ *
+ * Do NOT use SRI with dynamically generated files! More information: https://www.jsdelivr.com/using-sri-with-dynamic-files
+ */
+/*!
+ * chartjs-plugin-trendline.js
+ * Version: 2.0.5
+ *
+ * Copyright 2023 Marcus Alsterfjord
+ * Released under the MIT license
+ * https://github.com/Makanz/chartjs-plugin-trendline/blob/master/README.md
+ *
+ * Mod by: vesal: accept also xy-data so works with scatter
+ */
+var pluginTrendlineLinear={id:"chartjs-plugin-trendline",afterDatasetsDraw:function(t){var i,e;for(var s in t.scales)if("x"==s[0]?e=t.scales[s]:i=t.scales[s],e&&i)break;var a=t.ctx;t.data.datasets.forEach((function(i,s){var n=i.alwaysShowTrendline||t.isDatasetVisible(s);if(i.trendlineLinear&&n&&i.data.length>1){var r=t.getDatasetMeta(s);addFitter(r,a,i,e,t.scales[r.yAxisID])}})),a.setLineDash([])}};function addFitter(t,i,e,s,a){var n=e.borderColor||"rgba(169,169,169, .6)",r=e.trendlineLinear.colorMin||n,o=e.trendlineLinear.colorMax||n,l=e.trendlineLinear.width||e.borderWidth,h=e.trendlineLinear.lineStyle||"solid",d=e.trendlineLinear.fillColor;l=void 0!==l?l:3;var u=new LineFitter,m=e.data.findIndex((t=>null!=t)),c=e.data.length-1,x=t.data[m].x,f=t.data[c].x,X="object"==typeof e.data[m];e.data.forEach((function(t,i){if(console.log("forEach"),null!=t)if(["time","timeseries"].includes(s.options.type)){var e=null!=t.x?t.x:t.t;void 0!==e?u.add(new Date(e).getTime(),t.y):u.add(i,t)}else X?isNaN(t.x)||isNaN(t.y)?isNaN(t.x)?isNaN(t.y)||u.add(i,t.y):u.add(i,t.x):u.add(t.x,t.y):u.add(i,t)}));var g,p,v=s.getPixelForValue(u.minx),y=a.getPixelForValue(u.f(u.minx));if(e.trendlineLinear.projection&&u.scale()<0){var w=u.fo();w<u.minx&&(w=u.maxx),g=s.getPixelForValue(w),p=a.getPixelForValue(u.f(w))}else g=s.getPixelForValue(u.maxx),p=a.getPixelForValue(u.f(u.maxx));X||(v=x,g=f);var L=t.controller.chart.chartArea.bottom,F=t.controller.chart.width;if(y>L){var Y=y-L,T=y-p;y=L,v+=F*(Y/T)}else if(p>L){Y=p-L,T=p-y;p=L,g=F-(g-(F-F*(Y/T)))}i.lineWidth=l,"dotted"===h?i.setLineDash([2,3]):i.setLineDash([]),i.beginPath(),i.moveTo(v,y),i.lineTo(g,p);var P=i.createLinearGradient(v,y,g,p);p<y?(P.addColorStop(0,o),P.addColorStop(1,r)):(P.addColorStop(0,r),P.addColorStop(1,o)),i.strokeStyle=P,i.stroke(),i.closePath(),d&&(i.fillStyle=d,i.beginPath(),i.moveTo(v,y),i.lineTo(g,p),i.lineTo(g,L),i.lineTo(v,L),i.closePath(),i.fill())}function LineFitter(){this.count=0,this.sumX=0,this.sumX2=0,this.sumXY=0,this.sumY=0,this.minx=1e100,this.maxx=-1e100,this.maxy=-1e100}LineFitter.prototype={add:function(t,i){t=parseFloat(t),i=parseFloat(i),this.count++,this.sumX+=t,this.sumX2+=t*t,this.sumXY+=t*i,this.sumY+=i,t<this.minx&&(this.minx=t),t>this.maxx&&(this.maxx=t),i>this.maxy&&(this.maxy=i)},f:function(t){t=parseFloat(t);var i=this.count*this.sumX2-this.sumX*this.sumX;return(this.sumX2*this.sumY-this.sumX*this.sumXY)/i+t*((this.count*this.sumXY-this.sumX*this.sumY)/i)},fo:function(){var t=this.count*this.sumX2-this.sumX*this.sumX;return-((this.sumX2*this.sumY-this.sumX*this.sumXY)/t)/((this.count*this.sumXY-this.sumX*this.sumY)/t)},scale:function(){var t=this.count*this.sumX2-this.sumX*this.sumX;return(this.count*this.sumXY-this.sumX*this.sumY)/t}},"undefined"!=typeof window&&window.Chart&&(window.Chart.hasOwnProperty("register")?window.Chart.register(pluginTrendlineLinear):window.Chart.plugins.register(pluginTrendlineLinear));try{module.exports=exports=pluginTrendlineLinear}catch(t){}
+//# sourceMappingURL=/sm/29e24aa010fbf0dd0adba5964a1a59320a578f782135d751c825650b57d4cc62.map
