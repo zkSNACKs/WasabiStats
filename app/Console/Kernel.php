@@ -5,6 +5,7 @@ namespace App\Console;
 use Illuminate\Console\Scheduling\Schedule;
 use App\Console\Commands\DownloadData;
 use App\Console\Commands\StoreDailyBtcPriceCommand;
+use App\Console\Commands\StoreMonthlyBtcPriceCommand;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
@@ -16,7 +17,8 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         DownloadData::class,
-        StoreDailyBtcPriceCommand::class
+        StoreDailyBtcPriceCommand::class,
+        StoreMonthlyBtcPriceCommand::class
     ];
 
     /**
@@ -30,6 +32,7 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')->hourly();
         //$schedule->command('download:wasabidata')->cron('* * * * * *');
         //$schedule->command('store:bitcoinprice')->cron('* * * * * *');
+        //$schedule->command('store:monthlyprice')->cron('* * * * * *');
         //$schedule->call(DownloadData::class)->cron('* * * * * *');
     }*/
 
