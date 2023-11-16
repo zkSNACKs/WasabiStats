@@ -31,7 +31,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
         //$schedule->command('download:wasabidata')->cron('* * * * * *');
-        //$schedule->command('store:bitcoinprice')->cron('* * * * * *');
+        //$schedule->command('store:btcpricee')->cron('* * * * * *');
         //$schedule->command('store:monthlyprice')->cron('* * * * * *');
         //$schedule->call(DownloadData::class)->cron('* * * * * *');
     }*/
