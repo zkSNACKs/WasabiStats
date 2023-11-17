@@ -18,6 +18,7 @@ use App\Models\UnspentCapacity;
 use App\Models\DailyBtcPrice;
 use App\Models\MonthlyBtcPrice;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
 class ChartComponent extends Component
@@ -210,17 +211,17 @@ class ChartComponent extends Component
                 }
             }
 
-            $monthlybtcs = MonthlyBtcPrice::all();
+            /*$monthlybtcs = MonthlyBtcPrice::all();
             foreach ($monthlybtcs as $key => $monthlybtc) {
                 array_push($this->monthlybtcdate,$monthlybtc->year_month);
                 array_push($this->monthlybtcprice,$monthlybtc->price);
-            }
+            }*/
 
-            $dailybtcs = DailyBtcPrice::all();
+            /*$dailybtcs = DailyBtcPrice::all();
             foreach ($dailybtcs as $key => $dailybtc) {
                 array_push($this->dailybtcdate,$dailybtc->year_month_day);
                 array_push($this->dailybtcprice,$dailybtc->price);
-            }
+            }*/
 
             $freshcoins = FreshCoin::all();
             foreach ($freshcoins as $key => $freshcoin) {
@@ -231,6 +232,7 @@ class ChartComponent extends Component
                 array_push($this->freshotheri,$freshcoin->otheri);
             }
             //$freshdailycoins = FreshDailyCoin::all();
+            $dailybtcs = DailyBtcPrice::whereBetWeen('year_month_day',[$this->from_date, $this->to_date])->get();
             $freshdailycoins = FreshDailyCoin::whereBetWeen('date',[$this->from_date, $this->to_date])->get();
             foreach ($freshdailycoins as $key => $freshdailycoin) {
                 array_push($this->freshdailydate,$freshdailycoin->date);
@@ -238,14 +240,27 @@ class ChartComponent extends Component
                 array_push($this->freshdailywasabi2,$freshdailycoin->wasabi2);
                 array_push($this->freshdailysamuri,$freshdailycoin->samuri);
                 array_push($this->freshdailyotheri,$freshdailycoin->otheri);
+                if (isset($dailybtcs[$key])) {
+                    array_push($this->dailybtcprice,$dailybtcs[$key]->price);
+                }
             }
             $monthlyvolumes = MonthlyVolumes::all();
+            $firstDate = $monthlyvolumes[0]->date;
+            $formattedDate = Carbon::parse($firstDate);
+            $yearMonth = $formattedDate->format('Y-m');
+            $monthlybtcs = MonthlyBtcPrice::where('year_month','>=', $yearMonth)
+                ->get();
             foreach ($monthlyvolumes as $key => $monthlyvolume) {
                 array_push($this->monthlydate,substr($monthlyvolume->date, 0, -3));
                 array_push($this->monthlywasabi,$monthlyvolume->wasabi);
                 array_push($this->monthlywasabi2,$monthlyvolume->wasabi2);
                 array_push($this->monthlysamuri,$monthlyvolume->samuri);
                 array_push($this->monthlyotheri,$monthlyvolume->otheri);
+                array_push($this->monthlyotheri,$monthlyvolume->otheri);
+                if (isset($monthlybtcs[$key])) {
+                    array_push($this->monthlybtcprice,$monthlybtcs[$key]->price);
+                }
+
             }
             $monthlyvolumes = MonthlyVolumes::all();
             foreach ($monthlyvolumes as $key => $monthlyvolume) {
