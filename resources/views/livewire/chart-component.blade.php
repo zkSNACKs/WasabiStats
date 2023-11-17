@@ -191,6 +191,7 @@
     var datawasabi2 = @json($freshwasabi2);
     var datasamuri = @json($freshsamuri);
     var dataotheri = @json($freshotheri);
+    var datamonthlybtcprice = @json($monthlybtcprice);
 
     var datasets = [
         {
@@ -230,6 +231,14 @@
             backgroundColor: ['rgba(75, 192, 192, 0.2)'],
             borderColor: ['rgba(75, 192, 192, 1)'],
             borderWidth: 2
+        });
+        datasets.push({
+            label: 'BTC Price',
+            data: datamonthlybtcprice,
+            fontColor: ['white', 'black'],
+            backgroundColor: ['rgba(127, 17, 224, 0.2)'],
+            borderColor: ['rgba(127, 17, 224, 0.5)'],
+            borderWidth: 2,
         });
     }
 
@@ -283,6 +292,7 @@
     var datawasabid2 = @json($freshdailywasabi2);
     var datasamurid = @json($freshdailysamuri);
     var dataotherid = @json($freshdailyotheri);
+    var datadailybtcprice = @json($dailybtcprice);
 
     var datasets = [
         {
@@ -341,6 +351,14 @@
             ],
             borderWidth: 2,
         });
+        datasets.push({
+            label: 'BTC Price',
+            data: datadailybtcprice,
+            fontColor: ['white', 'black'],
+            backgroundColor: ['rgba(127, 17, 224, 0.2)'],
+            borderColor: ['rgba(127, 17, 224, 0.5)'],
+            borderWidth: 2
+        });
     }
 
     const myFreshDailyChart = new Chart(ctxFreshDaily, {
@@ -372,6 +390,7 @@
                         color: 'white'
                     },
                     beginAtZero: true,
+                    type: 'logarithmic',
                 },
                 x: {
                     grid:{

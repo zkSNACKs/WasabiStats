@@ -15,6 +15,8 @@ use App\Models\DailyVolumes;
 use App\Models\NeverMixed;
 use App\Models\PostmixConsolidation;
 use App\Models\UnspentCapacity;
+use App\Models\DailyBtcPrice;
+use App\Models\MonthlyBtcPrice;
 use Carbon\Carbon;
 use Livewire\Component;
 
@@ -96,6 +98,11 @@ class ChartComponent extends Component
     public $unspentcapacitysamuri = [];
     public $unspentcapacityotheri = [];
     public $unspentcapacitytotal = [];
+
+    public $dailybtcdate = [];
+    public $dailybtcprice = [];
+    public $monthlybtcdate = [];
+    public $monthlybtcprice = [];
 
 
     public function mount($id=4, $from_date, $to_date){
@@ -201,6 +208,18 @@ class ChartComponent extends Component
                     array_push($this->stackedweekdata,$count->count[count($count->count)-1]->total_count);
                     array_push($this->stackedweekdatashow,($count->count[count($count->count)-1]->total_count)-$count->count[0]->total_count);
                 }
+            }
+
+            $monthlybtcs = MonthlyBtcPrice::all();
+            foreach ($monthlybtcs as $key => $monthlybtc) {
+                array_push($this->monthlybtcdate,$monthlybtc->year_month);
+                array_push($this->monthlybtcprice,$monthlybtc->price);
+            }
+
+            $dailybtcs = DailyBtcPrice::all();
+            foreach ($dailybtcs as $key => $dailybtc) {
+                array_push($this->dailybtcdate,$dailybtc->year_month_day);
+                array_push($this->dailybtcprice,$dailybtc->price);
             }
 
             $freshcoins = FreshCoin::all();
