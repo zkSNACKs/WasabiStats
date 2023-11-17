@@ -242,6 +242,8 @@ class ChartComponent extends Component
                 array_push($this->freshdailyotheri,$freshdailycoin->otheri);
                 if (isset($dailybtcs[$key])) {
                     array_push($this->dailybtcprice,$dailybtcs[$key]->price);
+                } else {
+                    array_push($this->dailybtcprice,0);
                 }
             }
             $monthlyvolumes = MonthlyVolumes::all();
@@ -259,6 +261,8 @@ class ChartComponent extends Component
                 array_push($this->monthlyotheri,$monthlyvolume->otheri);
                 if (isset($monthlybtcs[$key])) {
                     array_push($this->monthlybtcprice,$monthlybtcs[$key]->price);
+                } else {
+                    array_push($this->monthlybtcprice,0);
                 }
 
             }
