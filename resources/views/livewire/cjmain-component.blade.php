@@ -14,9 +14,9 @@
                         @endif
                         </p>
                         <p class="mb-0"><strong>Input count:</strong> <span class="text-orange">{{$item['inputCount']}}</p>
-                        <p class="mb-0"><strong>Max suggested amount:</strong> <span class="text-orange">{{$item['maxSuggestedAmount']}}</span></p>
+                        <p class="mb-0"><strong>Max suggested amount:</strong> <span class="text-orange">{{$item['maxSuggestedAmount']}} BTC</span></p>
                         @if (isset($item['allowedInputAmounts']))
-                            <p class="mb-0"><strong>Min input amount:</strong> <span class="text-orange">{{$item['allowedInputAmounts']['min']}}</span></p>
+                            <p class="mb-0"><strong>Min input amount:</strong> <span class="text-orange">{{$item['allowedInputAmounts']['min']}} sats</span></p>
                         @endif
                         @if ($item['phase'] === 'InputRegistration')
                             <p class="mb-0"><strong>Next phase in:</strong> <span class="text-blue">{{$item['inputRegistrationRemaining']}}</span></p>
