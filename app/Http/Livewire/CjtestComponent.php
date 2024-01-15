@@ -20,10 +20,11 @@ class CjtestComponent extends Component
                 'Content-Type: application/json-patch+json',
             ];
             foreach ($cjTest as $key => $value) {
+                $roundId = $value['roundId'];
                 $data = [
                     'roundCheckpoints' => [
                         [
-                            'roundId' => $value['roundId'],
+                            'roundId' => $roundId,
                             'stateId' => 0,
                         ],
                     ],
@@ -43,9 +44,15 @@ class CjtestComponent extends Component
                 }
 
                 curl_close($ch);
-                if(isset(json_decode($response, true)['roundStates'][0]['coinjoinState']['events'][0]['roundParameters']['allowedInputAmounts']))
+                if(isset(json_decode($response, true)['roundStates']))
                 {
-                    $cjTest[$key]['allowedInputAmounts'] = json_decode($response, true)['roundStates'][0]['coinjoinState']['events'][0]['roundParameters']['allowedInputAmounts'];
+                    $filtered = array_filter(json_decode($response, true)['roundStates'], function ($object) use ($roundId) {
+                        return $object['id'] === $roundId;
+                    });
+                    $keys = array_keys($filtered);
+                    if (isset($keys[0])) {
+                        $cjTest[$key]['allowedInputAmounts'] = $filtered[$keys[0]]['coinjoinState']['events'][0]['roundParameters']['allowedInputAmounts'];
+                    }
                 }
             }
             $nodata = null;
