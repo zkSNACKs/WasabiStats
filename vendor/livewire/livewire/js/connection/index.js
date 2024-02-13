@@ -17,6 +17,7 @@ export default class Connection {
         return componentStore.onErrorCallback(status, response)
     }
 
+    /*
     showExpiredMessage(response, message) {
         if (store.sessionHasExpiredCallback) {
             store.sessionHasExpiredCallback(response, message)
@@ -26,6 +27,7 @@ export default class Connection {
             ) && window.location.reload()
         }
     }
+    */
 
     sendMessage(message) {
         let payload = message.payload()
