@@ -69,7 +69,8 @@ class DownloadData extends Command
                             $os = 'Debian/Linux';
                         }
                         if(str_contains($value['name'],'.msi') ||
-                            str_contains($value['name'],'win7-x64')
+                            str_contains($value['name'],'win7-x64') ||
+                            str_contains($value['name'],'win-x64')
                         )
                         {
                             $os = 'Windows';
