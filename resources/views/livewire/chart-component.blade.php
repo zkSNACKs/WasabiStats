@@ -110,12 +110,12 @@
 <script>
     setInterval(() => {
         Livewire.emit('refreshCoinJoinsMainNetComponent')
-    }, 1000);
+    }, 60*1000);
 </script>
 <script>
     setInterval(() => {
         Livewire.emit('refreshCoinJoinsTestNetComponent')
-    }, 1000);
+    }, 60*1000);
 </script>
 <script>
     setInterval(() => {
