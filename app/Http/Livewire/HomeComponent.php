@@ -37,7 +37,7 @@ class HomeComponent extends Component
         }
         */
         //default id
-        $id = 50;
+        $id = 51;
 
         return redirect(route('search',['id'=>$id, 'from_date'=>$fromdate, 'to_date'=>$todate]));
     }
